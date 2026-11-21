@@ -303,7 +303,6 @@ function App(){
   const e=edition;
   if(!e||!e.chapters.length)return;
   const next=Math.max(0,Math.min(index,e.chapters.length-1));
-  if(playingRef.current){playChapter(e,next);return;}
   if(e.episode_audio&&audio.current&&audioEdition.current===e.id){
    // Seeking in a paused combined recording must never call play(). Keep its
    // media handlers alive so pressing Play afterwards resumes normally.
