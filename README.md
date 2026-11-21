@@ -1,9 +1,10 @@
 # 📰→🎙️ Seranews — news in, podcast out
 
 > A personal, **source-linked** news briefing, delivered as a podcast.
-> Built in **2 days** for the **MAIN AI Hackathon 2026** 🏁 — it didn't make the finals, but the logic is solid and the bones are good. This is the version *after* the hackathon dust settled.
+> Built in **2 days** for **an AI hackathon** 🏁 — it didn't make the finals, but the logic is solid and the bones are good. This is the version *after* the hackathon dust settled.
 
-🎬 **[Watch the pitch video](docs/pitch_video.mp4)** (2.5 min)
+🎬 **[Watch the pitch video — plays right in the browser](https://github.com/FuGU-c/seranews/releases/download/v1.0/pitch_video.mp4)** (2.5 min)
+> ⚠️ Heads-up: the video may look glitchy or have odd patches in places — the business name and the dataset topic it was about were censored out after recording.
 
 ---
 
