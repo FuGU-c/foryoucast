@@ -26,7 +26,7 @@ function Picture({story,urls,large}:{story:Story;urls:string[];large:boolean}){
  useLayoutEffect(()=>{if(picture.current?.complete&&picture.current.naturalWidth>0)setLoaded(true);},[url]);
  return <div className={'story-art story-image '+(large?'art-large ':'')+(loaded?'image-ready':'image-placeholder')} aria-hidden="true">
   <div className="story-image-illustration"><span className="story-image-orbit"/><span className="story-image-orbit orbit-offset"/><Icon className="story-image-symbol" size={64}/><span className="story-image-caption">EDITORIAL ILLUSTRATION</span></div>
-  {url&&<img ref={picture} key={url} src={url} alt="" draggable={false} decoding="async" referrerPolicy="no-referrer" onLoad={()=>setLoaded(true)} onError={()=>{setLoaded(false);setCandidate(index=>index+1);}}/>}
+  {url&&<img ref={picture} key={url} src={url} alt="" loading="lazy" draggable={false} decoding="async" referrerPolicy="no-referrer" onLoad={()=>setLoaded(true)} onError={()=>{setLoaded(false);setCandidate(index=>index+1);}}/>}
  </div>;
 }
 

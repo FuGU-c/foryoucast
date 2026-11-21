@@ -7,6 +7,7 @@ import {VoteButton} from './vote-button';
 import type {NewsLanguage, Story, TagSuggestion, Topic} from './types';
 import {readSavedStoryCache,savedRecordsFromStories,writeSavedStoryCache,type SavedStoryRecord} from './saved-stories';
 import './discover-save.css';
+import './reels-track.css';
 import {useStableStoryDeck} from './stable-story-deck';
 
 type DiscoverProps = {
@@ -87,8 +88,8 @@ export function Discover(props:DiscoverProps){
  const filterKey=JSON.stringify([props.profileId,props.preferenceScope,query,selectedTopics,selectedLanguages,archive]);
  const stories=useStableStoryDeck(props.stories,filterKey);
  const [position,setPosition]=useState({id:'',index:0,filterKey});
- const [direction,setDirection]=useState(0);
- const [drag,setDrag]=useState(0);
+ const track=useRef<HTMLDivElement>(null);
+ const scrollTimer=useRef<ReturnType<typeof setTimeout>|null>(null);
  const [filters,setFilters]=useState(false);
  const [section,setSection]=useState<'filters'|'suggestions'>('filters');
  const deck=useRef<HTMLDivElement>(null);
@@ -109,18 +110,29 @@ export function Discover(props:DiscoverProps){
 
  useEffect(()=>{if(props.searchOpen){setSection('filters');setFilters(true);props.onSearchOpened();}},[props.searchOpen]);
 
- useLayoutEffect(()=>{setPosition({id:stories[0]?.id||'',index:0,filterKey});setDirection(0);setDrag(0);wheel.current.reset();blockClick.current=0;},[filterKey]);
+ useLayoutEffect(()=>{setPosition({id:stories[0]?.id||'',index:0,filterKey});track.current?.scrollTo?.({top:0,behavior:'instant' as ScrollBehavior});wheel.current.reset();blockClick.current=0;},[filterKey]);
  useLayoutEffect(()=>{
   if(current&&position.id!==current.id)setPosition({id:current.id,index:currentIndex,filterKey});
  },[stories]);
 
+ useEffect(()=>()=>{if(scrollTimer.current)clearTimeout(scrollTimer.current);},[]);
+ const visibleIndex=useRef(currentIndex);visibleIndex.current=currentIndex;
+ useLayoutEffect(()=>{
+  const node=track.current;if(!node||typeof ResizeObserver==='undefined')return;
+  let height=node.clientHeight;
+  const observer=new ResizeObserver(()=>{
+   if(node.clientHeight===height)return;
+   height=node.clientHeight;node.scrollTop=visibleIndex.current*height;
+  });
+  observer.observe(node);return()=>observer.disconnect();
+ },[!!current]);
  function move(delta:number){
-  setDrag(0);
   const next=Math.max(0,currentIndex+delta);
   if(next>=stories.length){if(delta>0&&hasMore&&!loading)onMore();return;}
   if(next===currentIndex)return;
-  setDirection(delta);
   setPosition({id:stories[next].id,index:next,filterKey});
+  const node=track.current;
+  if(node){const top=next*node.clientHeight;if(node.scrollTo)node.scrollTo({top,behavior:window.matchMedia('(prefers-reduced-motion: reduce)').matches?'instant' as ScrollBehavior:'smooth'});else node.scrollTop=top;}
  }
  const moveRef=useRef(move);
  moveRef.current=move;
@@ -140,16 +152,14 @@ export function Discover(props:DiscoverProps){
 
  function pointerDown(event:PointerEvent<HTMLDivElement>){
   const button=(event.target as Element).closest('button');
-  if(!event.isPrimary||(event.pointerType==='mouse'&&event.button!==0)||(button&&!button.classList.contains('reel-hit')))return;
+  if(event.pointerType!=='mouse'||!event.isPrimary||event.button!==0||(button&&!button.classList.contains('reel-hit')))return;
   event.currentTarget.focus({preventScroll:true});
-  setDirection(0);
   
   pointer.current={id:event.pointerId,y:event.clientY,x:event.clientX};
  }
  function pointerUp(event:PointerEvent<HTMLDivElement>){
   const start=pointer.current;
   pointer.current=null;
-  setDrag(0);
   if(!start||start.id!==event.pointerId)return;
   const dy=event.clientY-start.y;
   const dx=event.clientX-start.x;
@@ -168,34 +178,41 @@ export function Discover(props:DiscoverProps){
    blockClick.current=performance.now()+280;
    if(!event.currentTarget.hasPointerCapture?.(event.pointerId))event.currentTarget.setPointerCapture?.(event.pointerId);
   }
-  setDrag(Math.max(-70,Math.min(70,delta*.3)));
  }
- const activeTags=current?[...new Set([...current.tags.filter(id=>selectedTopics.includes(id)),current.primary_topic||current.tags[0],...current.tags])].slice(0,2):[];
+ const tagsFor=(item:Story)=>[...new Set([...item.tags.filter(id=>selectedTopics.includes(id)),item.primary_topic||item.tags[0],...item.tags])].slice(0,2);
  const label=(id:string)=>topics.find(topic=>topic.id===id)?.label||id;
-  return <SavedStoryProvider key={props.profileId} profileId={props.profileId}><section className="discover-reels" aria-label="Discover">
-  <div ref={deck} className="reel-deck" data-swipe="one-story" tabIndex={0} aria-label="Story deck. Swipe or use the arrow keys."
-   onPointerDown={pointerDown} onPointerMove={pointerMove} onPointerUp={pointerUp} onPointerCancel={()=>{pointer.current=null;setDrag(0);}}
-   onKeyDown={event=>{if(event.target!==event.currentTarget)return;if(['ArrowDown','ArrowUp','PageDown','PageUp'].includes(event.key)){event.preventDefault();move(['ArrowDown','PageDown'].includes(event.key)?1:-1);}}}>
-   <h1 className="discover-overlay-title">For you<span/></h1>
-   {current?<article key={current.id} className={'reel-card reel-card-full '+(drag?'is-dragging':direction<0?'previous-in':direction>0?'next-in':'')} style={drag?{transform:`translateY(${drag}px) rotateX(${-drag*.06}deg)`}:undefined}>
-    <ReelPicture key={current.id} story={current} art={art}/>
+ const renderPage=(item:Story,index:number)=><article className="reel-card reel-card-full">
+    <ReelPicture key={item.id} story={item} art={art}/>
     <div className="reel-shade"/>
-    <div className="reel-count" aria-live="polite">{currentIndex+1} / {stories.length}</div>
-    <button className="reel-hit" aria-label={'Read '+current.title} onClick={()=>{if(performance.now()>blockClick.current)onOpen(current);}}/>
+    <div className="reel-count" aria-live="polite">{index+1} / {stories.length}</div>
+    <button className="reel-hit" aria-label={'Read '+item.title} onClick={()=>{if(performance.now()>blockClick.current)onOpen(item);}}/>
     <div className="reel-copy">
-     <div className="reel-labels"><span>{current.sources[0]?.outlet}</span>{current.title_language&&<span>{languages[current.title_language]}</span>}</div>
-     {current.ai_translated&&<span className="ai-translation-label">AI-translated summary</span>}<h2 lang={current.title_language}>{current.title}</h2>
-     <div className="reel-labels reel-story-tags">{activeTags.filter(Boolean).map(id=><span key={id}>{label(id)}</span>)}</div>
+     <div className="reel-labels"><span>{item.sources[0]?.outlet}</span>{item.title_language&&<span>{languages[item.title_language]}</span>}</div>
+     {item.ai_translated&&<span className="ai-translation-label">AI-translated summary</span>}<h2 lang={item.title_language}>{item.title}</h2>
+     <div className="reel-labels reel-story-tags">{tagsFor(item).filter(Boolean).map(id=><span key={id}>{label(id)}</span>)}</div>
     </div>
     <div className="reel-actions">
      <div className="reel-vote-pair" role="group" aria-label="Tune your recommendations">
-     <VoteButton value={1} active={current.vote===1} label="More like this" size={20} onVote={()=>onVote(current,1)}/>
-     <VoteButton value={-1} active={current.vote===-1} label="Less like this" size={20} onVote={()=>onVote(current,-1)}/>
+     <VoteButton value={1} active={item.vote===1} label="More like this" size={20} onVote={()=>onVote(item,1)}/>
+     <VoteButton value={-1} active={item.vote===-1} label="Less like this" size={20} onVote={()=>onVote(item,-1)}/>
      </div>
-     <SavedReelButton profileId={props.profileId} story={current}/>
-     <button className="reel-read-button" aria-label="Read story and sources" onClick={()=>onOpen(current)}><BookOpen size={21}/><small aria-hidden="true">Read</small></button>
+     <SavedReelButton profileId={props.profileId} story={item}/>
+     <button className="reel-read-button" aria-label="Read story and sources" onClick={()=>onOpen(item)}><BookOpen size={21}/><small aria-hidden="true">Read</small></button>
     </div>
-   </article>:<div className="empty-state"><Search size={22}/><h3>{loading?'Looking for stories…':'No matching stories'}</h3>{!loading&&<button onClick={()=>{setQuery('');clearTopics();clearLanguages();}}>Clear filters</button>}</div>}
+   </article>;
+  return <SavedStoryProvider key={props.profileId} profileId={props.profileId}><section className="discover-reels" aria-label="Discover">
+  <div ref={deck} className="reel-deck" data-swipe="one-story" tabIndex={0} aria-label="Story deck. Swipe or use the arrow keys."
+   onPointerDown={pointerDown} onPointerMove={pointerMove} onPointerUp={pointerUp} onPointerCancel={()=>{pointer.current=null;}}
+   onKeyDown={event=>{if(event.target!==event.currentTarget)return;if(['ArrowDown','ArrowUp','PageDown','PageUp'].includes(event.key)){event.preventDefault();move(['ArrowDown','PageDown'].includes(event.key)?1:-1);}}}>
+   <h1 className="discover-overlay-title">For you<span/></h1>
+   {current?<div ref={track} className="reel-scroll-track" onScroll={()=>{
+    if(scrollTimer.current)clearTimeout(scrollTimer.current);
+    scrollTimer.current=setTimeout(()=>{
+     const node=track.current;if(!node||!node.clientHeight)return;
+     const index=Math.min(stories.length-1,Math.max(0,Math.round(node.scrollTop/node.clientHeight)));
+     if(stories[index])setPosition({id:stories[index].id,index,filterKey});
+    },100);
+   }}>{stories.map((item,index)=><div key={item.id} className="reel-slide" aria-hidden={index!==currentIndex} inert={index!==currentIndex}>{renderPage(item,index)}</div>)}</div>:<div className="empty-state"><Search size={22}/><h3>{loading?'Looking for stories…':'No matching stories'}</h3>{!loading&&<button onClick={()=>{setQuery('');clearTopics();clearLanguages();}}>Clear filters</button>}</div>}
 
   </div>
   <div className="reel-bottom-bar">
