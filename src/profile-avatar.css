@@ -1,0 +1,2 @@
+.avatar.avatar-portrait{overflow:hidden;flex-shrink:0;padding:0;isolation:isolate}
+.avatar.avatar-portrait img{display:block;width:100%;height:100%;object-fit:cover;border-radius:inherit;pointer-events:none;user-select:none}
