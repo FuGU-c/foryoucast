@@ -28,6 +28,8 @@ A mobile-first browser demo for **The Liquid Briefing**, built from the supplied
 
 ## Run locally
 
+Image assets are stored losslessly in `assets/embedded-images.json`. `npm run build`, `npm run dev`, and `npm run preview` restore their original binary files automatically with SHA-256 verification. These generated copies are ignored by Git.
+
 For a complete feature inventory see [ALL_FEATURES.md](ALL_FEATURES.md). To add licensed reporting see [the news intake guide](docs/news-intake.md) and its synthetic JSONL example. For repository scope and setup limits see [GitHub handoff](docs/github-handoff.md). The [2:30 video storyboard](docs/presentation-video/STORYBOARD.md), [Claude capture handoff](docs/presentation-video/CLAUDE-HANDOFF.md) and [podcast-writing guidance](skills/seranews-podcast-writer/SKILL.md) are included.
 
 On this Windows workspace, double-click **Launch-Seranews.cmd** to open the prepared demo. Keep its terminal window open while using Seranews. If the demo is already serving port 8000, the launcher opens that session. On another machine, run the setup below first.
