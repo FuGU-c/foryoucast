@@ -21,7 +21,7 @@
 .phone-status{height:33px;flex:0 0 33px;display:flex;align-items:center;justify-content:space-between;padding:2px 22px 0;background:var(--theme-background);color:var(--theme-text);font-size:10px;font-weight:650;position:relative}
 .phone-notch{position:absolute;top:7px;left:50%;transform:translateX(-50%);width:87px;height:16px;border-radius:16px;background:var(--theme-secondary)}
 .phone-signals{display:flex;align-items:center;gap:5px}
-.phone-home{position:absolute;bottom:5px;left:50%;translate:-50% 0;width:108px;height:4px;border-radius:8px;background:var(--theme-secondary);z-index:75;pointer-events:none}
+.phone-home{position:absolute;bottom:5px;left:50%;translate:-50% 0;width:108px;height:4px;border-radius:8px;background:#111111;z-index:75;pointer-events:none}
 .phone-frame .workspace{min-height:0;flex:1;overflow-x:hidden;overflow-y:auto;scrollbar-width:none;overscroll-behavior:contain}
 .phone-frame .workspace::-webkit-scrollbar{display:none}
 .phone-frame .topbar{height:61px;position:sticky;top:0;background:color-mix(in srgb, var(--theme-surface) 96.1%, transparent);backdrop-filter:blur(12px);z-index:65}
@@ -159,14 +159,7 @@
 .reel-card-full.is-dragging{animation:none;transition:none;will-change:transform}
 @keyframes reel-next{0%{transform:rotateX(-26deg) translateY(16%);opacity:.38;box-shadow:inset 0 22px 26px color-mix(in srgb, var(--theme-shadow) 65.1%, transparent)}100%{transform:none;opacity:1;box-shadow:none}}
 @keyframes reel-prev{0%{transform:rotateX(26deg) translateY(-16%);opacity:.38;box-shadow:inset 0 -22px 26px color-mix(in srgb, var(--theme-shadow) 65.1%, transparent)}100%{transform:none;opacity:1;box-shadow:none}}
-.reel-card-full.next-in::after,.reel-card-full.previous-in::after{content:'';position:absolute;inset:0;pointer-events:none;z-index:5;background:linear-gradient(180deg,transparent 40%,color-mix(in srgb, var(--theme-surface-subtle) 47.5%, transparent) 70%,color-mix(in srgb, var(--theme-secondary) 63.1%, transparent) 100%);animation:page-shadow .41s ease-out forwards}
-@keyframes page-shadow{from{opacity:.8;transform:translateY(14%)}to{opacity:0;transform:translateY(-48%)}}
-.turned-page{position:absolute;inset:0;border-radius:inherit;overflow:hidden;z-index:5;pointer-events:none;transform-origin:top center;background:var(--theme-secondary)}
-.turned-page.turn-up{animation:turn-up .28s cubic-bezier(.35,.1,.25,1) forwards}
-.turned-page.turn-down{transform-origin:bottom center;animation:turn-down .28s cubic-bezier(.35,.1,.25,1) forwards}
-@keyframes turn-up{0%{transform:none;opacity:1}70%{opacity:.88}100%{transform:translateY(-82%) rotateX(63deg) scale(.98);opacity:0}}
-@keyframes turn-down{0%{transform:none;opacity:1}70%{opacity:.88}100%{transform:translateY(82%) rotateX(-63deg) scale(.98);opacity:0}}
-@media(prefers-reduced-motion:reduce){.turned-page{display:none!important}}
+@media(prefers-reduced-motion:reduce){.reel-card-full.next-in,.reel-card-full.previous-in{animation:none}}
 .reel-picture,.reel-shade,.reel-hit{position:absolute;inset:0;width:100%;height:100%}
 .reel-picture img,.reel-picture .story-art{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
 .reel-shade{background:linear-gradient(180deg,color-mix(in srgb, var(--theme-media-shade) 13.7%, transparent) 4%,transparent 28%,color-mix(in srgb, var(--theme-media-shade) 15.7%, transparent) 42%,color-mix(in srgb, var(--theme-media-shade) 91.8%, transparent) 92%)}

@@ -88,7 +88,6 @@ export function Discover(props:DiscoverProps){
  const stories=useStableStoryDeck(props.stories,filterKey);
  const [position,setPosition]=useState({id:'',index:0,filterKey});
  const [direction,setDirection]=useState(0);
- const [previousPage,setPreviousPage]=useState<Story|null>(null);
  const [drag,setDrag]=useState(0);
  const [filters,setFilters]=useState(false);
  const [section,setSection]=useState<'filters'|'suggestions'>('filters');
@@ -110,7 +109,7 @@ export function Discover(props:DiscoverProps){
 
  useEffect(()=>{if(props.searchOpen){setSection('filters');setFilters(true);props.onSearchOpened();}},[props.searchOpen]);
 
- useLayoutEffect(()=>{setPosition({id:stories[0]?.id||'',index:0,filterKey});setDirection(0);setPreviousPage(null);setDrag(0);wheel.current.reset();blockClick.current=0;},[filterKey]);
+ useLayoutEffect(()=>{setPosition({id:stories[0]?.id||'',index:0,filterKey});setDirection(0);setDrag(0);wheel.current.reset();blockClick.current=0;},[filterKey]);
  useLayoutEffect(()=>{
   if(current&&position.id!==current.id)setPosition({id:current.id,index:currentIndex,filterKey});
  },[stories]);
@@ -120,7 +119,6 @@ export function Discover(props:DiscoverProps){
   const next=Math.max(0,currentIndex+delta);
   if(next>=stories.length){if(delta>0&&hasMore&&!loading)onMore();return;}
   if(next===currentIndex)return;
-  if(current&&!window.matchMedia('(prefers-reduced-motion: reduce)').matches)setPreviousPage(current);
   setDirection(delta);
   setPosition({id:stories[next].id,index:next,filterKey});
  }
@@ -145,7 +143,7 @@ export function Discover(props:DiscoverProps){
   if(!event.isPrimary||(event.pointerType==='mouse'&&event.button!==0)||(button&&!button.classList.contains('reel-hit')))return;
   event.currentTarget.focus({preventScroll:true});
   setDirection(0);
-  setPreviousPage(null);
+  
   pointer.current={id:event.pointerId,y:event.clientY,x:event.clientX};
  }
  function pointerUp(event:PointerEvent<HTMLDivElement>){
@@ -198,9 +196,7 @@ export function Discover(props:DiscoverProps){
      <button className="reel-read-button" aria-label="Read story and sources" onClick={()=>onOpen(current)}><BookOpen size={21}/><small aria-hidden="true">Read</small></button>
     </div>
    </article>:<div className="empty-state"><Search size={22}/><h3>{loading?'Looking for stories…':'No matching stories'}</h3>{!loading&&<button onClick={()=>{setQuery('');clearTopics();clearLanguages();}}>Clear filters</button>}</div>}
-   {previousPage&&<div key={previousPage.id} className={'turned-page '+(direction<0?'turn-down':'turn-up')} aria-hidden="true" onAnimationEnd={event=>{if(event.target===event.currentTarget)setPreviousPage(null);}}>
-    <ReelPicture story={previousPage} art={art}/><div className="reel-shade"/><div className="reel-copy"><h2>{previousPage.title}</h2></div>
-   </div>}
+
   </div>
   <div className="reel-bottom-bar">
    <button className="reel-prompts" onClick={()=>{setSection('suggestions');setFilters(true);}}>Topics to follow</button>
