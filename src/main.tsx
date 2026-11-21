@@ -23,6 +23,7 @@ import {SpokenSummary} from './spoken-summary';
 import {GenerationStatus} from './generation-status';
 import {latestPlayableBriefing} from './briefing-selection';
 import {Avatar} from './profile-avatar';
+import {StoryImage} from './story-image';
 import {WaveformSeek} from './waveform-seek';
 import {AppearanceModal,applyAppearance,readAppearance,useAppearance,themes} from './appearance';
 import './styles.css';
@@ -41,10 +42,7 @@ const date=(s:string)=>new Date(s).toLocaleDateString('en-GB',{day:'numeric',mon
 function Wave({small=false}:{small?:boolean}){return <div className={'wave '+(small?'wave-small':'')} aria-hidden="true">{Array.from({length:small?23:57},(_,i)=><i key={i} style={{height:(small?9:18)+Math.abs(Math.sin(i*.74)*Math.cos(i*.19))*(small?24:102)+'px',animationDelay:i*.024+'s'}}/>)}</div>}
 function Brand(){return <span className="brand"><img src="/seranews-mark.png" alt="" aria-hidden="true"/><span className="brand-wordmark">Seranews</span></span>}
 function Tag({id}:{id:string}){return <span className={'tag tag-'+id}>{topicShort[id]||id.replaceAll('-',' ').replace(/^./,letter=>letter.toUpperCase())}</span>}
-function Art({story,large=false}:{story:Story;large?:boolean}){
- const letter=story.entities?.[0]?.slice(0,2).toUpperCase()||({economy:'↗',forex:'¥',world:'◎',money:'↗',culture:'✳',energy:'◒',crypto:'₿'}[story.tags[0]]||'AI');
- return <div className={`story-art ${story.art} ${large?'art-large':''}`} aria-hidden="true"><div className="art-grid"/><span className="art-orbit orbit-one"/><span className="art-orbit orbit-two"/><b>{letter}</b><AudioLines className="art-lines"/><span className="art-caption">A DIFFERENT PERSPECTIVE</span></div>
-}
+function Art({story,large=false}:{story:Story;large?:boolean}){return <StoryImage story={story} large={large}/>;}
 
 type GenerationTask={job:CloudJob;profileId:string;autoplay:boolean;dismissed:boolean;retrying?:boolean};
 const terminalJob=(state:CloudJob['state'])=>state==='ready'||state==='failed';

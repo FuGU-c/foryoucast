@@ -78,12 +78,7 @@ function SavedReelButton({profileId,story}:{profileId:string;story:Story}){
 }
 
 function ReelPicture({story,art}:{story:Story;art:(story:Story)=>ReactNode}){
- const urls=[...new Set(story.sources.map(source=>source.image_url).filter((url):url is string=>!!url))];
- const [candidate,setCandidate]=useState(0);
- return <div className="reel-picture" aria-hidden="true">
-  {art(story)}
-  {urls[candidate]&&<img src={urls[candidate]} alt="" draggable={false} referrerPolicy="no-referrer" onError={()=>setCandidate(index=>index+1)}/>}
- </div>;
+ return <div className="reel-picture" aria-hidden="true">{art(story)}</div>;
 }
 
 export function Discover(props:DiscoverProps){

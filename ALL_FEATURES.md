@@ -20,6 +20,7 @@ Updated 21 November 2026. This describes the implemented local demonstration and
 - Seven password-free demo profiles; this selector is not production authentication.
 - Mila: Dutch investor, Dutch narration and investment interests.
 - Six original illustrated profile pictures identify the demo listeners in the profile menu and header. New listener keeps the unidentified plus icon.
+- Today cards, story details and Discover share the same story-image loader. It prioritizes the supporting report and its linked language editions, preserves image framing, and resets failed-image state when changing stories. Missing publisher photos use a labeled editorial illustration rather than oversized initials; unrelated coverage is not used as a substitute photo.
 - Mila, Jonas, Alex and Sam default to Horizon. The one-time update preserves their existing interests and history; Free user and Medium user retain their demonstration tiers.
 - Today and the main podcast Play control open the newest completed briefing even after preferences change. Library date filters affect the list, while its main Play control still plays the latest saved edition. Failed, pending, and summary-only editions are excluded.
 - Create briefing always prepares a fresh edition. Temporary writing throttling falls back to the existing reviewed source summaries and displays a notice.
