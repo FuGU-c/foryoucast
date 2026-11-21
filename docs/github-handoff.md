@@ -24,9 +24,15 @@ Collaborator invitations for kepcheto and KordianKlimas require repository Setti
 
 These paths are covered by `.gitignore`. Before pushing, inspect the actual staged paths and diff: ignored files can still be force-added. Keep any repository private until event reuse rights for the partner mark and dataset-derived presentation materials have been confirmed.
 
+## Portable audio update
+
+The user approved sharing the demo with collaborators in this private repository. It now includes six fixed podcast MP3s in `media/demo-samples/`, 57 spoken summaries in `media/story-summaries/`, and 24 voice preview MP3s in `public/voice-previews/`. Source-linked sample scripts and timing manifests are in `assets/demo/`; the backend seeds only missing sample editions and leaves New listener blank. Existing episodes, history, personalized settings, and summary-only choices are retained. No paid regeneration or provider credentials are needed for playback. Verify native binary sizes and checksums against `assets/demo/media-verification.json`.
+
+After pulling, run `npm run build`, then restart the backend and worker. The authorized organizer dataset must still be prepared locally. Do not make this repository public with the event-derived scripts/audio included; the event's team-sharing and deletion requirements still apply.
+
 ## Reproduction limits
 
-The code repository alone does not contain the licensed dataset or finished podcast media. Another machine must prepare the catalog from its authorized source ZIP and configure n8n/provider access. The existing local demonstration retains its private media, profiles and credentials and keeps working separately from GitHub.
+The repository does not contain the licensed source dataset, article database, personal database, or cloud credentials. Another machine must prepare the catalog from its authorized source ZIP. The fixed sample podcasts and summaries are included; n8n/provider setup is needed only for new cloud generation.
 
 The local worker must remain running for scheduled production. Public deployment additionally needs production authentication, managed hosting/storage, appropriate Windows speech infrastructure or a licensed server TTS replacement, monitoring and delivery services. The password-free demo selector is not production login.
 

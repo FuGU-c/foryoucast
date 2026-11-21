@@ -148,6 +148,23 @@ class DemoSampleInstallTests(unittest.TestCase):
         self.assertFalse(self.backups.exists())
         self.assertEqual(server.profile('new')['name'], 'New listener')
 
+    def test_portable_seed_is_once_only_and_preserves_custom_settings(self):
+        custom = server.profile('mila')
+        custom['interests'] = {'culture': 5}
+        custom['wake_time'] = '10:15'
+        server.save_profile(custom)
+        with patch.multiple(demo_samples, ROOT=self.root, DEFAULT_SCRIPTS=self.scripts_path, DEFAULT_MANIFEST=self.manifest_path):
+            self.assertEqual(demo_samples.ensure_demo_samples(self.db), 6)
+            self.assertEqual(demo_samples.ensure_demo_samples(self.db), 0)
+            self.assertEqual(server.profile('mila')['wake_time'], '10:15')
+            self.assertEqual(server.profile('mila')['interests']['culture'], 5)
+            self.assertFalse(server.profile('new')['onboarded'])
+            self.assertEqual(server.editions('new'), [])
+            server.remove_edition_audio('mila', 'sample-mila-v1')
+            # Summary-only is an explicit choice; startup must not undo it.
+            self.assertEqual(demo_samples.ensure_demo_samples(self.db), 0)
+            self.assertIsNone(server.editions('mila')[0]['episode_audio'])
+
 
 if __name__ == '__main__':
     unittest.main()

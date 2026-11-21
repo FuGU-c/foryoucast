@@ -1,0 +1,221 @@
+{
+  "episodes": [
+    {
+      "profile_id": "mila",
+      "url": "/media/demo-samples/mila.mp3",
+      "duration_seconds": 299.9945416666667,
+      "provider": "elevenlabs",
+      "voice_ids": [
+        "KhYneopLIEaUSIqd0XIG",
+        "G53Wkf3yrsXvhoQsmslL"
+      ],
+      "timing_provenance": "Measured decoded clip durations, uniform time normalization, one encoded episode",
+      "chapters": [
+        {
+          "story_id": "story-1",
+          "start_seconds": 0.0,
+          "end_seconds": 79.81751197630707
+        },
+        {
+          "story_id": "story-10",
+          "start_seconds": 79.81751197630707,
+          "end_seconds": 150.10856128505714
+        },
+        {
+          "story_id": "story-9",
+          "start_seconds": 150.10856128505714,
+          "end_seconds": 214.79057182692785
+        },
+        {
+          "story_id": "story-6",
+          "start_seconds": 214.79057182692785,
+          "end_seconds": 299.9945416666667
+        }
+      ]
+    },
+    {
+      "profile_id": "jonas",
+      "url": "/media/demo-samples/jonas.mp3",
+      "duration_seconds": 299.994875,
+      "provider": "elevenlabs",
+      "voice_ids": [
+        "v3V1d2rk6528UrLKRuy8",
+        "lJ5clA8ifnZiUXuhPMTe"
+      ],
+      "timing_provenance": "Measured decoded clip durations, uniform time normalization, one encoded episode",
+      "chapters": [
+        {
+          "story_id": "story-1",
+          "start_seconds": 0.0,
+          "end_seconds": 71.1598834691541
+        },
+        {
+          "story_id": "story-9",
+          "start_seconds": 71.1598834691541,
+          "end_seconds": 127.61096649380387
+        },
+        {
+          "story_id": "story-5",
+          "start_seconds": 127.61096649380387,
+          "end_seconds": 183.8195967638739
+        },
+        {
+          "story_id": "story-4",
+          "start_seconds": 183.8195967638739,
+          "end_seconds": 235.34080711206894
+        },
+        {
+          "story_id": "story-6",
+          "start_seconds": 235.34080711206894,
+          "end_seconds": 299.994875
+        }
+      ]
+    },
+    {
+      "profile_id": "alex",
+      "url": "/media/demo-samples/alex.mp3",
+      "duration_seconds": 299.99425,
+      "provider": "elevenlabs",
+      "voice_ids": [
+        "cgSgspJ2msm6clMCkdW9",
+        "CwhRBWXzGAHq8TQ4Fs17"
+      ],
+      "timing_provenance": "Measured decoded clip durations, uniform time normalization, one encoded episode",
+      "chapters": [
+        {
+          "story_id": "story-3",
+          "start_seconds": 0.0,
+          "end_seconds": 67.4565722261236
+        },
+        {
+          "story_id": "story-5",
+          "start_seconds": 67.4565722261236,
+          "end_seconds": 123.36842191011236
+        },
+        {
+          "story_id": "story-4",
+          "start_seconds": 123.36842191011236,
+          "end_seconds": 178.7746633075843
+        },
+        {
+          "story_id": "story-6",
+          "start_seconds": 178.7746633075843,
+          "end_seconds": 234.1809047050562
+        },
+        {
+          "story_id": "story-8",
+          "start_seconds": 234.1809047050562,
+          "end_seconds": 299.99425
+        }
+      ]
+    },
+    {
+      "profile_id": "sam",
+      "url": "/media/demo-samples/sam.mp3",
+      "duration_seconds": 299.99483333333336,
+      "provider": "elevenlabs",
+      "voice_ids": [
+        "cgSgspJ2msm6clMCkdW9",
+        "CwhRBWXzGAHq8TQ4Fs17"
+      ],
+      "timing_provenance": "Measured decoded clip durations, uniform time normalization, one encoded episode",
+      "chapters": [
+        {
+          "story_id": "story-14",
+          "start_seconds": 0.0,
+          "end_seconds": 69.11708919952211
+        },
+        {
+          "story_id": "story-13",
+          "start_seconds": 69.11708919952211,
+          "end_seconds": 132.90093691756275
+        },
+        {
+          "story_id": "story-17",
+          "start_seconds": 132.90093691756275,
+          "end_seconds": 197.11488475507767
+        },
+        {
+          "story_id": "story-5",
+          "start_seconds": 197.11488475507767,
+          "end_seconds": 243.5656976583035
+        },
+        {
+          "story_id": "story-18",
+          "start_seconds": 243.5656976583035,
+          "end_seconds": 299.99483333333336
+        }
+      ]
+    },
+    {
+      "profile_id": "free-demo",
+      "url": "/media/demo-samples/free-demo.mp3",
+      "duration_seconds": 300.01,
+      "chapters": [
+        {
+          "story_id": "story-14",
+          "start_seconds": 0.0,
+          "end_seconds": 74.361
+        },
+        {
+          "story_id": "story-13",
+          "start_seconds": 74.452,
+          "end_seconds": 134.389
+        },
+        {
+          "story_id": "story-17",
+          "start_seconds": 134.48,
+          "end_seconds": 198.698
+        },
+        {
+          "story_id": "story-5",
+          "start_seconds": 198.789,
+          "end_seconds": 246.008
+        },
+        {
+          "story_id": "story-18",
+          "start_seconds": 246.099,
+          "end_seconds": 300.01
+        }
+      ],
+      "provider": "microsoft-sapi",
+      "voice_ids": [
+        "Microsoft Susan",
+        "Microsoft George"
+      ]
+    },
+    {
+      "profile_id": "medium-demo",
+      "url": "/media/demo-samples/medium-demo.mp3",
+      "duration_seconds": 299.99225,
+      "provider": "elevenlabs",
+      "voice_ids": [
+        "cgSgspJ2msm6clMCkdW9",
+        "CwhRBWXzGAHq8TQ4Fs17"
+      ],
+      "timing_provenance": "Measured decoded clip durations, uniform time normalization, one encoded episode",
+      "chapters": [
+        {
+          "story_id": "story-1",
+          "start_seconds": 0.0,
+          "end_seconds": 79.83995473188517
+        },
+        {
+          "story_id": "story-10",
+          "start_seconds": 79.83995473188517,
+          "end_seconds": 152.9354384019444
+        },
+        {
+          "story_id": "story-9",
+          "start_seconds": 152.9354384019444,
+          "end_seconds": 230.1322896096005
+        },
+        {
+          "story_id": "story-6",
+          "start_seconds": 230.1322896096005,
+          "end_seconds": 299.99225
+        }
+      ]
+    }
+  ]
+}

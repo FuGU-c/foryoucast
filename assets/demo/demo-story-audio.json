@@ -1,0 +1,384 @@
+{
+  "stories": {
+    "story-1": {
+      "en": {
+        "url": "/media/story-summaries/story-1-en.mp3",
+        "duration_seconds": 21.65,
+        "provider": "microsoft-sapi",
+        "language": "en"
+      },
+      "nl": {
+        "url": "/media/story-summaries/story-1-nl.mp3",
+        "duration_seconds": 19.11,
+        "provider": "microsoft-sapi",
+        "language": "nl"
+      },
+      "de": {
+        "url": "/media/story-summaries/story-1-de.mp3",
+        "duration_seconds": 19.29,
+        "provider": "microsoft-sapi",
+        "language": "de"
+      }
+    },
+    "story-2": {
+      "en": {
+        "url": "/media/story-summaries/story-2-en.mp3",
+        "duration_seconds": 23.13,
+        "provider": "microsoft-sapi",
+        "language": "en"
+      },
+      "nl": {
+        "url": "/media/story-summaries/story-2-nl.mp3",
+        "duration_seconds": 20.75,
+        "provider": "microsoft-sapi",
+        "language": "nl"
+      },
+      "de": {
+        "url": "/media/story-summaries/story-2-de.mp3",
+        "duration_seconds": 18.87,
+        "provider": "microsoft-sapi",
+        "language": "de"
+      }
+    },
+    "story-3": {
+      "en": {
+        "url": "/media/story-summaries/story-3-en.mp3",
+        "duration_seconds": 22.47,
+        "provider": "microsoft-sapi",
+        "language": "en"
+      },
+      "nl": {
+        "url": "/media/story-summaries/story-3-nl.mp3",
+        "duration_seconds": 20.93,
+        "provider": "microsoft-sapi",
+        "language": "nl"
+      },
+      "de": {
+        "url": "/media/story-summaries/story-3-de.mp3",
+        "duration_seconds": 19.12,
+        "provider": "microsoft-sapi",
+        "language": "de"
+      }
+    },
+    "story-4": {
+      "en": {
+        "url": "/media/story-summaries/story-4-en.mp3",
+        "duration_seconds": 22.29,
+        "provider": "microsoft-sapi",
+        "language": "en"
+      },
+      "nl": {
+        "url": "/media/story-summaries/story-4-nl.mp3",
+        "duration_seconds": 21.83,
+        "provider": "microsoft-sapi",
+        "language": "nl"
+      },
+      "de": {
+        "url": "/media/story-summaries/story-4-de.mp3",
+        "duration_seconds": 19.9,
+        "provider": "microsoft-sapi",
+        "language": "de"
+      }
+    },
+    "story-5": {
+      "en": {
+        "url": "/media/story-summaries/story-5-en.mp3",
+        "duration_seconds": 22.21,
+        "provider": "microsoft-sapi",
+        "language": "en"
+      },
+      "nl": {
+        "url": "/media/story-summaries/story-5-nl.mp3",
+        "duration_seconds": 20.52,
+        "provider": "microsoft-sapi",
+        "language": "nl"
+      },
+      "de": {
+        "url": "/media/story-summaries/story-5-de.mp3",
+        "duration_seconds": 19.35,
+        "provider": "microsoft-sapi",
+        "language": "de"
+      }
+    },
+    "story-6": {
+      "en": {
+        "url": "/media/story-summaries/story-6-en.mp3",
+        "duration_seconds": 23.28,
+        "provider": "microsoft-sapi",
+        "language": "en"
+      },
+      "nl": {
+        "url": "/media/story-summaries/story-6-nl.mp3",
+        "duration_seconds": 19.11,
+        "provider": "microsoft-sapi",
+        "language": "nl"
+      },
+      "de": {
+        "url": "/media/story-summaries/story-6-de.mp3",
+        "duration_seconds": 19.7,
+        "provider": "microsoft-sapi",
+        "language": "de"
+      }
+    },
+    "story-7": {
+      "en": {
+        "url": "/media/story-summaries/story-7-en.mp3",
+        "duration_seconds": 18.71,
+        "provider": "microsoft-sapi",
+        "language": "en"
+      },
+      "nl": {
+        "url": "/media/story-summaries/story-7-nl.mp3",
+        "duration_seconds": 17.91,
+        "provider": "microsoft-sapi",
+        "language": "nl"
+      },
+      "de": {
+        "url": "/media/story-summaries/story-7-de.mp3",
+        "duration_seconds": 17.02,
+        "provider": "microsoft-sapi",
+        "language": "de"
+      }
+    },
+    "story-8": {
+      "en": {
+        "url": "/media/story-summaries/story-8-en.mp3",
+        "duration_seconds": 21.09,
+        "provider": "microsoft-sapi",
+        "language": "en"
+      },
+      "nl": {
+        "url": "/media/story-summaries/story-8-nl.mp3",
+        "duration_seconds": 16.84,
+        "provider": "microsoft-sapi",
+        "language": "nl"
+      },
+      "de": {
+        "url": "/media/story-summaries/story-8-de.mp3",
+        "duration_seconds": 16.79,
+        "provider": "microsoft-sapi",
+        "language": "de"
+      }
+    },
+    "story-9": {
+      "en": {
+        "url": "/media/story-summaries/story-9-en.mp3",
+        "duration_seconds": 20.76,
+        "provider": "microsoft-sapi",
+        "language": "en"
+      },
+      "nl": {
+        "url": "/media/story-summaries/story-9-nl.mp3",
+        "duration_seconds": 18.75,
+        "provider": "microsoft-sapi",
+        "language": "nl"
+      },
+      "de": {
+        "url": "/media/story-summaries/story-9-de.mp3",
+        "duration_seconds": 18.77,
+        "provider": "microsoft-sapi",
+        "language": "de"
+      }
+    },
+    "story-10": {
+      "en": {
+        "url": "/media/story-summaries/story-10-en.mp3",
+        "duration_seconds": 18.93,
+        "provider": "microsoft-sapi",
+        "language": "en"
+      },
+      "nl": {
+        "url": "/media/story-summaries/story-10-nl.mp3",
+        "duration_seconds": 17.61,
+        "provider": "microsoft-sapi",
+        "language": "nl"
+      },
+      "de": {
+        "url": "/media/story-summaries/story-10-de.mp3",
+        "duration_seconds": 16.84,
+        "provider": "microsoft-sapi",
+        "language": "de"
+      }
+    },
+    "story-11": {
+      "en": {
+        "url": "/media/story-summaries/story-11-en.mp3",
+        "duration_seconds": 23.01,
+        "provider": "microsoft-sapi",
+        "language": "en"
+      },
+      "nl": {
+        "url": "/media/story-summaries/story-11-nl.mp3",
+        "duration_seconds": 19.59,
+        "provider": "microsoft-sapi",
+        "language": "nl"
+      },
+      "de": {
+        "url": "/media/story-summaries/story-11-de.mp3",
+        "duration_seconds": 18.08,
+        "provider": "microsoft-sapi",
+        "language": "de"
+      }
+    },
+    "story-12": {
+      "en": {
+        "url": "/media/story-summaries/story-12-en.mp3",
+        "duration_seconds": 19.34,
+        "provider": "microsoft-sapi",
+        "language": "en"
+      },
+      "nl": {
+        "url": "/media/story-summaries/story-12-nl.mp3",
+        "duration_seconds": 16.84,
+        "provider": "microsoft-sapi",
+        "language": "nl"
+      },
+      "de": {
+        "url": "/media/story-summaries/story-12-de.mp3",
+        "duration_seconds": 17.08,
+        "provider": "microsoft-sapi",
+        "language": "de"
+      }
+    },
+    "story-13": {
+      "en": {
+        "url": "/media/story-summaries/story-13-en.mp3",
+        "duration_seconds": 25.12,
+        "provider": "microsoft-sapi",
+        "language": "en"
+      },
+      "nl": {
+        "url": "/media/story-summaries/story-13-nl.mp3",
+        "duration_seconds": 21.66,
+        "provider": "microsoft-sapi",
+        "language": "nl"
+      },
+      "de": {
+        "url": "/media/story-summaries/story-13-de.mp3",
+        "duration_seconds": 20.44,
+        "provider": "microsoft-sapi",
+        "language": "de"
+      }
+    },
+    "story-14": {
+      "en": {
+        "url": "/media/story-summaries/story-14-en.mp3",
+        "duration_seconds": 23.17,
+        "provider": "microsoft-sapi",
+        "language": "en"
+      },
+      "nl": {
+        "url": "/media/story-summaries/story-14-nl.mp3",
+        "duration_seconds": 19.66,
+        "provider": "microsoft-sapi",
+        "language": "nl"
+      },
+      "de": {
+        "url": "/media/story-summaries/story-14-de.mp3",
+        "duration_seconds": 18.01,
+        "provider": "microsoft-sapi",
+        "language": "de"
+      }
+    },
+    "story-15": {
+      "en": {
+        "url": "/media/story-summaries/story-15-en.mp3",
+        "duration_seconds": 23.73,
+        "provider": "microsoft-sapi",
+        "language": "en"
+      },
+      "nl": {
+        "url": "/media/story-summaries/story-15-nl.mp3",
+        "duration_seconds": 19.57,
+        "provider": "microsoft-sapi",
+        "language": "nl"
+      },
+      "de": {
+        "url": "/media/story-summaries/story-15-de.mp3",
+        "duration_seconds": 18.0,
+        "provider": "microsoft-sapi",
+        "language": "de"
+      }
+    },
+    "story-16": {
+      "en": {
+        "url": "/media/story-summaries/story-16-en.mp3",
+        "duration_seconds": 20.85,
+        "provider": "microsoft-sapi",
+        "language": "en"
+      },
+      "nl": {
+        "url": "/media/story-summaries/story-16-nl.mp3",
+        "duration_seconds": 18.51,
+        "provider": "microsoft-sapi",
+        "language": "nl"
+      },
+      "de": {
+        "url": "/media/story-summaries/story-16-de.mp3",
+        "duration_seconds": 17.86,
+        "provider": "microsoft-sapi",
+        "language": "de"
+      }
+    },
+    "story-17": {
+      "en": {
+        "url": "/media/story-summaries/story-17-en.mp3",
+        "duration_seconds": 22.07,
+        "provider": "microsoft-sapi",
+        "language": "en"
+      },
+      "nl": {
+        "url": "/media/story-summaries/story-17-nl.mp3",
+        "duration_seconds": 20.52,
+        "provider": "microsoft-sapi",
+        "language": "nl"
+      },
+      "de": {
+        "url": "/media/story-summaries/story-17-de.mp3",
+        "duration_seconds": 18.17,
+        "provider": "microsoft-sapi",
+        "language": "de"
+      }
+    },
+    "story-18": {
+      "en": {
+        "url": "/media/story-summaries/story-18-en.mp3",
+        "duration_seconds": 18.87,
+        "provider": "microsoft-sapi",
+        "language": "en"
+      },
+      "nl": {
+        "url": "/media/story-summaries/story-18-nl.mp3",
+        "duration_seconds": 17.91,
+        "provider": "microsoft-sapi",
+        "language": "nl"
+      },
+      "de": {
+        "url": "/media/story-summaries/story-18-de.mp3",
+        "duration_seconds": 16.66,
+        "provider": "microsoft-sapi",
+        "language": "de"
+      }
+    },
+    "story-19": {
+      "en": {
+        "url": "/media/story-summaries/story-19-en.mp3",
+        "duration_seconds": 23.96,
+        "provider": "microsoft-sapi",
+        "language": "en"
+      },
+      "nl": {
+        "url": "/media/story-summaries/story-19-nl.mp3",
+        "duration_seconds": 19.74,
+        "provider": "microsoft-sapi",
+        "language": "nl"
+      },
+      "de": {
+        "url": "/media/story-summaries/story-19-de.mp3",
+        "duration_seconds": 18.41,
+        "provider": "microsoft-sapi",
+        "language": "de"
+      }
+    }
+  }
+}

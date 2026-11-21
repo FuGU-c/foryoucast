@@ -151,6 +151,14 @@ def init():
   save_profile(profile_data)
 
 init()
+# The private team checkout includes fixed samples, never a personal database.
+# Missing files leave the rest of the app available with a clear server message.
+if (ROOT/'assets'/'demo'/'demo-scripts.json').is_file():
+ try:
+  from .demo_samples import ensure_demo_samples
+  ensure_demo_samples(DB)
+ except (OSError,ValueError,sqlite3.Error) as error:
+  print(f'Demo audio not installed: {error}',file=sys.stderr)
 app=FastAPI(title='Seranews',version='0.1.0')
 
 @app.exception_handler(RequestValidationError)
@@ -237,6 +245,7 @@ def _spoken_catalog(path,mtime):
 
 def spoken_summary(story_id,language):
  path=ROOT/'data'/'demo-story-audio.json'
+ if not path.is_file():path=ROOT/'assets'/'demo'/'demo-story-audio.json'
  try:
   entry=_spoken_catalog(str(path),path.stat().st_mtime_ns).get(story_id,{}).get(language)
   if entry and entry.get('language')==language and entry.get('provider')=='microsoft-sapi' and str(entry.get('url','')).startswith('/media/story-summaries/'):return entry

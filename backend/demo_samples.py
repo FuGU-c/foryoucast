@@ -7,6 +7,7 @@ install`` after the audio manifest and files are ready.
 from __future__ import annotations
 
 import argparse
+from contextlib import closing
 import datetime as dt
 import hashlib
 import json
@@ -21,8 +22,8 @@ from .prepare import ROOT
 
 DATA = ROOT / 'data'
 DEFAULT_DB = DATA / 'liquid.db'
-DEFAULT_SCRIPTS = DATA / 'demo-scripts.json'
-DEFAULT_MANIFEST = DATA / 'demo-audio-manifest.json'
+DEFAULT_SCRIPTS = ROOT / 'assets' / 'demo' / 'demo-scripts.json'
+DEFAULT_MANIFEST = ROOT / 'assets' / 'demo' / 'demo-audio-manifest.json'
 DEFAULT_BACKUPS = DATA / 'backups'
 PROFILES = ('mila', 'jonas', 'alex', 'sam', 'free-demo', 'medium-demo')
 
@@ -242,6 +243,46 @@ def _edition(profile_id: str, script: dict, manifest: dict) -> dict:
         'catalog_version': json.loads((DATA / 'catalog.json').read_text(encoding='utf-8'))['version'],
         'translation_mode': 'reviewed-demo-summaries',
     }
+
+
+def ensure_demo_samples(db_path: Path = DEFAULT_DB) -> int:
+    """Seed missing sample accounts once; preserve preferences and removed audio.
+
+    An existing edition (including summary-only) is a tombstone for reseeding.
+    New listener and all personal history are deliberately left alone.
+    """
+    with closing(sqlite3.connect(db_path, timeout=30)) as db:
+        if all(db.execute('SELECT 1 FROM editions WHERE profile_id=? LIMIT 1', (pid,)).fetchone() for pid in PROFILES):
+            return 0
+    scripts, audio = validate_inputs(DEFAULT_SCRIPTS, DEFAULT_MANIFEST, ROOT / 'media')
+    from .server import normalized_profile
+    inserted = 0
+    with closing(sqlite3.connect(db_path, timeout=30)) as db, db:
+        for pid in PROFILES:
+            eid = f'sample-{pid}-v1'
+            if db.execute('SELECT 1 FROM editions WHERE id=?', (eid,)).fetchone():
+                continue
+            # A user who already made their own edition keeps their setup.
+            if db.execute('SELECT 1 FROM editions WHERE profile_id=?', (pid,)).fetchone():
+                continue
+            preset = normalized_profile(_profile(pid))
+            if audio[pid]['provider'] == 'elevenlabs':
+                preset['tts_provider'] = 'elevenlabs'
+            raw = db.execute('SELECT data FROM profiles WHERE id=?', (pid,)).fetchone()
+            existing = json.loads(raw[0]) if raw else {}
+            # Only replace the untouched bootstrap defaults. Never reset feedback,
+            # listening history, or a profile that has already been personalized.
+            untouched = not existing.get('demo_reset_id') and not existing.get('feedback_count')
+            untouched = untouched and not any(db.execute(f'SELECT 1 FROM {table} WHERE profile_id=? LIMIT 1', (pid,)).fetchone() for table in ('feedback', 'listens', 'story_views'))
+            untouched = untouched and not any(key in existing for key in ('interest_resets', 'updated_at', 'preference_revision'))
+            untouched = untouched and all(existing.get(key, preset.get(key)) == preset.get(key) for key in ('name', 'language', 'depth', 'interests', 'goal', 'duration', 'wake_time', 'scheduled', 'custom_interests', 'symbols'))
+            if not raw or untouched:
+                db.execute('INSERT INTO profiles VALUES (?,?) ON CONFLICT(id) DO UPDATE SET data=excluded.data', (pid, json.dumps(preset, ensure_ascii=False)))
+            edition = _edition(pid, scripts[pid], audio[pid])
+            edition['profile_snapshot'] = preset
+            db.execute('INSERT INTO editions VALUES (?,?,?,?)', (eid, pid, json.dumps(edition, ensure_ascii=False), edition['created_at']))
+            inserted += 1
+    return inserted
 
 
 def install_demo_samples(

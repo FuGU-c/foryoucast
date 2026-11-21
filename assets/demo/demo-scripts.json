@@ -1,0 +1,1629 @@
+{
+  "episodes": [
+    {
+      "profile_id": "mila",
+      "language": "nl",
+      "title": "Mila’s marktochtend: cijfers, risico en perspectief",
+      "coverage_date": "2026-11-19",
+      "target_seconds": 300,
+      "chapters": [
+        {
+          "story_id": "story-1",
+          "title": "De AI-cijfers waar iedereen naar kijkt",
+          "summary": "De nieuwste berichtgeving van Invezz volgt de cijfers van Nvidia en de reactie bij technologieaandelen. Het artikel maakt onderscheid tussen de vooruitzichten van het bedrijf en de verwachtingen van beleggers. Dit verhaal ontwikkelt zich nog; een prognose is geen garantie.",
+          "tags": [
+            "ai",
+            "chips",
+            "consumer",
+            "deals",
+            "earnings",
+            "economy",
+            "markets",
+            "money",
+            "technology",
+            "world"
+          ],
+          "sources": [
+            {
+              "article_id": "INVZ-10009737-01M7QHXBPJNSJF5KFSMRGG1XRT",
+              "outlet": "Invezz",
+              "headline": "Nasdaq rises as Nvidia forecast lifts stocks; Anthropic IPO in focus",
+              "url": "https://invezz.com/news/2026/11/18/nasdaq-rises-as-nvidia-forecast-lifts-stocks-anthropic-ipo-in-focus/",
+              "date": "2026-11-18T14:44:13+00:00",
+              "language": "en",
+              "tags": [
+                "markets",
+                "technology",
+                "deals",
+                "chips",
+                "ai"
+              ],
+              "snippet": "US stocks opened higher on Wednesday as Nvidia’s stronger-than-expected revenue forecast eased concerns about the chipmaker and lifted sentiment across",
+              "translation_key": "INVZ-10009737-01M7QHXBPJNSJF5KFSMRGG1XRT",
+              "image_url": "https://invezz-wp-media.lon1.digitaloceanspaces.com/2026/11/Wall-Street-sign.png"
+            }
+          ],
+          "claim_source_ids": [
+            "INVZ-10009737-01M7QHXBPJNSJF5KFSMRGG1XRT"
+          ],
+          "turns": [
+            {
+              "speaker": "maya",
+              "text": "Goedemorgen, Mila. Dit is een archiefdemo met berichtgeving tot en met 19 november 2026. We beginnen bij de vraag die veel technologiebeleggers bezighoudt: wat zegt de nieuwste Nvidia-verwachting nu eigenlijk over de rest van de markt? Invezz meldt dat de vooruitzichten van Nvidia de Amerikaanse aandelen hoger hielpen openen. Dat is een positief marktsignaal, maar nog geen antwoord op de vraag hoeveel groei al in de koersen zit.",
+              "source_ids": [
+                "INVZ-10009737-01M7QHXBPJNSJF5KFSMRGG1XRT"
+              ]
+            },
+            {
+              "speaker": "leo",
+              "text": "Precies. Een bedrijfsprognose en de verwachting van beleggers zijn twee verschillende meetpunten. Een onderneming kan sterke vraag zien en toch minder optimistisch klinken dan aandeelhouders hadden gehoopt; het omgekeerde kan ook. Invezz beschrijft hier een opwaartse reactie bij technologieaandelen na de prognose, maar benadrukt ook dat dit verhaal nog in ontwikkeling is. We lezen dus een momentopname, geen garantie voor de volgende handelsdag.",
+              "source_ids": [
+                "INVZ-10009737-01M7QHXBPJNSJF5KFSMRGG1XRT"
+              ]
+            },
+            {
+              "speaker": "maya",
+              "text": "Voor een belegger is de nuttige vervolgvraag niet alleen: hoe goed was het cijfer? Kijk ook of de vraag het tempo van de verwachtingen bijhoudt, en of de markt al op een uitzonderlijk resultaat rekende. Dat onderscheid voorkomt dat een sterke bedrijfsupdate automatisch wordt vertaald naar een voorspelling voor elk chip- of AI-aandeel.",
+              "source_ids": [
+                "INVZ-10009737-01M7QHXBPJNSJF5KFSMRGG1XRT"
+              ]
+            }
+          ]
+        },
+        {
+          "story_id": "story-10",
+          "title": "Meer vragen rond Intels herstel",
+          "summary": "Invezz bericht over druk op Intel, een wijziging in Nvidia’s gemelde belang en een rechtszaak van aandeelhouders. De zaak bevat beschuldigingen over eerdere informatieverstrekking. Een beschuldiging is geen rechterlijke vaststelling.",
+          "tags": [
+            "chips",
+            "markets",
+            "technology"
+          ],
+          "sources": [
+            {
+              "article_id": "INVZ-10009737-01M7N0N67J80W3E4CXG7AK97F2",
+              "outlet": "Invezz",
+              "headline": "Why is Intel stock falling on Tuesday?",
+              "url": "https://invezz.com/news/2026/11/17/why-is-intel-stock-falling-on-tuesday/",
+              "date": "2026-11-17T15:04:57+00:00",
+              "language": "en",
+              "tags": [
+                "markets",
+                "technology",
+                "chips"
+              ],
+              "snippet": "Intel shares INTC fell more than 2% at Tuesday's market open after a regulatory filing revealed that Nvidia had reduced",
+              "translation_key": "INVZ-10009737-01M7N0N67J80W3E4CXG7AK97F2",
+              "image_url": "https://invezz-wp-media.lon1.digitaloceanspaces.com/2026/11/image-68.png"
+            }
+          ],
+          "claim_source_ids": [
+            "INVZ-10009737-01M7N0N67J80W3E4CXG7AK97F2"
+          ],
+          "turns": [
+            {
+              "speaker": "leo",
+              "text": "Van breed AI-optimisme naar één onderneming met een lastiger verhaal. Invezz bericht over druk op het aandeel Intel, een wijziging in de gemelde positie van Nvidia en een rechtszaak van aandeelhouders. De aanklacht bevat beweringen over eerdere informatieverstrekking. Dat zijn beschuldigingen in een procedure, geen oordeel van een rechter.",
+              "source_ids": [
+                "INVZ-10009737-01M7N0N67J80W3E4CXG7AK97F2"
+              ]
+            },
+            {
+              "speaker": "maya",
+              "text": "Dat verschil is belangrijk wanneer nieuws over koersverlies en juridische stappen in één kop samenkomt. De koersbeweging is een marktreactie; de rechtszaak is een bewering die nog moet worden beoordeeld. En de gemelde verandering bij Nvidia is relevant als signaal over een zakelijke relatie, maar vertelt op zichzelf niet wat Intel vervolgens gaat verkopen of verdienen.",
+              "source_ids": [
+                "INVZ-10009737-01M7N0N67J80W3E4CXG7AK97F2"
+              ]
+            },
+            {
+              "speaker": "leo",
+              "text": "Voor de fundamentele analyse blijven daarom de gewone vragen staan: welke producten dragen omzet, hoe ontwikkelt de concurrentiepositie, en wat zeggen toekomstige resultaten? Het artikel geeft hier vooral redenen voor onzekerheid. Het levert geen volledige waardering op en ook geen conclusie dat een ommekeer onmogelijk is.",
+              "source_ids": [
+                "INVZ-10009737-01M7N0N67J80W3E4CXG7AK97F2"
+              ]
+            }
+          ]
+        },
+        {
+          "story_id": "story-9",
+          "title": "Home Depot: cijfers en een bestuurswissel",
+          "summary": "Invezz meldt dat Home Depot de winstverwachtingen overtrof en een opvolging aan de top aankondigde. Tegelijk beschrijft het artikel zwakke uitgaven aan grotere, niet-noodzakelijke verbouwingen. Betere kwartaalcijfers en voorzichtigheid kunnen dus samengaan.",
+          "tags": [
+            "earnings",
+            "markets"
+          ],
+          "sources": [
+            {
+              "article_id": "INVZ-10009737-01M7MRXZPTVQ2E6FMSJ44GQXWT",
+              "outlet": "Invezz",
+              "headline": "Home Depot beats earnings and names new CEO: the bigger test is still ahead",
+              "url": "https://invezz.com/news/2026/11/17/home-depot-beats-earnings-and-names-new-ceo-the-bigger-test-is-still-ahead/",
+              "date": "2026-11-17T12:48:59+00:00",
+              "language": "en",
+              "tags": [
+                "markets",
+                "earnings"
+              ],
+              "snippet": "Home Depot HD delivered an earnings beat and a CEO succession announcement on Nov 17, giving investors two reasons to",
+              "translation_key": "INVZ-10009737-01M7MRXZPTVQ2E6FMSJ44GQXWT",
+              "image_url": "https://invezz-wp-media.lon1.digitaloceanspaces.com/2026/11/G-30.png"
+            }
+          ],
+          "claim_source_ids": [
+            "INVZ-10009737-01M7MRXZPTVQ2E6FMSJ44GQXWT"
+          ],
+          "turns": [
+            {
+              "speaker": "maya",
+              "text": "Een heel andere onderneming, maar dezelfde les over cijfers en vooruitzichten. Invezz meldt dat Home Depot de winstverwachtingen overtrof en tegelijk een opvolger voor de topfunctie aanwees. De berichtgeving noemt ook zwakte in uitgaven aan niet-noodzakelijke woningverbeteringen en een voorzichtige blik vooruit.",
+              "source_ids": [
+                "INVZ-10009737-01M7MRXZPTVQ2E6FMSJ44GQXWT"
+              ]
+            },
+            {
+              "speaker": "leo",
+              "text": "Die combinatie klinkt tegenstrijdig, maar hoeft dat niet te zijn. Een kwartaal kan beter uitvallen dan analisten hadden geraamd, terwijl klanten tegelijk terughoudender zijn met projecten die ze kunnen uitstellen. Voor een retailer zegt de mix tussen noodzakelijke aankopen en grotere, discretionaire klussen iets over de consument. De opvolgingsaankondiging is een apart aandachtspunt: beleggers zullen later moeten zien hoe de nieuwe leiding de strategie uitvoert.",
+              "source_ids": [
+                "INVZ-10009737-01M7MRXZPTVQ2E6FMSJ44GQXWT"
+              ]
+            },
+            {
+              "speaker": "maya",
+              "text": "Dus niet alleen “beter dan verwacht”, maar ook: waarop was de verwachting gebaseerd, wat gebeurt er met de vraag, en hoe voorzichtig is het management over de komende periode? Dat geeft meer context dan één winstkop.",
+              "source_ids": [
+                "INVZ-10009737-01M7MRXZPTVQ2E6FMSJ44GQXWT"
+              ]
+            }
+          ]
+        },
+        {
+          "story_id": "story-6",
+          "title": "Olie krijgt te maken met ruimer aanbod",
+          "summary": "Invezz beschrijft dalende olieprijzen bij herstellend aanbod en zorgen over de vraag. Het artikel verwijst naar een IEA-raming waarin het aanbod groter is dan de vraag. Die raming is een prognose; de koersbeweging betreft een specifieke handelsdag.",
+          "tags": [
+            "economy",
+            "energy",
+            "oil",
+            "trade",
+            "world"
+          ],
+          "sources": [
+            {
+              "article_id": "INVZ-10009737-01M7M5RJNGNNWHKAMQWXKMCNSZ",
+              "outlet": "Invezz",
+              "headline": "Brent crude price analysis: will oil crash below $90 as supply glut grows?",
+              "url": "https://invezz.com/news/2026/11/17/brent-crude-price-analysis-will-oil-crash-below-90-as-supply-glut-grows/",
+              "date": "2026-11-17T07:12:53+00:00",
+              "language": "en",
+              "tags": [
+                "world",
+                "energy",
+                "economy",
+                "trade",
+                "oil"
+              ],
+              "snippet": "Oil prices fell for a second consecutive session on Tuesday as recovering Middle East exports and weakening demand pushed Brent",
+              "translation_key": "INVZ-10009737-01M7M5RJNGNNWHKAMQWXKMCNSZ",
+              "image_url": "https://invezz-wp-media.lon1.digitaloceanspaces.com/2026/11/19.png"
+            }
+          ],
+          "claim_source_ids": [
+            "INVZ-10009737-01M7M5RJNGNNWHKAMQWXKMCNSZ"
+          ],
+          "turns": [
+            {
+              "speaker": "leo",
+              "text": "Dan naar energie. Invezz beschrijft dalende olieprijzen naast tekenen van herstel in het aanbod en zorgen over de vraag. Het artikel verwijst ook naar een verwachting van het Internationaal Energieagentschap dat het aanbod groter kan worden dan de vraag. Dat is een prognose, geen gemeten overschot dat al vaststaat.",
+              "source_ids": [
+                "INVZ-10009737-01M7M5RJNGNNWHKAMQWXKMCNSZ"
+              ]
+            },
+            {
+              "speaker": "maya",
+              "text": "En de prijsdaling die het artikel beschrijft hoort bij een bepaalde handelssessie. Voor bedrijven en huishoudens is olie belangrijk als grondstof en brandstof, maar één lagere notering maakt de vooruitzichten niet vanzelf voorspelbaar. Vraag, aanbod en verwachtingen kunnen tegelijk verschuiven. De marktprijs reageert bovendien op wat handelaren verwachten, terwijl een voorspelling pas later aan de werkelijkheid kan worden getoetst.",
+              "source_ids": [
+                "INVZ-10009737-01M7M5RJNGNNWHKAMQWXKMCNSZ"
+              ]
+            },
+            {
+              "speaker": "leo",
+              "text": "Voor beleggers is het onderscheid tussen de actuele prijsbeweging en de prognose dus essentieel. Een ruimer verwacht aanbod kan druk op prijzen zetten, maar die verwachting moet nog uitkomen. Het verhaal is bruikbaar als scenario om te volgen, niet als zekerheid over de volgende stap. Dat is onze marktselectie: AI-verwachtingen, juridische onzekerheid, consumentenvraag en olieaanbod. Bekijk de oorspronkelijke stukken bij de hoofdstukken als je de details wilt nalopen. Dank voor het luisteren, Mila; tot de volgende briefing.",
+              "source_ids": [
+                "INVZ-10009737-01M7M5RJNGNNWHKAMQWXKMCNSZ"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "profile_id": "jonas",
+      "language": "de",
+      "title": "Jonas’ Marktüberblick: Unternehmen, Konjunktur und Energie",
+      "coverage_date": "2026-11-19",
+      "target_seconds": 300,
+      "chapters": [
+        {
+          "story_id": "story-1",
+          "title": "Die KI-Zahlen im Fokus",
+          "summary": "Die aktuelle Invezz-Berichterstattung behandelt Nvidias Zahlen und die Reaktion der Technologieaktien. Der Bericht unterscheidet zwischen dem Ausblick des Unternehmens und den Erwartungen der Anleger. Die Geschichte entwickelt sich weiter; eine Prognose ist keine Zusage.",
+          "tags": [
+            "ai",
+            "chips",
+            "consumer",
+            "deals",
+            "earnings",
+            "economy",
+            "markets",
+            "money",
+            "technology",
+            "world"
+          ],
+          "sources": [
+            {
+              "article_id": "INVZ-10009737-01M7QHXBPJNSJF5KFSMRGG1XRT",
+              "outlet": "Invezz",
+              "headline": "Nasdaq rises as Nvidia forecast lifts stocks; Anthropic IPO in focus",
+              "url": "https://invezz.com/news/2026/11/18/nasdaq-rises-as-nvidia-forecast-lifts-stocks-anthropic-ipo-in-focus/",
+              "date": "2026-11-18T14:44:13+00:00",
+              "language": "en",
+              "tags": [
+                "markets",
+                "technology",
+                "deals",
+                "chips",
+                "ai"
+              ],
+              "snippet": "US stocks opened higher on Wednesday as Nvidia’s stronger-than-expected revenue forecast eased concerns about the chipmaker and lifted sentiment across",
+              "translation_key": "INVZ-10009737-01M7QHXBPJNSJF5KFSMRGG1XRT",
+              "image_url": "https://invezz-wp-media.lon1.digitaloceanspaces.com/2026/11/Wall-Street-sign.png"
+            }
+          ],
+          "claim_source_ids": [
+            "INVZ-10009737-01M7QHXBPJNSJF5KFSMRGG1XRT"
+          ],
+          "turns": [
+            {
+              "speaker": "maya",
+              "text": "Guten Morgen, Jonas. Diese Archiv-Demo fasst Berichte bis einschließlich 19. November 2026 zusammen. Wir beginnen bei Nvidia, weil der Ausblick des Chipkonzerns die Stimmung an den Aktienmärkten bewegte. Invezz berichtet, dass die US-Aktien am Mittwoch höher eröffneten, nachdem Nvidias Umsatzprognose besser als erwartet ausgefallen war. Das ist zunächst eine Aussage über Erwartungen und die Marktreaktion, nicht über einen garantierten weiteren Kursanstieg.",
+              "source_ids": [
+                "INVZ-10009737-01M7QHXBPJNSJF5KFSMRGG1XRT"
+              ]
+            },
+            {
+              "speaker": "leo",
+              "text": "Für die Fundamentalanalyse hilft eine Trennung in drei Ebenen: die Geschäftsentwicklung, den Ausblick des Unternehmens und den Maßstab, den Anleger bereits angesetzt haben. Eine starke Prognose kann die Erwartungen übertreffen und dennoch Anlass zu Fragen geben, wenn die Bewertung sehr hohe künftige Zuwächse voraussetzt. Invezz beschreibt die Geschichte ausdrücklich als noch in Bewegung. Aus einem positiven Handelsauftakt folgt daher keine sichere Richtung für einzelne Zulieferer oder Wettbewerber.",
+              "source_ids": [
+                "INVZ-10009737-01M7QHXBPJNSJF5KFSMRGG1XRT"
+              ]
+            },
+            {
+              "speaker": "maya",
+              "text": "Wichtig ist also, was die Prognose tatsächlich sagt und welche Annahmen im Marktpreis stecken. Für einen Investor sind diese beiden Größen nicht identisch, selbst wenn sie am selben Tag aufeinander treffen.",
+              "source_ids": [
+                "INVZ-10009737-01M7QHXBPJNSJF5KFSMRGG1XRT"
+              ]
+            }
+          ]
+        },
+        {
+          "story_id": "story-9",
+          "title": "Home Depot: Zahlen und Führungswechsel",
+          "summary": "Laut Invezz übertraf Home Depot die Gewinnerwartungen und kündigte eine Nachfolge an der Unternehmensspitze an. Zugleich beschreibt der Bericht schwache Ausgaben für größere, aufschiebbare Renovierungen. Gute Quartalszahlen und Vorsicht können zusammenpassen.",
+          "tags": [
+            "earnings",
+            "markets"
+          ],
+          "sources": [
+            {
+              "article_id": "INVZ-10009737-01M7MRXZPTVQ2E6FMSJ44GQXWT",
+              "outlet": "Invezz",
+              "headline": "Home Depot beats earnings and names new CEO: the bigger test is still ahead",
+              "url": "https://invezz.com/news/2026/11/17/home-depot-beats-earnings-and-names-new-ceo-the-bigger-test-is-still-ahead/",
+              "date": "2026-11-17T12:48:59+00:00",
+              "language": "en",
+              "tags": [
+                "markets",
+                "earnings"
+              ],
+              "snippet": "Home Depot HD delivered an earnings beat and a CEO succession announcement on Nov 17, giving investors two reasons to",
+              "translation_key": "INVZ-10009737-01M7MRXZPTVQ2E6FMSJ44GQXWT",
+              "image_url": "https://invezz-wp-media.lon1.digitaloceanspaces.com/2026/11/G-30.png"
+            }
+          ],
+          "claim_source_ids": [
+            "INVZ-10009737-01M7MRXZPTVQ2E6FMSJ44GQXWT"
+          ],
+          "turns": [
+            {
+              "speaker": "leo",
+              "text": "Bei Home Depot zeigt sich, warum Ergebnis und Konjunkturbild nebeneinander betrachtet werden sollten. Invezz berichtet, dass der Baumarktkonzern die Gewinnerwartungen übertraf und eine Nachfolge an der Unternehmensspitze ankündigte. Zugleich beschreibt der Bericht Schwäche bei aufschiebbaren Ausgaben rund um Haus und Renovierung sowie einen vorsichtigen Ausblick.",
+              "source_ids": [
+                "INVZ-10009737-01M7MRXZPTVQ2E6FMSJ44GQXWT"
+              ]
+            },
+            {
+              "speaker": "maya",
+              "text": "Ein Quartal kann also besser als die Schätzung ausfallen, ohne dass damit die Nachfrage insgesamt kräftig wäre. Gerade bei größeren, nicht zwingenden Projekten können Kunden ihre Entscheidung verschieben. Für die Bewertung zählen deshalb nicht nur vergangene Ergebnisse, sondern auch die Frage, ob Margen und Umsatz bei einer vorsichtigeren Kundschaft tragfähig bleiben.",
+              "source_ids": [
+                "INVZ-10009737-01M7MRXZPTVQ2E6FMSJ44GQXWT"
+              ]
+            },
+            {
+              "speaker": "leo",
+              "text": "Der angekündigte Führungswechsel ist ein eigener Beobachtungspunkt. Eine Personalentscheidung verändert nicht sofort die operativen Zahlen; sie wirft aber die Frage auf, wie die künftige Leitung mit dem beschriebenen Umfeld umgehen wird.",
+              "source_ids": [
+                "INVZ-10009737-01M7MRXZPTVQ2E6FMSJ44GQXWT"
+              ]
+            }
+          ]
+        },
+        {
+          "story_id": "story-5",
+          "title": "US-Konsum verliert an Tempo",
+          "summary": "ActionForex meldet ein langsameres monatliches Wachstum der US-Einzelhandelsumsätze. Ohne Autoverkäufe fiel die Entwicklung stärker aus. Gesamtzahl und Teilbereiche erzählen verschiedene Teile der Geschichte; ein einzelner Monat belegt noch keinen Trend.",
+          "tags": [
+            "consumer",
+            "economy",
+            "forex",
+            "fx-pairs",
+            "money"
+          ],
+          "sources": [
+            {
+              "article_id": "ACTI-10010414-01M7NA5BK6CGJSNCX44JT8Z09G",
+              "outlet": "ActionForex",
+              "headline": "US Retail Sales Slow to 0.2%, but Ex-Auto Spending Shows Resilience",
+              "url": "https://www.actionforex.com/live-comments/661220-us-retail-sales-slow-to-0-2-but-ex-auto-spending-shows-resilience/",
+              "date": "2026-11-17T13:38:52+00:00",
+              "language": "en",
+              "tags": [
+                "economy",
+                "money",
+                "forex",
+                "consumer",
+                "fx-pairs"
+              ],
+              "snippet": "US retail sales growth slowed from 0.8% to 0.2% mom in October, matching market expectations and signaling a moderation in",
+              "translation_key": "ACTI-10010414-01M7NA5BK6CGJSNCX44JT8Z09G",
+              "image_url": "https://www.actionforex.com/wp-content/uploads/featured-images/f-usa4.jpg"
+            }
+          ],
+          "claim_source_ids": [
+            "ACTI-10010414-01M7NA5BK6CGJSNCX44JT8Z09G"
+          ],
+          "turns": [
+            {
+              "speaker": "leo",
+              "text": "Ein Konjunkturindikator ergänzt das Unternehmensbild. ActionForex berichtet, dass die US-Einzelhandelsumsätze um 0,2 Prozent gegenüber dem Vormonat stiegen und damit langsamer wuchsen, während die Ausgaben ohne Autos mehr Widerstandskraft zeigten. Die Gesamtzahl und die Kennzahl ohne Autos erzählen damit unterschiedliche Teile der Geschichte.",
+              "source_ids": [
+                "ACTI-10010414-01M7NA5BK6CGJSNCX44JT8Z09G"
+              ]
+            },
+            {
+              "speaker": "maya",
+              "text": "Autos können die Monatszahl stärker bewegen, weil es sich um große Anschaffungen handelt. Wenn der Gesamtwert schwächer ausfällt, der Wert ohne Autos aber robuster ist, sollte man beides nennen statt eine Zahl als vollständiges Bild zu behandeln. Ein einzelner Monat beweist zudem noch keinen dauerhaften Trend.",
+              "source_ids": [
+                "ACTI-10010414-01M7NA5BK6CGJSNCX44JT8Z09G"
+              ]
+            },
+            {
+              "speaker": "leo",
+              "text": "Für Unternehmen ist das ein Hinweis auf die Nachfrage, kein vollständiges Urteil über die US-Wirtschaft. Zusammen mit den vorsichtigen Aussagen bei Home Depot entsteht ein Kontext, den man weiter beobachten kann, ohne daraus vorschnell eine Rezessionsdiagnose abzuleiten.",
+              "source_ids": [
+                "ACTI-10010414-01M7NA5BK6CGJSNCX44JT8Z09G"
+              ]
+            }
+          ]
+        },
+        {
+          "story_id": "story-4",
+          "title": "Japan signalisiert weitere Zinsschritte",
+          "summary": "Laut ActionForex unterstützen Vertreter der Bank of Japan weitere Zinserhöhungen. Die Berichterstattung verbindet dies mit Inflation, Yen und Anleiherenditen. Die Äußerungen zeigen eine Richtung, legen aber den Zeitpunkt künftiger Entscheidungen nicht fest.",
+          "tags": [
+            "ai",
+            "economy",
+            "elections",
+            "forex",
+            "fx-pairs",
+            "inflation",
+            "markets",
+            "rates",
+            "technology",
+            "world"
+          ],
+          "sources": [
+            {
+              "article_id": "ACTI-10010414-01M7Q2T2YDM4K55537D0THDE5D",
+              "outlet": "ActionForex",
+              "headline": "BoJ’s Ueda Backs Further Rate Hikes, Warns Against Suppressing Bond Yields",
+              "url": "https://www.actionforex.com/live-comments/661244-bojs-ueda-backs-further-rate-hikes-warns-against-suppressing-bond-yields/",
+              "date": "2026-11-18T03:02:15+00:00",
+              "language": "en",
+              "tags": [
+                "economy",
+                "world",
+                "rates",
+                "elections"
+              ],
+              "snippet": "BoJ Governor Kazuo Ueda reaffirmed the need for further interest rate increases, arguing that monetary conditions remain accommodative despite the",
+              "translation_key": "ACTI-10010414-01M7Q2T2YDM4K55537D0THDE5D",
+              "image_url": "https://www.actionforex.com/wp-content/uploads/2018/03/f-japan5.jpg"
+            }
+          ],
+          "claim_source_ids": [
+            "ACTI-10010414-01M7Q2T2YDM4K55537D0THDE5D"
+          ],
+          "turns": [
+            {
+              "speaker": "maya",
+              "text": "Auch die japanische Geldpolitik ist für Anleger außerhalb Japans relevant. ActionForex berichtet, dass Notenbankchef Ueda weitere Zinserhöhungen unterstützt und zugleich davor warnt, die Renditen von Staatsanleihen künstlich zu unterdrücken. Seine Äußerung signalisiert eine Richtung, aber keinen festgelegten Termin für den nächsten Beschluss.",
+              "source_ids": [
+                "ACTI-10010414-01M7Q2T2YDM4K55537D0THDE5D"
+              ]
+            },
+            {
+              "speaker": "leo",
+              "text": "Der Zusammenhang ist grundsätzlich wichtig: Wenn Märkte höhere Leitzinsen erwarten, können sich die relativen Renditen zwischen Ländern und damit die Nachfrage nach Währungen verändern. Bei Anleihen sind Rendite und Kurs außerdem gegenläufig. Das erklärt, warum Aussagen über Zinsen und Anleiherenditen oft gemeinsam diskutiert werden.",
+              "source_ids": [
+                "ACTI-10010414-01M7Q2T2YDM4K55537D0THDE5D"
+              ]
+            },
+            {
+              "speaker": "maya",
+              "text": "Die konkrete Umsetzung hängt aber von den späteren Entscheidungen und Daten ab. Eine Rede ist ein Hinweis auf die Sicht der Notenbank, nicht die Entscheidung selbst.",
+              "source_ids": [
+                "ACTI-10010414-01M7Q2T2YDM4K55537D0THDE5D"
+              ]
+            }
+          ]
+        },
+        {
+          "story_id": "story-6",
+          "title": "Das Ölangebot verändert sich",
+          "summary": "Invezz berichtet über fallende Ölpreise, ein höheres Angebot und Nachfragesorgen. Der Artikel verweist auf eine IEA-Prognose für ein Überangebot. Diese Schätzung ist eine Prognose; die beschriebenen Kursbewegungen beziehen sich auf einen bestimmten Handelstag.",
+          "tags": [
+            "economy",
+            "energy",
+            "oil",
+            "trade",
+            "world"
+          ],
+          "sources": [
+            {
+              "article_id": "INVZ-10009737-01M7M5RJNGNNWHKAMQWXKMCNSZ",
+              "outlet": "Invezz",
+              "headline": "Brent crude price analysis: will oil crash below $90 as supply glut grows?",
+              "url": "https://invezz.com/news/2026/11/17/brent-crude-price-analysis-will-oil-crash-below-90-as-supply-glut-grows/",
+              "date": "2026-11-17T07:12:53+00:00",
+              "language": "en",
+              "tags": [
+                "world",
+                "energy",
+                "economy",
+                "trade",
+                "oil"
+              ],
+              "snippet": "Oil prices fell for a second consecutive session on Tuesday as recovering Middle East exports and weakening demand pushed Brent",
+              "translation_key": "INVZ-10009737-01M7M5RJNGNNWHKAMQWXKMCNSZ",
+              "image_url": "https://invezz-wp-media.lon1.digitaloceanspaces.com/2026/11/19.png"
+            }
+          ],
+          "claim_source_ids": [
+            "INVZ-10009737-01M7M5RJNGNNWHKAMQWXKMCNSZ"
+          ],
+          "turns": [
+            {
+              "speaker": "leo",
+              "text": "Zum Schluss Öl: Invezz beschreibt fallende Preise, ein sich erholendes Angebot und Zweifel an der Nachfrage. Der Bericht führt eine Prognose der Internationalen Energieagentur an, wonach das Angebot die Nachfrage übersteigen könnte. Diese Einschätzung ist eine Vorhersage; die Preisbewegung gehört zu einer bestimmten Handelssitzung.",
+              "source_ids": [
+                "INVZ-10009737-01M7M5RJNGNNWHKAMQWXKMCNSZ"
+              ]
+            },
+            {
+              "speaker": "maya",
+              "text": "Für Energiekonzerne und Verbraucher sind das zwei verschiedene Zeithorizonte. Eine aktuelle Notierung spiegelt die Bedingungen des Tages wider, während eine Angebotsprognose ein mögliches späteres Gleichgewicht beschreibt. Fördermengen, Verbrauch und Erwartungen müssen sich erst so entwickeln, dass das Szenario eintritt. Auch eine Jahresprognose sagt wenig über jede einzelne Woche aus: Die Preise können sich verändern, bevor spätere Daten das erwartete Gleichgewicht bestätigen oder infrage stellen.",
+              "source_ids": [
+                "INVZ-10009737-01M7M5RJNGNNWHKAMQWXKMCNSZ"
+              ]
+            },
+            {
+              "speaker": "leo",
+              "text": "Damit endet unser Überblick: Unternehmensausblicke, ein Konsumsignal, die japanische Zinsperspektive und der Ölmarkt. Die Originalberichte sind in den Quellen dieser Kapitel verlinkt. Danke fürs Zuhören, Jonas.",
+              "source_ids": [
+                "INVZ-10009737-01M7M5RJNGNNWHKAMQWXKMCNSZ"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "profile_id": "alex",
+      "language": "en",
+      "title": "Alex’s FX desk: rates, data and cross-asset signals",
+      "coverage_date": "2026-11-19",
+      "target_seconds": 300,
+      "chapters": [
+        {
+          "story_id": "story-3",
+          "title": "The dollar and the next Fed decision",
+          "summary": "ActionForex reports on the dollar as investors assess economic releases and the path of US interest rates. Comments from Federal Reserve officials describe their policy views, not an announced decision. The distinction matters when interpreting currency-market expectations.",
+          "tags": [
+            "chips",
+            "consumer",
+            "earnings",
+            "economy",
+            "energy",
+            "forex",
+            "inflation",
+            "markets",
+            "money",
+            "oil",
+            "rates",
+            "technology",
+            "world"
+          ],
+          "sources": [
+            {
+              "article_id": "ACTI-10010414-01M7NA5BK5JPJ29KTEZZ53FDFZ",
+              "outlet": "ActionForex",
+              "headline": "Dollar Firms After Retail Sales as Markets Await Nvidia and Trump–Xi–Putin Talks",
+              "url": "https://www.actionforex.com/action-insight/market-overview/661223-dollar-firms-after-retail-sales-as-markets-await-nvidia-and-trump-xi-putin-talks/",
+              "date": "2026-11-17T14:02:07+00:00",
+              "language": "en",
+              "tags": [
+                "markets",
+                "economy",
+                "technology",
+                "world",
+                "energy",
+                "forex",
+                "money",
+                "earnings",
+                "chips",
+                "consumer",
+                "oil"
+              ],
+              "snippet": "Dollar strengthened following stronger-than-expected underlying US retail sales data on Tuesday, while global markets continued to digest Monday’s Wall Street",
+              "translation_key": "ACTI-10010414-01M7NA5BK5JPJ29KTEZZ53FDFZ",
+              "image_url": "https://www.actionforex.com/wp-content/uploads/2018/12/f-usd168.jpg"
+            }
+          ],
+          "claim_source_ids": [
+            "ACTI-10010414-01M7NA5BK5JPJ29KTEZZ53FDFZ"
+          ],
+          "turns": [
+            {
+              "speaker": "maya",
+              "text": "Good morning, Alex. This is an archive demo using coverage through November nineteenth, twenty twenty-six. Start with the dollar: ActionForex reports it firmed after retail-sales data as markets weighed the path of US rates. The same coverage carries different views from Fed officials. Those comments are policy opinions, not a rate decision, so keep the distinction between realized data and the market’s expected policy path.",
+              "source_ids": [
+                "ACTI-10010414-01M7NA5BK5JPJ29KTEZZ53FDFZ"
+              ]
+            },
+            {
+              "speaker": "leo",
+              "text": "That distinction matters for FX because a currency pair prices relative expectations, not a central bank in isolation. If traders revise the expected US rate path, the dollar can respond, but the reaction also depends on what is priced for the other currency and on broader risk demand. ActionForex reports officials describing their views; it does not say a new move has been announced.",
+              "source_ids": [
+                "ACTI-10010414-01M7NA5BK5JPJ29KTEZZ53FDFZ"
+              ]
+            },
+            {
+              "speaker": "maya",
+              "text": "So the setup is conditional: data can change the distribution of expected outcomes, while a speech can reveal how one policymaker sees the balance of risks. Neither alone tells you what the next meeting will deliver.",
+              "source_ids": [
+                "ACTI-10010414-01M7NA5BK5JPJ29KTEZZ53FDFZ"
+              ]
+            }
+          ]
+        },
+        {
+          "story_id": "story-5",
+          "title": "US shoppers slow down, with a twist",
+          "summary": "ActionForex reports slower monthly growth in US retail sales, with stronger spending when automobiles are excluded. That means the headline and underlying measures tell different parts of the story. A single monthly release should not be treated as proof of a broader trend.",
+          "tags": [
+            "consumer",
+            "economy",
+            "forex",
+            "fx-pairs",
+            "money"
+          ],
+          "sources": [
+            {
+              "article_id": "ACTI-10010414-01M7NA5BK6CGJSNCX44JT8Z09G",
+              "outlet": "ActionForex",
+              "headline": "US Retail Sales Slow to 0.2%, but Ex-Auto Spending Shows Resilience",
+              "url": "https://www.actionforex.com/live-comments/661220-us-retail-sales-slow-to-0-2-but-ex-auto-spending-shows-resilience/",
+              "date": "2026-11-17T13:38:52+00:00",
+              "language": "en",
+              "tags": [
+                "economy",
+                "money",
+                "forex",
+                "consumer",
+                "fx-pairs"
+              ],
+              "snippet": "US retail sales growth slowed from 0.8% to 0.2% mom in October, matching market expectations and signaling a moderation in",
+              "translation_key": "ACTI-10010414-01M7NA5BK6CGJSNCX44JT8Z09G",
+              "image_url": "https://www.actionforex.com/wp-content/uploads/featured-images/f-usa4.jpg"
+            }
+          ],
+          "claim_source_ids": [
+            "ACTI-10010414-01M7NA5BK6CGJSNCX44JT8Z09G"
+          ],
+          "turns": [
+            {
+              "speaker": "leo",
+              "text": "The underlying US release deserves a closer look. ActionForex says retail sales grew by 0.2 percent, while spending excluding autos showed more resilience. Those are not contradictory readings. The headline includes automobiles, which can make the monthly total swing more, while the ex-auto measure isolates another slice of household demand.",
+              "source_ids": [
+                "ACTI-10010414-01M7NA5BK6CGJSNCX44JT8Z09G"
+              ]
+            },
+            {
+              "speaker": "maya",
+              "text": "For a rates trader, the useful question is how much new information this one print adds to the broader inflation and growth picture. A single monthly observation should not be treated as proof of a trend. And the stronger ex-auto detail does not erase the slower headline pace; both belong in the read-through.",
+              "source_ids": [
+                "ACTI-10010414-01M7NA5BK6CGJSNCX44JT8Z09G"
+              ]
+            },
+            {
+              "speaker": "leo",
+              "text": "That is why the market can focus on different components at different moments. Keep the reported figure, the comparison measure, and the policy implication in separate boxes before building a view on the dollar.",
+              "source_ids": [
+                "ACTI-10010414-01M7NA5BK6CGJSNCX44JT8Z09G"
+              ]
+            }
+          ]
+        },
+        {
+          "story_id": "story-4",
+          "title": "Japan signals more rate increases",
+          "summary": "ActionForex reports that Bank of Japan officials support further interest-rate increases. Its coverage connects the policy discussion with inflation, the yen and bond yields. The officials’ comments signal a direction of travel; the timing of future decisions remains separate.",
+          "tags": [
+            "ai",
+            "economy",
+            "elections",
+            "forex",
+            "fx-pairs",
+            "inflation",
+            "markets",
+            "rates",
+            "technology",
+            "world"
+          ],
+          "sources": [
+            {
+              "article_id": "ACTI-10010414-01M7Q2T2YDM4K55537D0THDE5D",
+              "outlet": "ActionForex",
+              "headline": "BoJ’s Ueda Backs Further Rate Hikes, Warns Against Suppressing Bond Yields",
+              "url": "https://www.actionforex.com/live-comments/661244-bojs-ueda-backs-further-rate-hikes-warns-against-suppressing-bond-yields/",
+              "date": "2026-11-18T03:02:15+00:00",
+              "language": "en",
+              "tags": [
+                "economy",
+                "world",
+                "rates",
+                "elections"
+              ],
+              "snippet": "BoJ Governor Kazuo Ueda reaffirmed the need for further interest rate increases, arguing that monetary conditions remain accommodative despite the",
+              "translation_key": "ACTI-10010414-01M7Q2T2YDM4K55537D0THDE5D",
+              "image_url": "https://www.actionforex.com/wp-content/uploads/2018/03/f-japan5.jpg"
+            }
+          ],
+          "claim_source_ids": [
+            "ACTI-10010414-01M7Q2T2YDM4K55537D0THDE5D"
+          ],
+          "turns": [
+            {
+              "speaker": "maya",
+              "text": "Across the Pacific, ActionForex reports that Bank of Japan governor Ueda supports further rate increases and warns against suppressing bond yields. That language points toward normalization, but it does not set the timing or size of a future move.",
+              "source_ids": [
+                "ACTI-10010414-01M7Q2T2YDM4K55537D0THDE5D"
+              ]
+            },
+            {
+              "speaker": "leo",
+              "text": "For yen crosses, the channel is relative rates: a change in expected Japanese yields can alter the gap investors compare with yields elsewhere. But the exchange rate also reflects what was already priced, and a policy signal may be gradual. Ueda’s comments are evidence about the policy discussion, not an official schedule.",
+              "source_ids": [
+                "ACTI-10010414-01M7Q2T2YDM4K55537D0THDE5D"
+              ]
+            },
+            {
+              "speaker": "maya",
+              "text": "The bond reference matters too. Bond prices and yields generally move in opposite directions, so resistance to suppressing yields is relevant to market functioning as well as the rate outlook. The next question is whether later decisions and inflation conditions reinforce that signal.",
+              "source_ids": [
+                "ACTI-10010414-01M7Q2T2YDM4K55537D0THDE5D"
+              ]
+            }
+          ]
+        },
+        {
+          "story_id": "story-6",
+          "title": "Oil faces a changing supply picture",
+          "summary": "Invezz reports falling oil prices alongside recovering supplies and concerns about demand. The article cites an International Energy Agency forecast for supply to exceed demand. That supply estimate is a forecast, while the reported price moves describe a specific trading session.",
+          "tags": [
+            "economy",
+            "energy",
+            "oil",
+            "trade",
+            "world"
+          ],
+          "sources": [
+            {
+              "article_id": "INVZ-10009737-01M7M5RJNGNNWHKAMQWXKMCNSZ",
+              "outlet": "Invezz",
+              "headline": "Brent crude price analysis: will oil crash below $90 as supply glut grows?",
+              "url": "https://invezz.com/news/2026/11/17/brent-crude-price-analysis-will-oil-crash-below-90-as-supply-glut-grows/",
+              "date": "2026-11-17T07:12:53+00:00",
+              "language": "en",
+              "tags": [
+                "world",
+                "energy",
+                "economy",
+                "trade",
+                "oil"
+              ],
+              "snippet": "Oil prices fell for a second consecutive session on Tuesday as recovering Middle East exports and weakening demand pushed Brent",
+              "translation_key": "INVZ-10009737-01M7M5RJNGNNWHKAMQWXKMCNSZ",
+              "image_url": "https://invezz-wp-media.lon1.digitaloceanspaces.com/2026/11/19.png"
+            }
+          ],
+          "claim_source_ids": [
+            "INVZ-10009737-01M7M5RJNGNNWHKAMQWXKMCNSZ"
+          ],
+          "turns": [
+            {
+              "speaker": "leo",
+              "text": "Now put energy beside rates. Invezz reports falling oil prices alongside recovering supply and demand concerns, and cites an International Energy Agency forecast for supply to exceed demand. Treat that as a forecast, not a confirmed surplus. The article’s price move describes one trading session, not a permanent regime.",
+              "source_ids": [
+                "INVZ-10009737-01M7M5RJNGNNWHKAMQWXKMCNSZ"
+              ]
+            },
+            {
+              "speaker": "maya",
+              "text": "Oil can matter to FX through more than one route. It affects the terms of trade for importers and exporters, and it can influence inflation expectations. But we should not infer a specific currency move from this report alone; the direction depends on each economy and on how the market had positioned.",
+              "source_ids": [
+                "INVZ-10009737-01M7M5RJNGNNWHKAMQWXKMCNSZ"
+              ]
+            },
+            {
+              "speaker": "leo",
+              "text": "For the desk, the clean distinction is spot market action versus a projected supply balance. The projection can shape scenarios; the session move is the observation. They answer different questions.",
+              "source_ids": [
+                "INVZ-10009737-01M7M5RJNGNNWHKAMQWXKMCNSZ"
+              ]
+            }
+          ]
+        },
+        {
+          "story_id": "story-8",
+          "title": "Gold meets the interest-rate question",
+          "summary": "Invezz reports a modest recovery in gold after a recent low. Its report connects the limited rebound with expectations of higher US interest rates. Market-implied probabilities are estimates of expectations, rather than promises about the next policy decision.",
+          "tags": [
+            "economy",
+            "energy",
+            "markets",
+            "metals",
+            "rates"
+          ],
+          "sources": [
+            {
+              "article_id": "INVZ-10009737-01M7MPXYNEGKR9R56BWHST1EGR",
+              "outlet": "Invezz",
+              "headline": "Gold gains slightly to recover from one-year low: what's next?",
+              "url": "https://invezz.com/news/2026/11/17/gold-gains-slightly-to-recover-from-one-year-low-whats-next/",
+              "date": "2026-11-17T12:10:56+00:00",
+              "language": "en",
+              "tags": [
+                "markets",
+                "economy",
+                "energy",
+                "rates",
+                "metals"
+              ],
+              "snippet": "Gold prices edged higher on Tuesday, although gains remained limited as expectations of another Federal Reserve interest rate hike continued",
+              "translation_key": "INVZ-10009737-01M7MPXYNEGKR9R56BWHST1EGR",
+              "image_url": "https://invezz-wp-media.lon1.digitaloceanspaces.com/2026/11/G-10.png"
+            }
+          ],
+          "claim_source_ids": [
+            "INVZ-10009737-01M7MPXYNEGKR9R56BWHST1EGR"
+          ],
+          "turns": [
+            {
+              "speaker": "maya",
+              "text": "Gold offers another cross-asset check. Invezz describes a modest recovery after a recent low and links the limited rebound with expectations of higher US interest rates. The report also refers to market-implied probabilities. Those probabilities summarize pricing, not a promise from the Federal Reserve.",
+              "source_ids": [
+                "INVZ-10009737-01M7MPXYNEGKR9R56BWHST1EGR"
+              ]
+            },
+            {
+              "speaker": "leo",
+              "text": "Gold does not pay a coupon, so higher expected yields can raise the opportunity cost of holding it. That is a standard relationship to consider, not a mechanical rule for every session. A small rebound after a low also should not be confused with a confirmed trend reversal.",
+              "source_ids": [
+                "INVZ-10009737-01M7MPXYNEGKR9R56BWHST1EGR"
+              ]
+            },
+            {
+              "speaker": "leo",
+              "text": "For a macro trader, the useful comparison is whether yields, the dollar, and gold are moving consistently with the same policy narrative—or whether price action is telling a more mixed story. That is the desk brief: separate data from expectations, policy comments from decisions, and observed prices from forecasts. The original reporting is linked in each chapter. Thanks, Alex; good luck at the screens.",
+              "source_ids": [
+                "INVZ-10009737-01M7MPXYNEGKR9R56BWHST1EGR"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "profile_id": "sam",
+      "language": "en",
+      "title": "Sam’s world and everyday briefing",
+      "coverage_date": "2026-11-19",
+      "target_seconds": 300,
+      "chapters": [
+        {
+          "story_id": "story-14",
+          "title": "The flight disruption: what is established",
+          "summary": "IBTimes UK reports on disruption following a nationwide US departure halt. Its coverage says investigators were still examining the technical cause. Political accusations in the report are attributed statements and do not establish responsibility for the failure.",
+          "tags": [
+            "elections",
+            "markets",
+            "outages",
+            "technology",
+            "world"
+          ],
+          "sources": [
+            {
+              "article_id": "IBTU-10010345-01M7GX2F8QZN055W4DHGMCJXGM",
+              "outlet": "International Business Times UK",
+              "headline": "Trump Blames Biden for US Flight Crisis Despite FAA Saying Root Cause of Nationwide Ground Stop Is Unclear",
+              "url": "https://www.ibtimes.co.uk/trump-biden-us-flight-crisis-faa-investigation-1832364",
+              "date": "2026-11-15T22:15:57+00:00",
+              "language": "en",
+              "tags": [
+                "markets",
+                "world"
+              ],
+              "snippet": "A nationwide US flight ground stop caused thousands of cancellations and delays after a telecommunications failure affected FAA systems, while",
+              "translation_key": "IBTU-10010345-01M7GX2F8QZN055W4DHGMCJXGM",
+              "image_url": "https://d.ibtimes.co.uk/en/full/1844144/donald-trump-blames-biden-us-flight-crisis-amid-faa.jpg"
+            }
+          ],
+          "claim_source_ids": [
+            "IBTU-10010345-01M7GX2F8QZN055W4DHGMCJXGM"
+          ],
+          "turns": [
+            {
+              "speaker": "maya",
+              "text": "Hi, Sam. This is an archive demo, with reporting through November nineteenth, twenty twenty-six. We’ll start with a travel story where the confirmed facts matter. International Business Times UK reports on disruption after a nationwide US departure halt. Its coverage says investigators were still examining the technical cause. Political accusations in the report are attributed statements; they do not establish who was responsible for the failure.",
+              "source_ids": [
+                "IBTU-10010345-01M7GX2F8QZN055W4DHGMCJXGM"
+              ]
+            },
+            {
+              "speaker": "leo",
+              "text": "That is a useful way to read a fast-moving disruption. Passengers experience delays and cancellations directly, but the cause can remain uncertain while investigators work. The article’s headline includes blame being assigned by a political figure, yet the report also says the root cause was unclear. Those are different kinds of information, and the attribution should stay attached to the accusation.",
+              "source_ids": [
+                "IBTU-10010345-01M7GX2F8QZN055W4DHGMCJXGM"
+              ]
+            },
+            {
+              "speaker": "maya",
+              "text": "For anyone planning a trip, the practical lesson from this coverage is to separate what happened to operations from what is still being investigated. We won’t turn an unresolved technical question into a conclusion.",
+              "source_ids": [
+                "IBTU-10010345-01M7GX2F8QZN055W4DHGMCJXGM"
+              ]
+            }
+          ]
+        },
+        {
+          "story_id": "story-13",
+          "title": "A phone scam with a real-world pickup",
+          "summary": "IBTimes UK reports a Las Vegas police warning about callers impersonating officials and arranging collection of money or valuables. The article says some collections involve rideshare drivers who may not know what they are transporting. The warning concerns the specific scheme described by police.",
+          "tags": [
+            "consumer",
+            "markets",
+            "money"
+          ],
+          "sources": [
+            {
+              "article_id": "IBTU-10010345-01M7QZNF24FPDB09657X3T42F4",
+              "outlet": "International Business Times UK",
+              "headline": "Police Issue Urgent Warning Over Phone Scam That Could Wipe Out Your Life Savings",
+              "url": "https://www.ibtimes.co.uk/las-vegas-police-phone-scam-cash-valuables-1833053",
+              "date": "2026-11-18T14:58:08+00:00",
+              "language": "en",
+              "tags": [
+                "markets",
+                "money",
+                "consumer"
+              ],
+              "snippet": "Las Vegas police warn of a phone scam involving fake officials, urgent demands, and rideshare collections of cash, cards, and",
+              "translation_key": "IBTU-10010345-01M7QZNF24FPDB09657X3T42F4",
+              "image_url": "https://d.ibtimes.co.uk/en/full/1844839/scam.jpg"
+            }
+          ],
+          "claim_source_ids": [
+            "IBTU-10010345-01M7QZNF24FPDB09657X3T42F4"
+          ],
+          "turns": [
+            {
+              "speaker": "leo",
+              "text": "A more personal warning comes from Las Vegas. International Business Times UK reports that police warned about callers impersonating officials and arranging pickups of money or valuables. The article says some rideshare drivers may not know what they are transporting. The warning concerns this particular scheme described by police.",
+              "source_ids": [
+                "IBTU-10010345-01M7QZNF24FPDB09657X3T42F4"
+              ]
+            },
+            {
+              "speaker": "maya",
+              "text": "The pattern to recognize is pressure: a caller claims authority, insists something urgent must happen, and directs you to hand over cash or valuables. If a call asks for an unusual transfer or collection, pause and contact the agency through a number you find independently. That is general safety context, while the specific warning in this report is the Las Vegas police account.",
+              "source_ids": [
+                "IBTU-10010345-01M7QZNF24FPDB09657X3T42F4"
+              ]
+            },
+            {
+              "speaker": "leo",
+              "text": "And the pickup detail is a reminder that a familiar delivery or rideshare service can be pulled into a scam without the driver understanding the full situation. The important thing is to verify the request before anything leaves your hands.",
+              "source_ids": [
+                "IBTU-10010345-01M7QZNF24FPDB09657X3T42F4"
+              ]
+            }
+          ]
+        },
+        {
+          "story_id": "story-17",
+          "title": "Banking interruptions and unanswered questions",
+          "summary": "IBTimes UK reports customer complaints about access to US online banking. The article distinguishes user reports from confirmed independent outages at every named bank. Speculation about a cyberattack does not establish the cause.",
+          "tags": [
+            "ai",
+            "banking",
+            "money",
+            "outages",
+            "technology",
+            "world"
+          ],
+          "sources": [
+            {
+              "article_id": "IBTU-10010345-01M7KJ1K3NDCFP1TYNSSJ1KY3F",
+              "outlet": "International Business Times UK",
+              "headline": "Chase Outage Sparks Cyberattack Fears as Thousands Report US Banking Problems",
+              "url": "https://www.ibtimes.co.uk/us-bank-outages-chase-software-bug-cyberattack-fears-1832680",
+              "date": "2026-11-16T22:55:50+00:00",
+              "language": "en",
+              "tags": [
+                "technology",
+                "world",
+                "money",
+                "ai",
+                "outages",
+                "banking"
+              ],
+              "snippet": "Thousands report US banking problems, but Chase says the disruption was a software bug, not a cyberattack.",
+              "translation_key": "IBTU-10010345-01M7KJ1K3NDCFP1TYNSSJ1KY3F",
+              "image_url": "https://d.ibtimes.co.uk/en/full/1844468/chase-bank-outage-us.png"
+            }
+          ],
+          "claim_source_ids": [
+            "IBTU-10010345-01M7KJ1K3NDCFP1TYNSSJ1KY3F"
+          ],
+          "turns": [
+            {
+              "speaker": "maya",
+              "text": "There is also a separate online-banking story. International Business Times UK reports customer complaints about access to US banking services. The article distinguishes those user reports from confirmed independent outages at every named bank. It says Chase described its disruption as a software bug; speculation about a cyberattack does not establish the cause.",
+              "source_ids": [
+                "IBTU-10010345-01M7KJ1K3NDCFP1TYNSSJ1KY3F"
+              ]
+            },
+            {
+              "speaker": "leo",
+              "text": "That distinction helps avoid turning a wave of posts into a claim that every institution was breached. A customer may have trouble logging in for several reasons, and a bank’s service explanation is not the same as a finding about every other service mentioned online. The report presents complaints and an attributed explanation, not proof of a coordinated attack.",
+              "source_ids": [
+                "IBTU-10010345-01M7KJ1K3NDCFP1TYNSSJ1KY3F"
+              ]
+            },
+            {
+              "speaker": "maya",
+              "text": "If you cannot access an account, use the bank’s official app or contact details and avoid links sent in unexpected messages. That is sensible general caution; the article itself leaves the broader cause unsettled.",
+              "source_ids": [
+                "IBTU-10010345-01M7KJ1K3NDCFP1TYNSSJ1KY3F"
+              ]
+            }
+          ]
+        },
+        {
+          "story_id": "story-5",
+          "title": "US shoppers slow down, with a twist",
+          "summary": "ActionForex reports slower monthly growth in US retail sales, with stronger spending when automobiles are excluded. That means the headline and underlying measures tell different parts of the story. A single monthly release should not be treated as proof of a broader trend.",
+          "tags": [
+            "consumer",
+            "economy",
+            "forex",
+            "fx-pairs",
+            "money"
+          ],
+          "sources": [
+            {
+              "article_id": "ACTI-10010414-01M7NA5BK6CGJSNCX44JT8Z09G",
+              "outlet": "ActionForex",
+              "headline": "US Retail Sales Slow to 0.2%, but Ex-Auto Spending Shows Resilience",
+              "url": "https://www.actionforex.com/live-comments/661220-us-retail-sales-slow-to-0-2-but-ex-auto-spending-shows-resilience/",
+              "date": "2026-11-17T13:38:52+00:00",
+              "language": "en",
+              "tags": [
+                "economy",
+                "money",
+                "forex",
+                "consumer",
+                "fx-pairs"
+              ],
+              "snippet": "US retail sales growth slowed from 0.8% to 0.2% mom in October, matching market expectations and signaling a moderation in",
+              "translation_key": "ACTI-10010414-01M7NA5BK6CGJSNCX44JT8Z09G",
+              "image_url": "https://www.actionforex.com/wp-content/uploads/featured-images/f-usa4.jpg"
+            }
+          ],
+          "claim_source_ids": [
+            "ACTI-10010414-01M7NA5BK6CGJSNCX44JT8Z09G"
+          ],
+          "turns": [
+            {
+              "speaker": "maya",
+              "text": "Before we leave everyday money, a quick look at what households were buying. ActionForex reports that US retail sales rose by 0.2 percent in October, after a 0.8 percent increase in September. So sales were still growing, but at a slower monthly pace.",
+              "source_ids": [
+                "ACTI-10010414-01M7NA5BK6CGJSNCX44JT8Z09G"
+              ]
+            },
+            {
+              "speaker": "leo",
+              "text": "And the detail matters. The report says sales excluding automobiles rose by 0.6 percent. The headline and the figure without cars describe different parts of spending. Neither makes the other wrong. This is one month of data, rather than proof of a lasting trend. For a general news listener, the useful takeaway is that a slower overall number can sit beside more resilient spending in some categories.",
+              "source_ids": [
+                "ACTI-10010414-01M7NA5BK6CGJSNCX44JT8Z09G"
+              ]
+            }
+          ]
+        },
+        {
+          "story_id": "story-18",
+          "title": "Indian design at the Earthshot gala",
+          "summary": "IBTimes UK covers the Earthshot awards appearance in Mumbai and the Indian designers behind the royal outfits. The report includes the designer’s account of how an existing boutique garment was adapted for the event.",
+          "tags": [
+            "culture",
+            "markets"
+          ],
+          "sources": [
+            {
+              "article_id": "IBTU-10010345-01M7Q3B2KT3692A2JEQYHZ2416",
+              "outlet": "International Business Times UK",
+              "headline": "Kate Middleton's Red Anarkali Steals the Show at Mumbai Earthshot Gala as Prince William Matches Her in Black",
+              "url": "https://www.ibtimes.co.uk/kate-middleton-earthshot-prize-anarkali-london-boutique-1833068",
+              "date": "2026-11-18T09:22:47+00:00",
+              "language": "en",
+              "tags": [
+                "markets",
+                "culture"
+              ],
+              "snippet": "Kate Middleton wore a red Mahima Mahajan Anarkali at the Earthshot Prize ceremony in Mumbai, after Kensington Palace arranged alterations",
+              "translation_key": "IBTU-10010345-01M7Q3B2KT3692A2JEQYHZ2416",
+              "image_url": "https://d.ibtimes.co.uk/en/full/1844862/prince-william-princess-catherine.png"
+            }
+          ],
+          "claim_source_ids": [
+            "IBTU-10010345-01M7Q3B2KT3692A2JEQYHZ2416"
+          ],
+          "turns": [
+            {
+              "speaker": "leo",
+              "text": "A lighter stop: International Business Times UK covers the Earthshot awards in Mumbai and the Indian designers behind the royal outfits. The story says designer Mahima Mahajan’s existing boutique garment was adapted for the event. It is a small detail, but it shifts attention from the famous guests to the craft and work of the designers.",
+              "source_ids": [
+                "IBTU-10010345-01M7Q3B2KT3692A2JEQYHZ2416"
+              ]
+            },
+            {
+              "speaker": "maya",
+              "text": "That gives the fashion coverage a local angle. The report connects a globally visible ceremony with a garment already in a designer’s boutique and the alterations made for the occasion. It is also a reminder that cultural stories can be about the people and skills behind the image, not just the red-carpet moment.",
+              "source_ids": [
+                "IBTU-10010345-01M7Q3B2KT3692A2JEQYHZ2416"
+              ]
+            },
+            {
+              "speaker": "leo",
+              "text": "We’ve covered travel disruption, a scam warning, banking access, household spending and Indian design. Each chapter links to its original reporting so you can check the details. Thanks for listening, Sam.",
+              "source_ids": [
+                "IBTU-10010345-01M7Q3B2KT3692A2JEQYHZ2416"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "profile_id": "free-demo",
+      "language": "en",
+      "title": "Your Free daily briefing",
+      "coverage_date": "2026-11-19",
+      "target_seconds": 300,
+      "chapters": [
+        {
+          "story_id": "story-14",
+          "title": "The flight disruption: what is established",
+          "summary": "IBTimes UK reports on disruption following a nationwide US departure halt. Its coverage says investigators were still examining the technical cause. Political accusations in the report are attributed statements and do not establish responsibility for the failure.",
+          "tags": [
+            "elections",
+            "markets",
+            "outages",
+            "technology",
+            "world"
+          ],
+          "sources": [
+            {
+              "article_id": "IBTU-10010345-01M7GX2F8QZN055W4DHGMCJXGM",
+              "outlet": "International Business Times UK",
+              "headline": "Trump Blames Biden for US Flight Crisis Despite FAA Saying Root Cause of Nationwide Ground Stop Is Unclear",
+              "url": "https://www.ibtimes.co.uk/trump-biden-us-flight-crisis-faa-investigation-1832364",
+              "date": "2026-11-15T22:15:57+00:00",
+              "language": "en",
+              "tags": [
+                "markets",
+                "world"
+              ],
+              "snippet": "A nationwide US flight ground stop caused thousands of cancellations and delays after a telecommunications failure affected FAA systems, while",
+              "translation_key": "IBTU-10010345-01M7GX2F8QZN055W4DHGMCJXGM",
+              "image_url": "https://d.ibtimes.co.uk/en/full/1844144/donald-trump-blames-biden-us-flight-crisis-amid-faa.jpg"
+            }
+          ],
+          "claim_source_ids": [
+            "IBTU-10010345-01M7GX2F8QZN055W4DHGMCJXGM"
+          ],
+          "turns": [
+            {
+              "speaker": "maya",
+              "text": "Welcome to your Free briefing. This is an archive demo, with reporting through November nineteenth, twenty twenty-six. We’ll start with a travel story where the confirmed facts matter. International Business Times UK reports on disruption after a nationwide US departure halt. Its coverage says investigators were still examining the technical cause. Political accusations in the report are attributed statements; they do not establish who was responsible for the failure.",
+              "source_ids": [
+                "IBTU-10010345-01M7GX2F8QZN055W4DHGMCJXGM"
+              ]
+            },
+            {
+              "speaker": "leo",
+              "text": "That is a useful way to read a fast-moving disruption. Passengers experience delays and cancellations directly, but the cause can remain uncertain while investigators work. The article’s headline includes blame being assigned by a political figure, yet the report also says the root cause was unclear. Those are different kinds of information, and the attribution should stay attached to the accusation.",
+              "source_ids": [
+                "IBTU-10010345-01M7GX2F8QZN055W4DHGMCJXGM"
+              ]
+            },
+            {
+              "speaker": "maya",
+              "text": "For anyone planning a trip, the practical lesson from this coverage is to separate what happened to operations from what is still being investigated. We won’t turn an unresolved technical question into a conclusion.",
+              "source_ids": [
+                "IBTU-10010345-01M7GX2F8QZN055W4DHGMCJXGM"
+              ]
+            }
+          ]
+        },
+        {
+          "story_id": "story-13",
+          "title": "A phone scam with a real-world pickup",
+          "summary": "IBTimes UK reports a Las Vegas police warning about callers impersonating officials and arranging collection of money or valuables. The article says some collections involve rideshare drivers who may not know what they are transporting. The warning concerns the specific scheme described by police.",
+          "tags": [
+            "consumer",
+            "markets",
+            "money"
+          ],
+          "sources": [
+            {
+              "article_id": "IBTU-10010345-01M7QZNF24FPDB09657X3T42F4",
+              "outlet": "International Business Times UK",
+              "headline": "Police Issue Urgent Warning Over Phone Scam That Could Wipe Out Your Life Savings",
+              "url": "https://www.ibtimes.co.uk/las-vegas-police-phone-scam-cash-valuables-1833053",
+              "date": "2026-11-18T14:58:08+00:00",
+              "language": "en",
+              "tags": [
+                "markets",
+                "money",
+                "consumer"
+              ],
+              "snippet": "Las Vegas police warn of a phone scam involving fake officials, urgent demands, and rideshare collections of cash, cards, and",
+              "translation_key": "IBTU-10010345-01M7QZNF24FPDB09657X3T42F4",
+              "image_url": "https://d.ibtimes.co.uk/en/full/1844839/scam.jpg"
+            }
+          ],
+          "claim_source_ids": [
+            "IBTU-10010345-01M7QZNF24FPDB09657X3T42F4"
+          ],
+          "turns": [
+            {
+              "speaker": "leo",
+              "text": "A more personal warning comes from Las Vegas. International Business Times UK reports that police warned about callers impersonating officials and arranging pickups of money or valuables. The article says some rideshare drivers may not know what they are transporting. The warning concerns this particular scheme described by police.",
+              "source_ids": [
+                "IBTU-10010345-01M7QZNF24FPDB09657X3T42F4"
+              ]
+            },
+            {
+              "speaker": "maya",
+              "text": "The pattern to recognize is pressure: a caller claims authority, insists something urgent must happen, and directs you to hand over cash or valuables. If a call asks for an unusual transfer or collection, pause and contact the agency through a number you find independently. That is general safety context, while the specific warning in this report is the Las Vegas police account.",
+              "source_ids": [
+                "IBTU-10010345-01M7QZNF24FPDB09657X3T42F4"
+              ]
+            },
+            {
+              "speaker": "leo",
+              "text": "And the pickup detail is a reminder that a familiar delivery or rideshare service can be pulled into a scam without the driver understanding the full situation. The important thing is to verify the request before anything leaves your hands.",
+              "source_ids": [
+                "IBTU-10010345-01M7QZNF24FPDB09657X3T42F4"
+              ]
+            }
+          ]
+        },
+        {
+          "story_id": "story-17",
+          "title": "Banking interruptions and unanswered questions",
+          "summary": "IBTimes UK reports customer complaints about access to US online banking. The article distinguishes user reports from confirmed independent outages at every named bank. Speculation about a cyberattack does not establish the cause.",
+          "tags": [
+            "ai",
+            "banking",
+            "money",
+            "outages",
+            "technology",
+            "world"
+          ],
+          "sources": [
+            {
+              "article_id": "IBTU-10010345-01M7KJ1K3NDCFP1TYNSSJ1KY3F",
+              "outlet": "International Business Times UK",
+              "headline": "Chase Outage Sparks Cyberattack Fears as Thousands Report US Banking Problems",
+              "url": "https://www.ibtimes.co.uk/us-bank-outages-chase-software-bug-cyberattack-fears-1832680",
+              "date": "2026-11-16T22:55:50+00:00",
+              "language": "en",
+              "tags": [
+                "technology",
+                "world",
+                "money",
+                "ai",
+                "outages",
+                "banking"
+              ],
+              "snippet": "Thousands report US banking problems, but Chase says the disruption was a software bug, not a cyberattack.",
+              "translation_key": "IBTU-10010345-01M7KJ1K3NDCFP1TYNSSJ1KY3F",
+              "image_url": "https://d.ibtimes.co.uk/en/full/1844468/chase-bank-outage-us.png"
+            }
+          ],
+          "claim_source_ids": [
+            "IBTU-10010345-01M7KJ1K3NDCFP1TYNSSJ1KY3F"
+          ],
+          "turns": [
+            {
+              "speaker": "maya",
+              "text": "There is also a separate online-banking story. International Business Times UK reports customer complaints about access to US banking services. The article distinguishes those user reports from confirmed independent outages at every named bank. It says Chase described its disruption as a software bug; speculation about a cyberattack does not establish the cause.",
+              "source_ids": [
+                "IBTU-10010345-01M7KJ1K3NDCFP1TYNSSJ1KY3F"
+              ]
+            },
+            {
+              "speaker": "leo",
+              "text": "That distinction helps avoid turning a wave of posts into a claim that every institution was breached. A customer may have trouble logging in for several reasons, and a bank’s service explanation is not the same as a finding about every other service mentioned online. The report presents complaints and an attributed explanation, not proof of a coordinated attack.",
+              "source_ids": [
+                "IBTU-10010345-01M7KJ1K3NDCFP1TYNSSJ1KY3F"
+              ]
+            },
+            {
+              "speaker": "maya",
+              "text": "If you cannot access an account, use the bank’s official app or contact details and avoid links sent in unexpected messages. That is sensible general caution; the article itself leaves the broader cause unsettled.",
+              "source_ids": [
+                "IBTU-10010345-01M7KJ1K3NDCFP1TYNSSJ1KY3F"
+              ]
+            }
+          ]
+        },
+        {
+          "story_id": "story-5",
+          "title": "US shoppers slow down, with a twist",
+          "summary": "ActionForex reports slower monthly growth in US retail sales, with stronger spending when automobiles are excluded. That means the headline and underlying measures tell different parts of the story. A single monthly release should not be treated as proof of a broader trend.",
+          "tags": [
+            "consumer",
+            "economy",
+            "forex",
+            "fx-pairs",
+            "money"
+          ],
+          "sources": [
+            {
+              "article_id": "ACTI-10010414-01M7NA5BK6CGJSNCX44JT8Z09G",
+              "outlet": "ActionForex",
+              "headline": "US Retail Sales Slow to 0.2%, but Ex-Auto Spending Shows Resilience",
+              "url": "https://www.actionforex.com/live-comments/661220-us-retail-sales-slow-to-0-2-but-ex-auto-spending-shows-resilience/",
+              "date": "2026-11-17T13:38:52+00:00",
+              "language": "en",
+              "tags": [
+                "economy",
+                "money",
+                "forex",
+                "consumer",
+                "fx-pairs"
+              ],
+              "snippet": "US retail sales growth slowed from 0.8% to 0.2% mom in October, matching market expectations and signaling a moderation in",
+              "translation_key": "ACTI-10010414-01M7NA5BK6CGJSNCX44JT8Z09G",
+              "image_url": "https://www.actionforex.com/wp-content/uploads/featured-images/f-usa4.jpg"
+            }
+          ],
+          "claim_source_ids": [
+            "ACTI-10010414-01M7NA5BK6CGJSNCX44JT8Z09G"
+          ],
+          "turns": [
+            {
+              "speaker": "maya",
+              "text": "Before we leave everyday money, a quick look at what households were buying. ActionForex reports that US retail sales rose by 0.2 percent in October, after a 0.8 percent increase in September. So sales were still growing, but at a slower monthly pace.",
+              "source_ids": [
+                "ACTI-10010414-01M7NA5BK6CGJSNCX44JT8Z09G"
+              ]
+            },
+            {
+              "speaker": "leo",
+              "text": "And the detail matters. The report says sales excluding automobiles rose by 0.6 percent. The headline and the figure without cars describe different parts of spending. Neither makes the other wrong. This is one month of data, rather than proof of a lasting trend. For a general news listener, the useful takeaway is that a slower overall number can sit beside more resilient spending in some categories.",
+              "source_ids": [
+                "ACTI-10010414-01M7NA5BK6CGJSNCX44JT8Z09G"
+              ]
+            }
+          ]
+        },
+        {
+          "story_id": "story-18",
+          "title": "Indian design at the Earthshot gala",
+          "summary": "IBTimes UK covers the Earthshot awards appearance in Mumbai and the Indian designers behind the royal outfits. The report includes the designer’s account of how an existing boutique garment was adapted for the event.",
+          "tags": [
+            "culture",
+            "markets"
+          ],
+          "sources": [
+            {
+              "article_id": "IBTU-10010345-01M7Q3B2KT3692A2JEQYHZ2416",
+              "outlet": "International Business Times UK",
+              "headline": "Kate Middleton's Red Anarkali Steals the Show at Mumbai Earthshot Gala as Prince William Matches Her in Black",
+              "url": "https://www.ibtimes.co.uk/kate-middleton-earthshot-prize-anarkali-london-boutique-1833068",
+              "date": "2026-11-18T09:22:47+00:00",
+              "language": "en",
+              "tags": [
+                "markets",
+                "culture"
+              ],
+              "snippet": "Kate Middleton wore a red Mahima Mahajan Anarkali at the Earthshot Prize ceremony in Mumbai, after Kensington Palace arranged alterations",
+              "translation_key": "IBTU-10010345-01M7Q3B2KT3692A2JEQYHZ2416",
+              "image_url": "https://d.ibtimes.co.uk/en/full/1844862/prince-william-princess-catherine.png"
+            }
+          ],
+          "claim_source_ids": [
+            "IBTU-10010345-01M7Q3B2KT3692A2JEQYHZ2416"
+          ],
+          "turns": [
+            {
+              "speaker": "leo",
+              "text": "A lighter stop: International Business Times UK covers the Earthshot awards in Mumbai and the Indian designers behind the royal outfits. The story says designer Mahima Mahajan’s existing boutique garment was adapted for the event. It is a small detail, but it shifts attention from the famous guests to the craft and work of the designers.",
+              "source_ids": [
+                "IBTU-10010345-01M7Q3B2KT3692A2JEQYHZ2416"
+              ]
+            },
+            {
+              "speaker": "maya",
+              "text": "That gives the fashion coverage a local angle. The report connects a globally visible ceremony with a garment already in a designer’s boutique and the alterations made for the occasion. It is also a reminder that cultural stories can be about the people and skills behind the image, not just the red-carpet moment.",
+              "source_ids": [
+                "IBTU-10010345-01M7Q3B2KT3692A2JEQYHZ2416"
+              ]
+            },
+            {
+              "speaker": "leo",
+              "text": "We’ve covered travel disruption, a scam warning, banking access, household spending and Indian design. Each chapter links to its original reporting so you can check the details. Thanks for listening.",
+              "source_ids": [
+                "IBTU-10010345-01M7Q3B2KT3692A2JEQYHZ2416"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "profile_id": "medium-demo",
+      "language": "en",
+      "title": "Your Flow briefing",
+      "coverage_date": "2026-11-19",
+      "target_seconds": 300,
+      "chapters": [
+        {
+          "story_id": "story-1",
+          "title": "The AI earnings story everyone is watching",
+          "summary": "The latest Invezz coverage follows Nvidia earnings and the reaction across technology shares. The report distinguishes the company outlook from investor expectations. This is a developing market story; a strong forecast and a share-price reaction describe different things.",
+          "tags": [
+            "ai",
+            "chips",
+            "consumer",
+            "deals",
+            "earnings",
+            "economy",
+            "markets",
+            "money",
+            "technology",
+            "world"
+          ],
+          "sources": [
+            {
+              "article_id": "INVZ-10009737-01M7QHXBPJNSJF5KFSMRGG1XRT",
+              "outlet": "Invezz",
+              "headline": "Nasdaq rises as Nvidia forecast lifts stocks; Anthropic IPO in focus",
+              "url": "https://invezz.com/news/2026/11/18/nasdaq-rises-as-nvidia-forecast-lifts-stocks-anthropic-ipo-in-focus/",
+              "date": "2026-11-18T14:44:13+00:00",
+              "language": "en",
+              "tags": [
+                "markets",
+                "technology",
+                "deals",
+                "chips",
+                "ai"
+              ],
+              "snippet": "US stocks opened higher on Wednesday as Nvidia’s stronger-than-expected revenue forecast eased concerns about the chipmaker and lifted sentiment across",
+              "translation_key": "INVZ-10009737-01M7QHXBPJNSJF5KFSMRGG1XRT",
+              "image_url": "https://invezz-wp-media.lon1.digitaloceanspaces.com/2026/11/Wall-Street-sign.png"
+            }
+          ],
+          "claim_source_ids": [
+            "INVZ-10009737-01M7QHXBPJNSJF5KFSMRGG1XRT"
+          ],
+          "turns": [
+            {
+              "speaker": "maya",
+              "text": "Welcome to your Flow briefing. This archive demo covers reporting through November nineteenth, twenty twenty-six. Invezz reports that Nvidia’s revenue outlook came in stronger than expected and helped US shares open higher. That gives us two separate facts to keep apart: what the company said about its expected business, and how investors responded in that trading session. A positive opening tells us about the market reaction at that moment; it does not show that every technology company will benefit equally, or that the move will continue.",
+              "source_ids": [
+                "INVZ-10009737-01M7QHXBPJNSJF5KFSMRGG1XRT"
+              ]
+            },
+            {
+              "speaker": "leo",
+              "text": "Right. A forecast is management’s view of future business, while the share price reflects what investors thought before and after hearing it. If a company gives a strong outlook, the next question is whether it beat the expectations already built into the stock. Invezz frames this as a developing market story and distinguishes the corporate outlook from investor expectations. That distinction is useful well beyond Nvidia: a good report can still disappoint if the market had anticipated something even better. We will keep that lens as we move from a headline growth company to firms facing different kinds of uncertainty.",
+              "source_ids": [
+                "INVZ-10009737-01M7QHXBPJNSJF5KFSMRGG1XRT"
+              ]
+            }
+          ]
+        },
+        {
+          "story_id": "story-10",
+          "title": "Intel’s turnaround faces more questions",
+          "summary": "Invezz reports pressure on Intel shares, a change in Nvidia’s disclosed holding and a shareholder lawsuit. The lawsuit contains allegations about past disclosures. An allegation in a complaint is distinct from a court finding.",
+          "tags": [
+            "chips",
+            "markets",
+            "technology"
+          ],
+          "sources": [
+            {
+              "article_id": "INVZ-10009737-01M7N0N67J80W3E4CXG7AK97F2",
+              "outlet": "Invezz",
+              "headline": "Why is Intel stock falling on Tuesday?",
+              "url": "https://invezz.com/news/2026/11/17/why-is-intel-stock-falling-on-tuesday/",
+              "date": "2026-11-17T15:04:57+00:00",
+              "language": "en",
+              "tags": [
+                "markets",
+                "technology",
+                "chips"
+              ],
+              "snippet": "Intel shares INTC fell more than 2% at Tuesday's market open after a regulatory filing revealed that Nvidia had reduced",
+              "translation_key": "INVZ-10009737-01M7N0N67J80W3E4CXG7AK97F2",
+              "image_url": "https://invezz-wp-media.lon1.digitaloceanspaces.com/2026/11/image-68.png"
+            }
+          ],
+          "claim_source_ids": [
+            "INVZ-10009737-01M7N0N67J80W3E4CXG7AK97F2"
+          ],
+          "turns": [
+            {
+              "speaker": "maya",
+              "text": "That brings us to Intel. Invezz reports pressure on the company’s shares, a change in Nvidia’s disclosed holding, and a shareholder lawsuit. The complaint makes allegations about information Intel disclosed in the past. Those allegations are claims filed by investors; they are not a court’s finding that the company committed wrongdoing. Keeping the legal status clear matters because a headline can place the share move and the lawsuit side by side, making them sound like one settled explanation.",
+              "source_ids": [
+                "INVZ-10009737-01M7N0N67J80W3E4CXG7AK97F2"
+              ]
+            },
+            {
+              "speaker": "leo",
+              "text": "They are different pieces of information. A falling share price is a market outcome. A change in another company’s disclosed position may be relevant to investors, but by itself it does not tell us what Intel will earn next. And a complaint records what plaintiffs allege, not what a judge has decided. For an investor, the open questions are still about Intel’s products, competition, costs and future results. The coverage raises issues to examine; it does not provide a complete valuation or prove that a turnaround cannot happen.",
+              "source_ids": [
+                "INVZ-10009737-01M7N0N67J80W3E4CXG7AK97F2"
+              ]
+            }
+          ]
+        },
+        {
+          "story_id": "story-9",
+          "title": "Home Depot: results and a leadership handover",
+          "summary": "Invezz reports that Home Depot exceeded earnings expectations and announced a chief-executive succession. Its coverage also describes continued weakness in discretionary home-improvement spending. Better quarterly results and a cautious outlook can coexist.",
+          "tags": [
+            "earnings",
+            "markets"
+          ],
+          "sources": [
+            {
+              "article_id": "INVZ-10009737-01M7MRXZPTVQ2E6FMSJ44GQXWT",
+              "outlet": "Invezz",
+              "headline": "Home Depot beats earnings and names new CEO: the bigger test is still ahead",
+              "url": "https://invezz.com/news/2026/11/17/home-depot-beats-earnings-and-names-new-ceo-the-bigger-test-is-still-ahead/",
+              "date": "2026-11-17T12:48:59+00:00",
+              "language": "en",
+              "tags": [
+                "markets",
+                "earnings"
+              ],
+              "snippet": "Home Depot HD delivered an earnings beat and a CEO succession announcement on Nov 17, giving investors two reasons to",
+              "translation_key": "INVZ-10009737-01M7MRXZPTVQ2E6FMSJ44GQXWT",
+              "image_url": "https://invezz-wp-media.lon1.digitaloceanspaces.com/2026/11/G-30.png"
+            }
+          ],
+          "claim_source_ids": [
+            "INVZ-10009737-01M7MRXZPTVQ2E6FMSJ44GQXWT"
+          ],
+          "turns": [
+            {
+              "speaker": "maya",
+              "text": "Now a consumer-facing company. Invezz reports that Home Depot beat earnings expectations and announced a chief executive succession. In the same coverage, demand for discretionary home-improvement spending remains weak and the outlook is cautious. Those details can coexist. A company can report a quarter above analysts’ estimates while customers are still holding back on projects they can postpone. “Beat expectations” describes the comparison with a forecast, not necessarily a return to strong growth across every part of the business.",
+              "source_ids": [
+                "INVZ-10009737-01M7MRXZPTVQ2E6FMSJ44GQXWT"
+              ]
+            },
+            {
+              "speaker": "leo",
+              "text": "That makes the coming handover worth following, alongside the demand picture. The leadership announcement is a change in who will guide the company, while the reported results describe recent performance. Investors can watch how the next management team responds to customers who are more careful with optional spending. The article does not resolve how quickly demand may recover, so it is better to leave that as an open question. The broader lesson is to read earnings, customer behavior and guidance together instead of letting one encouraging headline stand in for the whole outlook.",
+              "source_ids": [
+                "INVZ-10009737-01M7MRXZPTVQ2E6FMSJ44GQXWT"
+              ]
+            }
+          ]
+        },
+        {
+          "story_id": "story-6",
+          "title": "Oil faces a changing supply picture",
+          "summary": "Invezz reports falling oil prices alongside recovering supplies and concerns about demand. The article cites an International Energy Agency forecast for supply to exceed demand. That supply estimate is a forecast, while the reported price moves describe a specific trading session.",
+          "tags": [
+            "economy",
+            "energy",
+            "oil",
+            "trade",
+            "world"
+          ],
+          "sources": [
+            {
+              "article_id": "INVZ-10009737-01M7M5RJNGNNWHKAMQWXKMCNSZ",
+              "outlet": "Invezz",
+              "headline": "Brent crude price analysis: will oil crash below $90 as supply glut grows?",
+              "url": "https://invezz.com/news/2026/11/17/brent-crude-price-analysis-will-oil-crash-below-90-as-supply-glut-grows/",
+              "date": "2026-11-17T07:12:53+00:00",
+              "language": "en",
+              "tags": [
+                "world",
+                "energy",
+                "economy",
+                "trade",
+                "oil"
+              ],
+              "snippet": "Oil prices fell for a second consecutive session on Tuesday as recovering Middle East exports and weakening demand pushed Brent",
+              "translation_key": "INVZ-10009737-01M7M5RJNGNNWHKAMQWXKMCNSZ",
+              "image_url": "https://invezz-wp-media.lon1.digitaloceanspaces.com/2026/11/19.png"
+            }
+          ],
+          "claim_source_ids": [
+            "INVZ-10009737-01M7M5RJNGNNWHKAMQWXKMCNSZ"
+          ],
+          "turns": [
+            {
+              "speaker": "maya",
+              "text": "We finish with oil and a different balance of risks. Invezz reports falling prices alongside recovering supplies and concern about demand. The article also cites an International Energy Agency forecast that supply could exceed demand. That last point is a projection, not a measured surplus that has already happened. The reported price decline belongs to a particular trading session, so it should not be treated as a permanent direction for the market.",
+              "source_ids": [
+                "INVZ-10009737-01M7M5RJNGNNWHKAMQWXKMCNSZ"
+              ]
+            },
+            {
+              "speaker": "leo",
+              "text": "For companies and households, oil prices matter as an input and a fuel cost, but one day’s move cannot answer what those costs will be later. A supply forecast offers a possible scenario; the actual balance will depend on how supply and demand develop. That is why it helps to separate the observed price move from the agency’s forward-looking estimate. Today we moved from a technology forecast to legal uncertainty, consumer demand and energy supply. The original reports are linked in each chapter. Thanks for listening to this Flow briefing.",
+              "source_ids": [
+                "INVZ-10009737-01M7M5RJNGNNWHKAMQWXKMCNSZ"
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

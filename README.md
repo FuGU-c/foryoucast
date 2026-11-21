@@ -28,6 +28,8 @@ A mobile-first browser demo for **The Liquid Briefing**, built from the supplied
 
 ## Run locally
 
+The **private team repository now includes six five-minute sample podcasts, 57 English/German/Dutch spoken summaries, and 24 locally served Natural voice previews**. Pull the latest `main`, rebuild the frontend, and restart the backend. The backend installs missing sample editions automatically after the licensed catalog is prepared; it preserves existing editions, personal preferences, history, and summary-only choices. No provider key or n8n connection is required to replay these recordings. Basic device voice previews still depend on voices installed on the listener's computer. Live generation requires a separately configured cloud connection.
+
 Image assets are stored losslessly in `assets/embedded-images.json`. `npm run build`, `npm run dev`, and `npm run preview` restore their original binary files automatically with SHA-256 verification. These generated copies are ignored by Git.
 
 For a complete feature inventory see [ALL_FEATURES.md](ALL_FEATURES.md). To add licensed reporting see [the news intake guide](docs/news-intake.md) and its synthetic JSONL example. For repository scope and setup limits see [GitHub handoff](docs/github-handoff.md). The [2:30 video storyboard](docs/presentation-video/STORYBOARD.md), [Claude capture handoff](docs/presentation-video/CLAUDE-HANDOFF.md) and [podcast-writing guidance](skills/seranews-podcast-writer/SKILL.md) are included.
@@ -64,7 +66,7 @@ python -m backend.worker
 
 For UI development, `npm run dev` serves Vite at port 5173 and proxies API/media requests to port 8000. The built demo needs only the API server and worker. Use a single local worker instance.
 
-SQLite state is saved in `data/liquid.db`; the prepared catalog is `data/catalog.json`. Full source text from the supplied ZIP stays separately in the private local `data/articles.db`, with each original language edition retained. Generated media is stored in `media/`. Do not commit or publicly distribute these files. An app restart preserves account preferences, votes, listening history and editions.
+SQLite state is saved in `data/liquid.db`; the prepared catalog is `data/catalog.json`. Full source text from the supplied ZIP stays separately in the private local `data/articles.db`, with each original language edition retained. New generated media is stored in `media/`. Personal state, new recordings and source databases remain excluded from Git. The explicitly approved fixed sample recordings and their source-linked scripts are shared only in this private team repository for the hackathon. An app restart preserves account preferences, votes, listening history and editions.
 
 For local news updates, place a completed, licensed Newstex-style `.jsonl` file in `data/incoming/` while the worker runs. It checks the folder every 30 seconds, adds new articles and tags, and skips previously imported IDs. The open app checks for a changed catalog every 45 seconds and refreshes when returning to the tab. New coverage can change the topic prompts in Discover and Settings. Imported headlines are available for browsing. Podcast generation uses the reviewed catalog summaries.
 

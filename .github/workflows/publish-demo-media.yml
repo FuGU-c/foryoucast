@@ -1,0 +1,24 @@
+name: Publish private demo media
+on:
+  push:
+    branches: [main]
+    paths: ['.demo-media-transfer/READY']
+permissions:
+  contents: write
+jobs:
+  publish:
+    if: github.event.repository.private && github.event.head_commit.message == 'Stage private demo media'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Restore the approved demo clips
+        run: python3 scripts/restore-demo-media.py
+      - name: Commit verified native audio files
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -f media/demo-samples/*.mp3 media/story-summaries/*.mp3 public/voice-previews/*.mp3
+          git add assets/demo/media-verification.json
+          git rm -r -f .demo-media-transfer
+          git commit -m 'Publish portable demo podcasts and voice previews'
+          git push
