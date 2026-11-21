@@ -3,7 +3,7 @@
 > A personal, **source-linked** news briefing, delivered as a podcast.
 > Built in **2 days** for **an AI hackathon** 🏁 — it didn't make the finals, but the logic is solid and the bones are good. This is the version *after* the hackathon dust settled.
 
-🎬 **[Watch the pitch video]([https://github.com/FuGU-c/seranews/releases/download/v1.0/pitch_video.mp4](https://github.com/FuGU-c/seranews/issues/2#issue-6535726280))** (2.5 min)
+🎬 https://github.com/user-attachments/assets/255cf990-e8ae-4e04-bd3f-5697a3c40747
 > ⚠️ Heads-up: the video may look glitchy or have odd patches in places — the business name and the dataset topic it was about were censored out after recording.
 
 ---
