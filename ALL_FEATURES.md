@@ -19,6 +19,10 @@ Updated 21 November 2026. This describes the implemented local demonstration and
 
 - Seven password-free demo profiles; this selector is not production authentication.
 - Mila: Dutch investor, Dutch narration and investment interests.
+- Mila, Jonas, Alex and Sam default to Horizon. The one-time update preserves their existing interests and history; Free user and Medium user retain their demonstration tiers.
+- Today and the main podcast Play control open the newest completed briefing even after preferences change. Library date filters affect the list, while its main Play control still plays the latest saved edition. Failed, pending, and summary-only editions are excluded.
+- Create briefing always prepares a fresh edition. Temporary writing throttling falls back to the existing reviewed source summaries and displays a notice.
+- Missing Microsoft/system speech voices can fall back to the included Basic recordings for the 19 fixed demo stories in English, Dutch and German. Exact source IDs and summary text must match; one combined MP3 receives measured chapter boundaries. No installed Dutch voice is needed for these unchanged demo stories.
 - Jonas: German investor, German narration and deeper financial explanations.
 - Alex: English-speaking FX trader with currencies and macroeconomic interests.
 - Sam: English-speaking general-news listener with simpler explanations.

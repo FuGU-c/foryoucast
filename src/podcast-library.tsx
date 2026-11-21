@@ -4,6 +4,7 @@ import type {DailyUsage,Edition,Profile,Source} from './types';
 import {languages} from './preferences';
 import {EditionCalendar} from './edition-calendar';
 import {editionDay,localToday,matchesEditionPeriod,periodLabels,type EditionPeriod} from './edition-dates';
+import {latestPlayableBriefing} from './briefing-selection';
 import './library-history.css';
 
 const labelDate=(day:string)=>new Date(day+'T12:00:00Z').toLocaleDateString('en-GB',{day:'numeric',month:'long',timeZone:'Europe/Brussels'});
@@ -17,13 +18,13 @@ export function PodcastLibrary({usage,playbackControls,profile,editions,dates,bu
  const today=localToday();
  const days=[...new Set([today,...editions.map(editionDay)])].sort().reverse();
  const shown=editions.filter(edition=>matchesEditionPeriod(editionDay(edition),period,selected,today));
- const canCreate=dates.length>0&&((profile.plan&&profile.plan!=='free')||!usage?.created);
+ const canCreate=dates.length>0&&usage?.can_create!==false;
  const counts:Record<string,number>={};
  for(const edition of editions){const day=editionDay(edition);counts[day]=(counts[day]||0)+1;}
  const chooseDate=(day:string)=>{setSelected(day);setPeriod('custom');};
  function create(){if(canCreate){setPeriod('today');setSelected('');onCreate();}}
  const emptyTitle=period==='all'?'Your first briefing is waiting.':period==='custom'?'No editions on '+labelDate(selected)+'.':period==='today'?'No editions for today yet.':period==='week'?'No editions this week yet.':'No editions this month yet.';
- const latest=shown.find(edition=>edition.audio_mode!=='summary-only');
+ const latest=latestPlayableBriefing(editions,profile.id);
  return <section className="podcast-library">
   <div className="podcast-library-heading"><div><span className="library-overline">A LITTLE CLARITY, KEPT</span><h1>Podcasts<span>.</span></h1><p>Your days, in perspective.</p></div><button className="library-create" aria-label="Create a new briefing" disabled={busy||createBusy||!canCreate} onClick={create}>{busy||createBusy?<LoaderCircle size={17} className="spin"/>:<Plus size={17}/>}New briefing</button></div>
   <div className="library-listen-card"><span className="library-listen-icon"><Headphones size={28}/></span><div><span className="library-overline">{period==='all'?'YOUR DAILY RITUAL':period==='custom'?labelDate(selected).toUpperCase():periodLabels[period].toUpperCase()}</span><h2>A good day starts<br/>with a little perspective.</h2><p>{languages[profile.language]} · ~{profile.duration} min</p></div><button aria-label="Play latest briefing" disabled={busy||(!latest&&(!canCreate||createBusy))} onClick={()=>latest?onPlay(latest):create()}>{latest?<Play size={20} fill="currentColor"/>:<Plus size={22}/>}</button></div>

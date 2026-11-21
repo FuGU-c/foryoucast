@@ -1,0 +1,192 @@
+{
+  "story-1": {
+    "summaries": {
+      "en": "The latest Invezz coverage follows Nvidia earnings and the reaction across technology shares. The report distinguishes the company outlook from investor expectations. This is a developing market story; a strong forecast and a share-price reaction describe different things.",
+      "nl": "De nieuwste berichtgeving van Invezz volgt de cijfers van Nvidia en de reactie bij technologieaandelen. Het artikel maakt onderscheid tussen de vooruitzichten van het bedrijf en de verwachtingen van beleggers. Dit verhaal ontwikkelt zich nog; een prognose is geen garantie.",
+      "de": "Die aktuelle Invezz-Berichterstattung behandelt Nvidias Zahlen und die Reaktion der Technologieaktien. Der Bericht unterscheidet zwischen dem Ausblick des Unternehmens und den Erwartungen der Anleger. Die Geschichte entwickelt sich weiter; eine Prognose ist keine Zusage."
+    },
+    "claim_source_ids": [
+      "INVZ-10009737-01M7QHXBPJNSJF5KFSMRGG1XRT"
+    ]
+  },
+  "story-2": {
+    "summaries": {
+      "en": "Reports in the supplied dataset describe a leadership transition at Nvidia and the responses around it. Some details are attributed to reports and unnamed sources. Those accounts should remain attributed, rather than being presented as independently established facts.",
+      "nl": "Berichten in de dataset beschrijven een leiderschapswissel bij Nvidia en de reacties daarop. Sommige details komen uit andere berichten en van anonieme bronnen. Die informatie blijft toegeschreven aan de berichtgeving en wordt niet als onafhankelijk bevestigd gepresenteerd.",
+      "de": "Berichte im Datensatz beschreiben einen Führungswechsel bei Nvidia und die Reaktionen darauf. Einige Einzelheiten stammen aus anderen Berichten und von ungenannten Quellen. Diese Angaben bleiben ausdrücklich den jeweiligen Berichten zugeschrieben."
+    },
+    "claim_source_ids": [
+      "IBTU-10010345-01M7JNQ6QZQ8X77R01KT781TGA"
+    ]
+  },
+  "story-3": {
+    "summaries": {
+      "en": "ActionForex reports on the dollar as investors assess economic releases and the path of US interest rates. Comments from Federal Reserve officials describe their policy views, not an announced decision. The distinction matters when interpreting currency-market expectations.",
+      "nl": "ActionForex volgt de dollar terwijl beleggers economische cijfers en de Amerikaanse rente beoordelen. Uitspraken van Fed-bestuurders geven hun beleidsopvattingen weer en zijn geen aangekondigd rentebesluit. Dat onderscheid is belangrijk voor de valutamarkt.",
+      "de": "ActionForex berichtet über den Dollar, Konjunkturdaten und den erwarteten US-Zinspfad. Aussagen einzelner Fed-Mitglieder geben deren Position wieder und sind kein beschlossener Zinsschritt. Für die Einordnung am Devisenmarkt ist dieser Unterschied wichtig."
+    },
+    "claim_source_ids": [
+      "ACTI-10010414-01M7NA5BK5JPJ29KTEZZ53FDFZ"
+    ]
+  },
+  "story-4": {
+    "summaries": {
+      "en": "ActionForex reports that Bank of Japan officials support further interest-rate increases. Its coverage connects the policy discussion with inflation, the yen and bond yields. The officials’ comments signal a direction of travel; the timing of future decisions remains separate.",
+      "nl": "ActionForex meldt dat bestuurders van de Bank of Japan verdere renteverhogingen steunen. De berichtgeving verbindt die discussie met inflatie, de yen en obligatierentes. Hun uitspraken wijzen op een beleidsrichting, zonder de timing van toekomstige besluiten vast te leggen.",
+      "de": "Laut ActionForex unterstützen Vertreter der Bank of Japan weitere Zinserhöhungen. Die Berichterstattung verbindet dies mit Inflation, Yen und Anleiherenditen. Die Äußerungen zeigen eine Richtung, legen aber den Zeitpunkt künftiger Entscheidungen nicht fest."
+    },
+    "claim_source_ids": [
+      "ACTI-10010414-01M7Q2T2YDM4K55537D0THDE5D"
+    ]
+  },
+  "story-5": {
+    "summaries": {
+      "en": "ActionForex reports slower monthly growth in US retail sales, with stronger spending when automobiles are excluded. That means the headline and underlying measures tell different parts of the story. A single monthly release should not be treated as proof of a broader trend.",
+      "nl": "ActionForex meldt een lagere maandelijkse groei van de Amerikaanse detailhandelsverkopen. Zonder autoverkopen was de ontwikkeling sterker. Het totaalcijfer en de onderliggende cijfers vertellen dus verschillende delen van het verhaal; één maand bewijst nog geen trend.",
+      "de": "ActionForex meldet ein langsameres monatliches Wachstum der US-Einzelhandelsumsätze. Ohne Autoverkäufe fiel die Entwicklung stärker aus. Gesamtzahl und Teilbereiche erzählen verschiedene Teile der Geschichte; ein einzelner Monat belegt noch keinen Trend."
+    },
+    "claim_source_ids": [
+      "ACTI-10010414-01M7NA5BK6CGJSNCX44JT8Z09G"
+    ]
+  },
+  "story-6": {
+    "summaries": {
+      "en": "Invezz reports falling oil prices alongside recovering supplies and concerns about demand. The article cites an International Energy Agency forecast for supply to exceed demand. That supply estimate is a forecast, while the reported price moves describe a specific trading session.",
+      "nl": "Invezz beschrijft dalende olieprijzen bij herstellend aanbod en zorgen over de vraag. Het artikel verwijst naar een IEA-raming waarin het aanbod groter is dan de vraag. Die raming is een prognose; de koersbeweging betreft een specifieke handelsdag.",
+      "de": "Invezz berichtet über fallende Ölpreise, ein höheres Angebot und Nachfragesorgen. Der Artikel verweist auf eine IEA-Prognose für ein Überangebot. Diese Schätzung ist eine Prognose; die beschriebenen Kursbewegungen beziehen sich auf einen bestimmten Handelstag."
+    },
+    "claim_source_ids": [
+      "INVZ-10009737-01M7M5RJNGNNWHKAMQWXKMCNSZ"
+    ]
+  },
+  "story-7": {
+    "summaries": {
+      "en": "Invezz reports continued pressure on Bitcoin and withdrawals from US spot Bitcoin funds. The article also includes differing analyst views about a possible bottom. Those opinions do not establish where the price will go next.",
+      "nl": "Invezz beschrijft aanhoudende druk op Bitcoin en uitstroom uit Amerikaanse Bitcoinfondsen. Het artikel bevat ook verschillende analistenmeningen over een mogelijke bodem. Die meningen stellen niet vast waar de koers vervolgens heen gaat.",
+      "de": "Invezz beschreibt anhaltenden Druck auf Bitcoin und Abflüsse aus US-Bitcoinfonds. Der Artikel enthält unterschiedliche Analystenmeinungen zu einem möglichen Tiefpunkt. Daraus lässt sich der weitere Kursverlauf nicht sicher ableiten."
+    },
+    "claim_source_ids": [
+      "INVZ-10009737-01M7MEB92Y0QZR2EG2FS05K3CB"
+    ]
+  },
+  "story-8": {
+    "summaries": {
+      "en": "Invezz reports a modest recovery in gold after a recent low. Its report connects the limited rebound with expectations of higher US interest rates. Market-implied probabilities are estimates of expectations, rather than promises about the next policy decision.",
+      "nl": "Invezz meldt een bescheiden herstel van goud na een recent dieptepunt. Het artikel verbindt het beperkte herstel met verwachtingen van een hogere Amerikaanse rente. Marktverwachtingen zijn geen belofte over het volgende beleidsbesluit.",
+      "de": "Invezz meldet eine leichte Erholung des Goldpreises nach einem jüngsten Tief. Der Bericht stellt einen Zusammenhang mit höheren US-Zinserwartungen her. Markterwartungen sind keine Zusage über die nächste geldpolitische Entscheidung."
+    },
+    "claim_source_ids": [
+      "INVZ-10009737-01M7MPXYNEGKR9R56BWHST1EGR"
+    ]
+  },
+  "story-9": {
+    "summaries": {
+      "en": "Invezz reports that Home Depot exceeded earnings expectations and announced a chief-executive succession. Its coverage also describes continued weakness in discretionary home-improvement spending. Better quarterly results and a cautious outlook can coexist.",
+      "nl": "Invezz meldt dat Home Depot de winstverwachtingen overtrof en een opvolging aan de top aankondigde. Tegelijk beschrijft het artikel zwakke uitgaven aan grotere, niet-noodzakelijke verbouwingen. Betere kwartaalcijfers en voorzichtigheid kunnen dus samengaan.",
+      "de": "Laut Invezz übertraf Home Depot die Gewinnerwartungen und kündigte eine Nachfolge an der Unternehmensspitze an. Zugleich beschreibt der Bericht schwache Ausgaben für größere, aufschiebbare Renovierungen. Gute Quartalszahlen und Vorsicht können zusammenpassen."
+    },
+    "claim_source_ids": [
+      "INVZ-10009737-01M7MRXZPTVQ2E6FMSJ44GQXWT"
+    ]
+  },
+  "story-10": {
+    "summaries": {
+      "en": "Invezz reports pressure on Intel shares, a change in Nvidia’s disclosed holding and a shareholder lawsuit. The lawsuit contains allegations about past disclosures. An allegation in a complaint is distinct from a court finding.",
+      "nl": "Invezz bericht over druk op Intel, een wijziging in Nvidia’s gemelde belang en een rechtszaak van aandeelhouders. De zaak bevat beschuldigingen over eerdere informatieverstrekking. Een beschuldiging is geen rechterlijke vaststelling.",
+      "de": "Invezz berichtet über Kursdruck bei Intel, eine veränderte Nvidia-Beteiligung und eine Aktionärsklage. Die Klage enthält Vorwürfe zu früheren Veröffentlichungen. Ein Vorwurf in einer Klage ist kein gerichtliches Urteil."
+    },
+    "claim_source_ids": [
+      "INVZ-10009737-01M7N0N67J80W3E4CXG7AK97F2"
+    ]
+  },
+  "story-11": {
+    "summaries": {
+      "en": "Invezz reports declines in Salesforce and other software shares during a period of technology disruptions. The article explicitly says no public link has been established between those disruptions and the companies whose shares fell. A market reaction does not establish technical responsibility.",
+      "nl": "Invezz meldt dalingen bij Salesforce en andere softwareaandelen tijdens technologische storingen. Het artikel zegt expliciet dat geen openbaar verband is vastgesteld tussen de storingen en deze bedrijven. Een koersreactie bewijst geen technische verantwoordelijkheid.",
+      "de": "Invezz meldet Verluste bei Salesforce und anderen Softwareaktien während technischer Störungen. Der Bericht hält fest, dass kein öffentlicher Zusammenhang zu diesen Unternehmen belegt ist. Eine Kursreaktion beweist keine technische Verantwortung."
+    },
+    "claim_source_ids": [
+      "INVZ-10009737-01M7NDTCVA90PN4CY9NW7NH11K"
+    ]
+  },
+  "story-12": {
+    "summaries": {
+      "en": "Invezz describes an early analyst endorsement ahead of the Anthropic listing discussed in this dataset. The valuation and growth arguments are the analyst’s estimates. This briefing reports the coverage and does not adopt the rating as a recommendation.",
+      "nl": "Invezz beschrijft een vroeg analistenrapport over de Anthropic-beursgang in deze dataset. De waardering en groeiverwachtingen zijn schattingen van die analist. Deze briefing beschrijft het bericht en neemt de aanbeveling niet over.",
+      "de": "Invezz beschreibt eine frühe Analysteneinschätzung zum im Datensatz behandelten Anthropic-Börsengang. Bewertung und Wachstumserwartungen sind Schätzungen des Analysten. Diese Zusammenfassung übernimmt die Bewertung nicht als Anlageempfehlung."
+    },
+    "claim_source_ids": [
+      "INVZ-10009737-01M7MV777CS94V4FPKKVYMMF85"
+    ]
+  },
+  "story-13": {
+    "summaries": {
+      "en": "IBTimes UK reports a Las Vegas police warning about callers impersonating officials and arranging collection of money or valuables. The article says some collections involve rideshare drivers who may not know what they are transporting. The warning concerns the specific scheme described by police.",
+      "nl": "IBTimes UK beschrijft een politiewaarschuwing uit Las Vegas over bellers die zich voordoen als functionarissen en geld of waardevolle spullen laten ophalen. Soms zouden chauffeurs niet weten wat zij vervoeren. De waarschuwing betreft de door de politie beschreven fraude.",
+      "de": "IBTimes UK berichtet über eine Polizeiwarnung aus Las Vegas: Anrufer geben sich als Amtsträger aus und lassen Geld oder Wertsachen abholen. Manche Fahrer wissen laut Bericht möglicherweise nichts von dem Betrug. Die Warnung bezieht sich auf diese konkrete Masche."
+    },
+    "claim_source_ids": [
+      "IBTU-10010345-01M7QZNF24FPDB09657X3T42F4"
+    ]
+  },
+  "story-14": {
+    "summaries": {
+      "en": "IBTimes UK reports on disruption following a nationwide US departure halt. Its coverage says investigators were still examining the technical cause. Political accusations in the report are attributed statements and do not establish responsibility for the failure.",
+      "nl": "IBTimes UK bericht over verstoringen na een landelijke vertrekstop in de Verenigde Staten. Onderzoekers bekeken volgens het artikel nog de technische oorzaak. Politieke beschuldigingen zijn uitspraken van betrokkenen en stellen geen verantwoordelijkheid vast.",
+      "de": "IBTimes UK berichtet über Störungen nach einem landesweiten US-Abflugstopp. Die technische Ursache wurde laut Bericht noch untersucht. Politische Anschuldigungen sind zugeschriebene Aussagen und belegen keine Verantwortung."
+    },
+    "claim_source_ids": [
+      "IBTU-10010345-01M7GX2F8QZN055W4DHGMCJXGM"
+    ]
+  },
+  "story-15": {
+    "summaries": {
+      "en": "IBTimes UK reports Ukrainian concerns about a speed restriction affecting satellite connections used by interceptor drones. The account attributes the operational claims to President Zelensky. The reported effects should be understood as his account of the situation.",
+      "nl": "IBTimes UK beschrijft Oekraïense zorgen over een snelheidsbeperking bij satellietverbindingen voor onderscheppingsdrones. Het artikel schrijft de operationele beweringen toe aan president Zelensky. Het gaat om zijn beschrijving van de situatie.",
+      "de": "IBTimes UK beschreibt ukrainische Bedenken zu einer Geschwindigkeitsgrenze für Satellitenverbindungen von Abfangdrohnen. Der Bericht schreibt die operativen Angaben Präsident Selenskyj zu. Sie bleiben seine Darstellung der Lage."
+    },
+    "claim_source_ids": [
+      "IBTU-10010345-01M7HSCVE5KD7MB9DZSF88MT4Y"
+    ]
+  },
+  "story-16": {
+    "summaries": {
+      "en": "IBTimes UK describes a leaked video that may hint at a future iPhone design. Apple has not confirmed the design or the product name discussed in the article. A component shown in an online video is not a confirmed finished product.",
+      "nl": "IBTimes UK beschrijft een gelekte video die mogelijk op een toekomstig iPhone-ontwerp wijst. Apple heeft het ontwerp en de genoemde productnaam niet bevestigd. Een onderdeel in een online video is geen bevestigd eindproduct.",
+      "de": "IBTimes UK beschreibt ein geleaktes Video mit Hinweisen auf ein mögliches iPhone-Design. Apple hat weder das Design noch den genannten Produktnamen bestätigt. Ein Bauteil in einem Video ist kein bestätigtes Endprodukt."
+    },
+    "claim_source_ids": [
+      "IBTU-10010345-01M7P70PMMSVCB5BBFNQTKJ9PP"
+    ]
+  },
+  "story-17": {
+    "summaries": {
+      "en": "IBTimes UK reports customer complaints about access to US online banking. The article distinguishes user reports from confirmed independent outages at every named bank. Speculation about a cyberattack does not establish the cause.",
+      "nl": "IBTimes UK beschrijft klachten over toegang tot Amerikaans internetbankieren. Meldingen van gebruikers zijn niet hetzelfde als bevestigde, afzonderlijke storingen bij elke genoemde bank. Speculatie over een cyberaanval stelt de oorzaak niet vast.",
+      "de": "IBTimes UK berichtet über Zugangsprobleme beim US-Onlinebanking. Nutzermeldungen belegen nicht automatisch unabhängige Störungen bei jeder genannten Bank. Spekulationen über einen Cyberangriff klären die Ursache nicht."
+    },
+    "claim_source_ids": [
+      "IBTU-10010345-01M7KJ1K3NDCFP1TYNSSJ1KY3F"
+    ]
+  },
+  "story-18": {
+    "summaries": {
+      "en": "IBTimes UK covers the Earthshot awards appearance in Mumbai and the Indian designers behind the royal outfits. The report includes the designer’s account of how an existing boutique garment was adapted for the event.",
+      "nl": "IBTimes UK beschrijft de Earthshot-prijsuitreiking in Mumbai en de Indiase ontwerpers achter de koninklijke kleding. Een ontwerper vertelt in het artikel hoe een bestaand kledingstuk uit een boetiek voor het evenement werd aangepast.",
+      "de": "IBTimes UK berichtet über die Earthshot-Verleihung in Mumbai und die indischen Designer der königlichen Garderobe. Der Bericht enthält die Schilderung einer Designerin zur Anpassung eines vorhandenen Boutique-Kleides."
+    },
+    "claim_source_ids": [
+      "IBTU-10010345-01M7Q3B2KT3692A2JEQYHZ2416"
+    ]
+  },
+  "story-19": {
+    "summaries": {
+      "en": "Zacks examines the Invesco Global Water exchange-traded fund and explains its investment approach. This is fund research from a publisher, rather than a personal recommendation. A thematic fund’s name is a starting point for understanding its exposure, not a complete risk assessment.",
+      "nl": "Zacks bespreekt het Invesco Global Water-beursfonds en de beleggingsaanpak. Dit is onderzoek van een uitgever, geen persoonlijke aanbeveling. De naam van een themafonds geeft een eerste indruk, maar is geen volledige risicobeoordeling.",
+      "de": "Zacks untersucht den Invesco Global Water ETF und erläutert dessen Ansatz. Es handelt sich um Fondsresearch eines Anbieters, nicht um eine persönliche Empfehlung. Ein Themenname ersetzt keine vollständige Risikobewertung."
+    },
+    "claim_source_ids": [
+      "ZACK-105463-01M7Q9KRTRFTQVTDP9RFEMR14X"
+    ]
+  }
+}

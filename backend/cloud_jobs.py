@@ -392,19 +392,28 @@ def _make_script(service, job, index):
         result = _validate_script(json.loads(cached['script']), story, payload['target_words'])
     else:
         evidence_ids = {item['article_id'] for item in payload['evidence'][index]}
-        if payload['ai_enabled'] and set(story['claim_source_ids']).issubset(evidence_ids):
+        if payload['ai_enabled'] and not payload.get('writing_fallback') and set(story['claim_source_ids']).issubset(evidence_ids):
             request = {'language': payload['profile']['language'], 'depth': payload['profile']['depth'],
                        'target_words': max(1, int(payload['target_words'] * .85)), 'plan': payload['profile']['plan'],
                        'story': _shared_story(story), 'evidence': payload['evidence'][index],
                        'previous_title': payload['stories'][index - 1].get('title') if index else None,
                        'next_title': payload['stories'][index + 1].get('title') if index + 1 < len(payload['stories']) else None,
                        'is_first': index == 0, 'is_last': index == len(payload['stories']) - 1}
-            response = cloud_client.invoke('script', request, root=service.ROOT,
-                                           request_id=f"{job['id']}-script-{index}")
-            result = _validate_script(response.get('chapter'), story, payload['target_words'])
-            result['script_origin'] = 'n8n-ai-script-evidence-reviewed'
-            if response.get('usage'):
-                result['usage'] = response['usage']
+            try:
+                response = cloud_client.invoke('script', request, root=service.ROOT,
+                                               request_id=f"{job['id']}-script-{index}")
+            except cloud_client.CloudError as error:
+                if not error.retryable or error.uncertain:
+                    raise
+                # Reporting already has a reviewed summary. A throttled writer
+                # must not block a usable demo or bypass source validation.
+                result = _validate_script(_offline_script(story, payload['profile']), story, payload['target_words'])
+                payload['writing_fallback'] = True
+            else:
+                result = _validate_script(response.get('chapter'), story, payload['target_words'])
+                result['script_origin'] = 'n8n-ai-script-evidence-reviewed'
+                if response.get('usage'):
+                    result['usage'] = response['usage']
         else:
             result = _validate_script(_offline_script(story, payload['profile']), story, payload['target_words'])
         with service.conn() as db:
@@ -452,6 +461,33 @@ def _cache_audio(service, key, value):
                    (key, _json(value), service.now()))
 
 
+def _portable_summary(service, payload, index):
+    """Use the included Basic recording only when its exact summary is current."""
+    root = Path(service.ROOT)
+    story = payload['stories'][index]
+    language = payload['profile']['language']
+    try:
+        reference = json.loads((root/'assets/demo/summary-content.json').read_text(encoding='utf-8'))[story['id']]
+        if reference['claim_source_ids'] != story['claim_source_ids'] or reference['summaries'].get(language) != story.get('summaries', {}).get(language):
+            return None
+        manifest = json.loads((root/'assets/demo/demo-story-audio.json').read_text(encoding='utf-8'))
+        audio = copy.deepcopy(manifest['stories'][story['id']][language])
+        if audio.get('provider') != 'microsoft-sapi' or not re.fullmatch(r'/media/story-summaries/story-\d+-(en|de|nl)\.mp3', audio.get('url', '')):
+            return None
+        audio_production._media_file(audio['url'], (root/'media').resolve())
+        # Keep the transcript consistent with a single-host spoken summary.
+        script = _offline_script(story, payload['profile'])
+        text = ' '.join(turn['text'] for turn in script['turns'])
+        chapter = payload['chapters'][index]
+        chapter.update({'turns': [{'speaker':'maya','text':text,'source_ids':list(story['claim_source_ids'])}],
+                        'text':text,'script_origin':'reviewed-curated-summary',
+                        'evidence_review':script['evidence_review']})
+        payload['portable_audio'] = True
+        return audio
+    except (OSError, ValueError, KeyError):
+        return None
+
+
 def _basic_chapters(service, job):
     payload = job['payload']
     media = Path(service.ROOT) / 'media'
@@ -465,8 +501,14 @@ def _basic_chapters(service, job):
             value = _cached_audio(service, key)
             if value is None:
                 _save(service, job, state='audio', stage=f'Recording Basic chapter {index + 1} of {len(payload["chapters"])}', progress=55 + index / len(payload['chapters']) * 35)
-                value = audio_production.render_basic_chapter(chapter, payload['profile']['language'], media, key)
-                _cache_audio(service, key, value)
+                try:
+                    value = audio_production.render_basic_chapter(chapter, payload['profile']['language'], media, key)
+                except (RuntimeError, ValueError, OSError):
+                    value = _portable_summary(service, payload, index)
+                    if value is None:
+                        raise RuntimeError('No recording or installed Basic voice is available for this story and language. Play a saved sample, choose Natural voice, or install a matching system voice.') from None
+                else:
+                    _cache_audio(service, key, value)
             chapter['basic_audio'] = value
             _save(service, job)
         chapter['audio'] = chapter['basic_audio']
@@ -492,6 +534,10 @@ def _publish(service, job, *, pending=False, warning=None, uncertain=False):
                     else 'reviewed-curated-summary', 'natural_uncertain': uncertain})
     if warning:
         edition['audio_note'] = warning
+    elif payload.get('portable_audio'):
+        edition['audio_note'] = 'This demo edition combines the included Basic-voice news summaries; no installed system voice is required.'
+    elif payload.get('writing_fallback'):
+        edition['audio_note'] = 'The writing provider was busy. This edition uses the reviewed source summaries.'
     else:
         edition.pop('audio_note', None)
     payload['natural_pending'] = pending

@@ -28,6 +28,10 @@ A mobile-first browser demo for **The Liquid Briefing**, built from the supplied
 
 ## Run locally
 
+**Latest playback fixes:** Today and the Podcasts play control open the most recently created completed briefing, regardless of preference changes or the library's date filter. Pending, failed, and summary-only editions cannot replace playable audio. New briefing and the refresh button explicitly create a fresh edition. The four task personas default to Horizon; Free user and Medium user retain their own tiers. Existing installations receive the Horizon change once, without resetting their interests or history.
+
+If the AI writer is temporarily rate limited, creation uses the reviewed source summaries with an explicit notice. If a teammate's computer has no matching Microsoft/system speech voice, the 19 fixed demo stories can use their included spoken-summary recordings instead. This produces one combined MP3 with measured chapter boundaries, without a cloud key or installed Dutch/German voice. Reuse requires an exact match to the included source IDs and summary; newly imported or changed stories still need a configured voice provider or a matching installed system voice.
+
 The **private team repository now includes six five-minute sample podcasts, 57 English/German/Dutch spoken summaries, and 24 locally served Natural voice previews**. Pull the latest `main`, rebuild the frontend, and restart the backend. The backend installs missing sample editions automatically after the licensed catalog is prepared; it preserves existing editions, personal preferences, history, and summary-only choices. No provider key or n8n connection is required to replay these recordings. Basic device voice previews still depend on voices installed on the listener's computer. Live generation requires a separately configured cloud connection.
 
 Image assets are stored losslessly in `assets/embedded-images.json`. `npm run build`, `npm run dev`, and `npm run preview` restore their original binary files automatically with SHA-256 verification. These generated copies are ignored by Git.

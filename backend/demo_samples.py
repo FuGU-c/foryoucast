@@ -150,7 +150,7 @@ def _profile(profile_id: str) -> dict:
     presets = {
         'mila': ('Mila', 'Dutch investor', 'nl', 'investor', 'balanced',
                  {'markets': 4, 'technology': 3, 'economy': 2, 'energy': 1},
-                 'MN', 'coral', 'Europe, technology and the companies shaping tomorrow.', 'plus', True),
+                 'MN', 'coral', 'Europe, technology and the companies shaping tomorrow.', 'premium', True),
         'jonas': ('Jonas', 'German investor', 'de', 'investor', 'detailed',
                   {'markets': 4, 'economy': 3, 'energy': 3, 'technology': 1},
                   'JK', 'sage', 'Fundamentals, the economy and a wider view of the markets.', 'premium', True),
@@ -159,7 +159,7 @@ def _profile(profile_id: str) -> dict:
                  'AC', 'lavender', 'Currencies, central banks and the signals behind the moves.', 'premium', True),
         'sam': ('Sam', 'General-news listener', 'en', 'general', 'simple',
                 {'world': 4, 'money': 4, 'technology': 2, 'culture': 3},
-                'SR', 'sand', 'The bigger picture, without the financial jargon.', 'plus', True),
+                'SR', 'sand', 'The bigger picture, without the financial jargon.', 'premium', True),
         'free-demo': ('Free user', 'General-news listener', 'en', 'general', 'simple',
                       {'world': 4, 'money': 4, 'technology': 2, 'culture': 3},
                       'FU', 'slate', 'A simple daily briefing across the biggest stories.', 'free', False),
@@ -245,12 +245,24 @@ def _edition(profile_id: str, script: dict, manifest: dict) -> dict:
     }
 
 
+def apply_demo_plan_defaults(db_path: Path = DEFAULT_DB) -> None:
+    """One-time requested plan update, without resetting listener preferences."""
+    with closing(sqlite3.connect(db_path, timeout=30)) as db, db:
+        db.execute('CREATE TABLE IF NOT EXISTS demo_seed_migrations(id TEXT PRIMARY KEY)')
+        if db.execute('SELECT 1 FROM demo_seed_migrations WHERE id=?', ('horizon-personas-v1',)).fetchone():
+            return
+        for pid in ('mila', 'jonas', 'alex', 'sam'):
+            db.execute("UPDATE profiles SET data=json_set(data,'$.plan','premium') WHERE id=?", (pid,))
+        db.execute('INSERT INTO demo_seed_migrations VALUES (?)', ('horizon-personas-v1',))
+
+
 def ensure_demo_samples(db_path: Path = DEFAULT_DB) -> int:
     """Seed missing sample accounts once; preserve preferences and removed audio.
 
     An existing edition (including summary-only) is a tombstone for reseeding.
     New listener and all personal history are deliberately left alone.
     """
+    apply_demo_plan_defaults(db_path)
     with closing(sqlite3.connect(db_path, timeout=30)) as db:
         if all(db.execute('SELECT 1 FROM editions WHERE id=?', (f'sample-{pid}-v1',)).fetchone() for pid in PROFILES):
             return 0

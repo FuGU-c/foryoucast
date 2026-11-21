@@ -1,0 +1,16 @@
+import assert from 'node:assert/strict';
+import {transform} from 'esbuild';
+import {readFile} from 'node:fs/promises';
+const compiled=await transform(await readFile(new URL('../src/briefing-selection.ts',import.meta.url),'utf8'),{loader:'ts',format:'esm'});
+const {latestPlayableBriefing}=await import('data:text/javascript;base64,'+Buffer.from(compiled.code).toString('base64'));
+const sample={id:'sample',profile_id:'mila',created_at:'2026-11-20T10:00:00Z',chapters:[{}],status:'ready',audio_mode:'elevenlabs',demo_sample:true,language:'nl',profile_snapshot:{plan:'plus'}};
+const fresh={...sample,id:'fresh',demo_sample:false,created_at:'2026-11-21T10:00:00Z',profile_snapshot:{plan:'premium'}};
+assert.equal(latestPlayableBriefing([sample,fresh],'mila').id,'fresh');
+assert.equal(latestPlayableBriefing([fresh,sample],'mila').id,'fresh');
+assert.equal(latestPlayableBriefing([sample,{...fresh,status:'pending'}],'mila').id,'sample');
+assert.equal(latestPlayableBriefing([sample,{...fresh,status:'failed'}],'mila').id,'sample');
+assert.equal(latestPlayableBriefing([sample,{...fresh,audio_mode:'summary-only'}],'mila').id,'sample');
+assert.equal(latestPlayableBriefing([sample,{...fresh,audio_removed_at:'2026-11-21'}],'mila').id,'sample');
+assert.equal(latestPlayableBriefing([fresh],'jonas'),undefined);
+assert.equal(latestPlayableBriefing([], 'new'),undefined);
+console.log('8 latest-briefing playback checks passed.');

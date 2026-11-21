@@ -214,7 +214,7 @@
       ],
       "parameters": {
         "mode": "runOnceForAllItems",
-        "jsCode": "return [{json:{ok:false,error:'The writing service could not complete this chapter. Saved work is kept.',error_code:'model_unavailable'}}];"
+        "jsCode": "const error = typeof $json.error === 'string' ? $json.error : JSON.stringify($json.error || {});\nconst rateLimited = /too many requests|rate.?limit|429|receiving too many/i.test(error) && !/insufficient_quota|billing|credit|quota exceeded/i.test(error);\nreturn [{json: rateLimited ? {ok:false,error:'The writing provider is busy. Your briefing is queued to resume automatically; completed work is kept.',error_code:'provider_queue',retry_after:60} : {ok:false,error:'The writing service could not complete this chapter. Saved work is kept.',error_code:'model_unavailable'}}];"
       }
     }
   ],

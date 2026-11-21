@@ -75,7 +75,8 @@ def invoke(kind, payload, *, root=ROOT, request_id=None, timeout=90):
         value = json.loads(raw)
     except HTTPError as exc:
         if exc.code == 429:
-            raise CloudError('The voice service is busy. Preparing Basic audio first.', retryable=True, retry_after=45) from None
+            message = 'The voice service is busy. Preparing Basic audio first.' if kind == 'audio' else 'The writing provider is busy. Reviewed summaries remain available.'
+            raise CloudError(message, retryable=True, retry_after=45) from None
         raise CloudError(f'The cloud workflow returned HTTP {exc.code}. Check its n8n execution.', uncertain=kind == 'audio' and exc.code >= 500) from None
     except (URLError, TimeoutError, OSError):
         raise CloudError('The cloud request did not finish. Saved work is kept.', retryable=kind != 'audio', uncertain=kind == 'audio') from None

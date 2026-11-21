@@ -125,7 +125,7 @@ const spoken=checked.turns.map(turn=>turn.text).join(' '),words=spoken.split(/\\
 if(words>Math.ceil(request.target_words*1.35))throw new Error('Chapter exceeds its spoken word budget');
 if(!sources.some(source=>allowed.has(source.article_id)&&spoken.toLowerCase().includes(source.outlet.toLowerCase())))throw new Error('The supporting outlet must be named aloud');
 return [{json:{ok:true,chapter:{title:checked.title||request.story.title,turns:checked.turns,evidence_review:{passed:true,claims:checked.evidence,issues:checked.issues||[],reviewer:'gpt-6.1-sol'}},usage:{writing:$('Parse draft').first().json.usage,review:$json.usage||{}},models:{writing:request.plan==='free'?'gpt-6-luna':'gpt-6.1-sol',review:'gpt-6.1-sol'}}}];"""
-    failure = "return [{json:{ok:false,error:'The writing service could not complete this chapter. Saved work is kept.',error_code:'model_unavailable'}}];"
+    failure = "const error = typeof $json.error === 'string' ? $json.error : JSON.stringify($json.error || {});\nconst rateLimited = /too many requests|rate.?limit|429|receiving too many/i.test(error) && !/insufficient_quota|billing|credit|quota exceeded/i.test(error);\nreturn [{json: rateLimited ? {ok:false,error:'The writing provider is busy. Your briefing is queued to resume automatically; completed work is kept.',error_code:'provider_queue',retry_after:60} : {ok:false,error:'The writing service could not complete this chapter. Saved work is kept.',error_code:'model_unavailable'}}];"
     return '\n'.join([
         'const start = '+webhook('script')+';',
         'const verify = '+node('Verify app signature','n8n-nodes-base.code',{'mode':'runOnceForAllItems','jsCode':verification('script',root)})+';',

@@ -159,6 +159,38 @@ class CloudJobsTests(unittest.TestCase):
             jobs.queue_briefing(self.svc, 'listener')
         self.assertEqual(error.exception.status_code, 429)
 
+    def test_rate_limited_writer_uses_reviewed_summaries_and_finishes_creation(self):
+        self.config['ai_ready'] = True
+        # Supply valid frozen evidence so this test reaches the cloud writer.
+        with patch.object(jobs, '_evidence', side_effect=lambda service, story: [{'article_id': story['claim_source_ids'][0], 'paragraphs': ['Source evidence.']}]):
+            queued = jobs.queue_briefing(self.svc, 'listener')
+        with patch.object(jobs.cloud_client, 'invoke', side_effect=CloudError('Rate limited', retryable=True)) as invoke:
+            self.assertTrue(jobs.process_one(self.svc))
+        self.assertEqual(invoke.call_count, 1)
+        self.assertEqual(jobs.get_job(self.svc, 'listener', queued['job_id'])['state'], 'ready')
+        self.assertEqual(self.edition(queued)['script_origin'], 'reviewed-curated-summary')
+        self.assertIn('reviewed source summaries', self.edition(queued)['audio_note'])
+
+    def test_missing_system_voice_uses_only_matching_bundled_summaries(self):
+        folder=self.root/'assets/demo';folder.mkdir(parents=True)
+        media=self.root/'media/story-summaries';media.mkdir()
+        reference={};audio={}
+        for story in self.stories:
+            sid=story['id']
+            reference[sid]={'summaries':story['summaries'],'claim_source_ids':story['claim_source_ids']}
+            (media/f'{sid}-en.mp3').write_bytes(b'ID3included-basic')
+            audio[sid]={'en':{'url':f'/media/story-summaries/{sid}-en.mp3','provider':'microsoft-sapi','duration_seconds':8}}
+        (folder/'summary-content.json').write_text(json.dumps(reference))
+        (folder/'demo-story-audio.json').write_text(json.dumps({'stories':audio}))
+        queued=jobs.queue_briefing(self.svc,'listener')
+        with patch.object(jobs.audio_production,'render_basic_chapter',side_effect=RuntimeError('No installed Dutch voice')):
+            self.assertTrue(jobs.process_one(self.svc))
+        self.assertEqual(jobs.get_job(self.svc,'listener',queued['job_id'])['state'],'ready')
+        self.assertIn('no installed system voice',self.edition(queued)['audio_note'])
+        payload=self.payload(queued)
+        payload['stories'][0]['summaries']['en']='This is a different development.'
+        self.assertIsNone(jobs._portable_summary(self.svc,payload,0))
+
     def test_basic_generation_freezes_preferences_evidence_and_keeps_qualifications(self):
         queued = jobs.queue_briefing(self.svc, 'listener')
         payload = self.payload(queued)

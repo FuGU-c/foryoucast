@@ -90,10 +90,10 @@ class DemoSampleInstallTests(unittest.TestCase):
         profiles = {profile['id']: profile for profile in server.profiles()}
         self.assertEqual(set(profiles), {'mila', 'jonas', 'alex', 'sam', 'free-demo', 'medium-demo', 'new'})
         self.assertEqual(len(profiles), 7)
-        self.assertEqual((profiles['mila']['role'], profiles['mila']['language'], profiles['mila']['plan']), ('Dutch investor', 'nl', 'plus'))
+        self.assertEqual((profiles['mila']['role'], profiles['mila']['language'], profiles['mila']['plan']), ('Dutch investor', 'nl', 'premium'))
         self.assertEqual((profiles['jonas']['role'], profiles['jonas']['language'], profiles['jonas']['plan']), ('German investor', 'de', 'premium'))
         self.assertEqual((profiles['alex']['role'], profiles['alex']['goal'], profiles['alex']['plan']), ('FX trader', 'trader', 'premium'))
-        self.assertEqual((profiles['sam']['role'], profiles['sam']['goal'], profiles['sam']['plan']), ('General-news listener', 'general', 'plus'))
+        self.assertEqual((profiles['sam']['role'], profiles['sam']['goal'], profiles['sam']['plan']), ('General-news listener', 'general', 'premium'))
         self.assertEqual((profiles['free-demo']['name'], profiles['free-demo']['language'], profiles['free-demo']['goal'], profiles['free-demo']['depth'], profiles['free-demo']['plan']), ('Free user', 'en', 'general', 'simple', 'free'))
         self.assertEqual((profiles['medium-demo']['name'], profiles['medium-demo']['goal'], profiles['medium-demo']['goals'], profiles['medium-demo']['plan']), ('Medium user', 'tech', ['tech', 'investor'], 'plus'))
         self.assertEqual({tag:profiles['medium-demo']['interests'][tag] for tag in ['markets','technology','money','economy','energy']}, {'markets': 3, 'technology': 4, 'money': 2, 'economy': 2, 'energy': 1})
@@ -172,6 +172,17 @@ class DemoSampleInstallTests(unittest.TestCase):
             self.assertEqual(demo_samples.ensure_demo_samples(self.db), 6)
         with server.conn() as db:
             self.assertEqual({row[0] for row in db.execute('SELECT id FROM editions WHERE profile_id=?', ('mila',))}, {'my-edition','sample-mila-v1'})
+
+    def test_horizon_defaults_migrate_once_and_leave_free_medium_alone(self):
+        with server.conn() as db:
+            db.execute("UPDATE profiles SET data=json_set(data,'$.plan','plus') WHERE id='mila'")
+        demo_samples.apply_demo_plan_defaults(self.db)
+        for pid in ('mila','jonas','alex','sam'):
+            self.assertEqual(server.profile(pid)['plan'],'premium')
+        self.assertEqual(server.profile('free-demo')['plan'],'free')
+        p=server.profile('mila');p['plan']='free';server.save_profile(p)
+        demo_samples.apply_demo_plan_defaults(self.db)
+        self.assertEqual(server.profile('mila')['plan'],'free')
 
 
 if __name__ == '__main__':

@@ -148,6 +148,8 @@ def init():
  ]
  for pid,name,role,lang,goal,depth,interests,initials,color,bio in seeds:
   profile_data={'id':pid,'name':name,'role':role,'language':lang,'goal':goal,'goals':['tech','investor'] if pid=='medium-demo' else [] if pid=='new' else [goal],'depth':depth,'interests':interests,'initials':initials,'color':color,'bio':bio,'duration':5,'wake_time':'07:30','timezone':'Europe/Brussels','scheduled':False,'onboarded':pid!='new','last_listened_at':'2026-11-17T07:30:00+00:00' if pid!='new' else None,'custom_interests':'','feedback_count':0}
+  if pid in ('mila','jonas','alex','sam'):
+   profile_data.update({'plan':'premium','tts_provider':'elevenlabs','translate_news':True})
   save_profile(profile_data)
 
 init()
