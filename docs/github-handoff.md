@@ -1,6 +1,10 @@
 # GitHub handoff
 
-Target repository: https://github.com/FuGU-c/seranews-project-news (private). Local Git has been initialized. This document describes the code-only handoff; provider credentials, licensed reporting and generated media remain local.
+Uploaded repository: https://github.com/FuGU-c/seranews-project-news (private), branch `main`. The upload used the GitHub plugin. Local Git has been initialized with this origin, but command-line authentication is separate from the plugin connection. Provider credentials, licensed reporting and generated media remain local.
+
+Binary image assets are stored losslessly in `assets/embedded-images.json`; `npm run build`, `npm run dev` and `npm run preview` restore the exact image bytes with SHA-256 validation. The materialized files are ignored. The included source can be built normally; article data and podcast recordings still require the authorized local dataset/media setup.
+
+Collaborator invitations for kepcheto and KordianKlimas require repository Settings → Collaborators because the connected plugin exposes listing but no invitation action. No browser automation is authorized after the user asked to stop controlling the PC.
 
 ## Include
 

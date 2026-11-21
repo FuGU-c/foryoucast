@@ -326,7 +326,7 @@ Updated 21 November 2026. This describes the implemented local demonstration and
 - New generation requires valid provider credentials and available allowance/billing access.
 - A different ChatGPT/Codex account may show different conversation history; do not rely on cross-account chat visibility.
 - CONTINUE_HERE.md records paths and continuation state without storing secret values.
-- GitHub upload has not been performed.
+- Code, workflow exports, writing guidance and video planning files have been uploaded to the private FuGU-c/seranews-project-news repository. Licensed reporting, databases, credentials and generated audio remain local. Image assets are losslessly bundled and materialized automatically by npm build/dev with integrity checks.
 - A ready-to-copy JSONL example and article-field guide are in docs/news-intake.example.jsonl and docs/news-intake.md.
 - The file-import/publication/three-language recording path has also passed an isolated check using a previously completed cloud review; docs/intake-publication-proof.json records the result without source text or audio bytes.
 - Nested model token accounting is retained without saving arbitrary credentials or prompt fields.
