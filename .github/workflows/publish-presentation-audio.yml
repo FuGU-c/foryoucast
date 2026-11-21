@@ -1,0 +1,24 @@
+name: Publish presentation audio
+on:
+  push:
+    branches: [main]
+    paths: ['.audio-transfer/READY']
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  publish:
+    if: github.event_name == 'workflow_dispatch' || github.event.head_commit.message == 'Stage presentation audio payload'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Restore verified narration files
+        run: python3 scripts/restore-presentation-audio.py
+      - name: Commit the audio files
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add presentation-audio
+          git rm -r .audio-transfer
+          git commit -m 'Publish presentation audio assets'
+          git push
