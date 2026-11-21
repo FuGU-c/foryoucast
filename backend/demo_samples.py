@@ -252,7 +252,7 @@ def ensure_demo_samples(db_path: Path = DEFAULT_DB) -> int:
     New listener and all personal history are deliberately left alone.
     """
     with closing(sqlite3.connect(db_path, timeout=30)) as db:
-        if all(db.execute('SELECT 1 FROM editions WHERE profile_id=? LIMIT 1', (pid,)).fetchone() for pid in PROFILES):
+        if all(db.execute('SELECT 1 FROM editions WHERE id=?', (f'sample-{pid}-v1',)).fetchone() for pid in PROFILES):
             return 0
     scripts, audio = validate_inputs(DEFAULT_SCRIPTS, DEFAULT_MANIFEST, ROOT / 'media')
     from .server import normalized_profile
@@ -262,9 +262,7 @@ def ensure_demo_samples(db_path: Path = DEFAULT_DB) -> int:
             eid = f'sample-{pid}-v1'
             if db.execute('SELECT 1 FROM editions WHERE id=?', (eid,)).fetchone():
                 continue
-            # A user who already made their own edition keeps their setup.
-            if db.execute('SELECT 1 FROM editions WHERE profile_id=?', (pid,)).fetchone():
-                continue
+            has_personal_edition = bool(db.execute('SELECT 1 FROM editions WHERE profile_id=?', (pid,)).fetchone())
             preset = normalized_profile(_profile(pid))
             if audio[pid]['provider'] == 'elevenlabs':
                 preset['tts_provider'] = 'elevenlabs'
@@ -272,7 +270,7 @@ def ensure_demo_samples(db_path: Path = DEFAULT_DB) -> int:
             existing = json.loads(raw[0]) if raw else {}
             # Only replace the untouched bootstrap defaults. Never reset feedback,
             # listening history, or a profile that has already been personalized.
-            untouched = not existing.get('demo_reset_id') and not existing.get('feedback_count')
+            untouched = not has_personal_edition and not existing.get('demo_reset_id') and not existing.get('feedback_count')
             untouched = untouched and not any(db.execute(f'SELECT 1 FROM {table} WHERE profile_id=? LIMIT 1', (pid,)).fetchone() for table in ('feedback', 'listens', 'story_views'))
             untouched = untouched and not any(key in existing for key in ('interest_resets', 'updated_at', 'preference_revision'))
             untouched = untouched and all(existing.get(key, preset.get(key)) == preset.get(key) for key in ('name', 'language', 'depth', 'interests', 'goal', 'duration', 'wake_time', 'scheduled', 'custom_interests', 'symbols'))

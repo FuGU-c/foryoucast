@@ -165,6 +165,13 @@ class DemoSampleInstallTests(unittest.TestCase):
             self.assertEqual(demo_samples.ensure_demo_samples(self.db), 0)
             self.assertIsNone(server.editions('mila')[0]['episode_audio'])
 
+    def test_portable_seed_keeps_personal_edition_and_adds_missing_sample(self):
+        with server.conn() as db:
+            db.execute('INSERT INTO editions VALUES (?,?,?,?)', ('my-edition', 'mila', json.dumps({'id':'my-edition','profile_id':'mila','chapters':[]}), server.now()))
+        with patch.multiple(demo_samples, ROOT=self.root, DEFAULT_SCRIPTS=self.scripts_path, DEFAULT_MANIFEST=self.manifest_path):
+            self.assertEqual(demo_samples.ensure_demo_samples(self.db), 6)
+        self.assertEqual({e['id'] for e in server.editions('mila')}, {'my-edition','sample-mila-v1'})
+
 
 if __name__ == '__main__':
     unittest.main()
