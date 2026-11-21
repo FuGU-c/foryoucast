@@ -205,7 +205,7 @@ Updated 21 November 2026. This describes the implemented local demonstration and
 - Flow: $ A BIT price placeholder; up to ~15 minutes; one natural podcast/day, then unlimited Basic podcasts; AI translations and spoken summaries; includes ads in the offering.
 - Horizon: $ A LOT price placeholder; up to ~40 minutes; unlimited natural/Basic podcasts; translations and spoken summaries; ad-free offering.
 - Three plans are compared together on one compact page without sheet scrolling, including a 480px-height check.
-- Free and Horizon use neutral columns; Flow receives a soft tonal highlight. Restrained shadows and outlined secondary buttons replace the previous heavy dark premium stripe. Prices remain demonstration placeholders for the paid plans.
+- Free uses a quiet neutral column, Flow receives a soft recommended highlight, and Horizon has a deep theme-tinted column with bright text, accent checkmarks, a subtle header sheen and a matching dark button, including its Current state. Prices remain demonstration placeholders for the paid plans.
 - Demo plan switching creates no payment.
 - Prepared samples and replays do not consume daily generation allowances.
 - Pending generation reserves allowances; failures and ambiguous provider outcomes are handled separately.
