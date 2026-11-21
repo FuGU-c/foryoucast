@@ -1,0 +1,34 @@
+{
+  "audit_date": "2026-11-21",
+  "repository": "https://github.com/FuGU-c/seranews-project-news",
+  "audited_reference": "f9d1849b476ef76609c09f7060acf1e6d83ac4b0",
+  "scope": {
+    "reachable_commits": 88,
+    "historical_blobs": 423,
+    "gitleaks_commits_with_scanned_patches": 75,
+    "inspected_archives_including_decoded_historical_transfer": 2,
+    "inspected_archive_text_files": 4
+  },
+  "scanner": {
+    "name": "Gitleaks",
+    "version": "8.30.1",
+    "release_checksum_verified": true,
+    "output_redacted": true,
+    "initial_generic_findings": 28,
+    "reviewed_article_identifier_false_positives": 28,
+    "confirmed_credentials": 0,
+    "findings_after_narrow_metadata_allowlist": 0,
+    "synthetic_credential_detection_test_passed": true
+  },
+  "additional_checks": {
+    "provider_token_private_pem_or_signed_url_hits": 0,
+    "historical_env_private_key_or_database_paths": 0,
+    "complete_organizer_article_or_long_paragraph_exact_matches_in_json": 0
+  },
+  "limitations": [
+    "Static checks do not prove that no credential was ever exposed elsewhere.",
+    "Private n8n credentials, account logs, deleted remote refs and external copies were not inspected.",
+    "Audio was not transcribed for secret detection.",
+    "The exact-content article check used historical JSON string fields and a 500-character threshold; it is not a legal review."
+  ]
+}

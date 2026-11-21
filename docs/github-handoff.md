@@ -1,6 +1,6 @@
 # GitHub handoff
 
-Uploaded repository: https://github.com/FuGU-c/seranews-project-news (private), branch `main`. The upload used the GitHub plugin. Local Git has been initialized with this origin, but command-line authentication is separate from the plugin connection. Provider credentials, licensed reporting and generated media remain local.
+Repository: https://github.com/FuGU-c/seranews-project-news, branch `main`. The owner made it public on 21 November 2026. The source was uploaded through the GitHub plugin; local command-line authentication is separate. Provider credentials, original licensed reporting and personal state remain local. The approved fixed demo media and presentation narration are versioned. See [the security audit](../SECURITY.md).
 
 Binary image assets are stored losslessly in `assets/embedded-images.json`; `npm run build`, `npm run dev` and `npm run preview` restore the exact image bytes with SHA-256 validation. The materialized files are ignored. The included source can be built normally; article data and podcast recordings still require the authorized local dataset/media setup.
 
@@ -18,17 +18,17 @@ Collaborator invitations for kepcheto and KordianKlimas require repository Setti
 
 - `.env` and `.secrets/` — credentials and private signing material.
 - `data/` — private article/catalog databases, user preferences, usage responses, backup copies and connection configuration.
-- `media/` and `work/` — recorded episodes, source-derived audio and intermediate files.
+- New recordings and `work/` — generated episodes and intermediate files. The fixed, explicitly shared samples are already tracked exceptions.
 - Source ZIP archives and original challenge files.
 - `.venv/`, `node_modules/` and `dist/` — regenerate from manifests/build instructions.
 
-These paths are covered by `.gitignore`. Before pushing, inspect the actual staged paths and diff: ignored files can still be force-added. Keep any repository private until event reuse rights for the partner mark and dataset-derived presentation materials have been confirmed.
+These paths are covered by `.gitignore`. Before pushing, inspect the actual staged paths and diff: ignored files can still be force-added. Public source availability does not grant rights to redistribute the organizer dataset or reuse publisher reporting and partner branding.
 
 ## Portable audio update
 
-The user approved sharing the demo with collaborators in this private repository. It now includes six fixed podcast MP3s in `media/demo-samples/`, 57 spoken summaries in `media/story-summaries/`, and 24 voice preview MP3s in `public/voice-previews/`. Source-linked sample scripts and timing manifests are in `assets/demo/`; the backend seeds only missing sample editions and leaves New listener blank. Existing episodes, history, personalized settings, and summary-only choices are retained. No paid regeneration or provider credentials are needed for playback. Verify native binary sizes and checksums against `assets/demo/media-verification.json`.
+The user approved sharing the demo recordings. The repository includes six fixed podcast MP3s in `media/demo-samples/`, 57 spoken summaries in `media/story-summaries/`, and 24 voice preview MP3s in `public/voice-previews/`. Source-linked sample scripts and timing manifests are in `assets/demo/`; the backend seeds only missing sample editions and leaves New listener blank. Existing episodes, history, personalized settings, and summary-only choices are retained. No paid regeneration or provider credentials are needed for playback. Verify native binary sizes and checksums against `assets/demo/media-verification.json`.
 
-After pulling, run `npm run build`, then restart the backend and worker. The authorized organizer dataset must still be prepared locally. Do not make this repository public with the event-derived scripts/audio included; the event's team-sharing and deletion requirements still apply.
+After pulling, run `npm run build`, then restart the backend and worker. The authorized organizer dataset must still be prepared locally. Its original README prohibits sharing dataset files outside the team and republishing full article text, permits short quotes and source links, and requires deletion after the event. Those terms remain applicable regardless of repository visibility.
 
 ## Reproduction limits
 

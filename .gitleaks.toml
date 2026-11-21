@@ -1,0 +1,11 @@
+title = "Seranews secret scanning"
+
+[extend]
+useDefault = true
+
+[[allowlists]]
+description = "Newstex public article IDs in translation metadata, not authentication keys"
+condition = "AND"
+paths = ['''(^|/)assets/demo/demo-scripts\.json$''']
+regexTarget = "line"
+regexes = ['''^\s*"translation_key"\s*:\s*"(INVZ|IBTU|ACTI|ZACK)-[0-9]{5,10}-[A-Z0-9]{20,30}",?\s*$''']
