@@ -1,0 +1,343 @@
+{
+  "name": "Seranews 03 · Prepare before wake-up [INACTIVE]",
+  "nodes": [
+    {
+      "parameters": {
+        "content": "## After the demo has been reviewed\nSelect backend Header Auth (`x-workflow-key`) on the API nodes, and n8n Webhook Header Auth (`x-liquid-webhook-key`) on Dispatch.\nSet both public URLs in Schedule configuration. Activate the audio workflow first. Turn OFF the local worker so only one scheduler owns preparation.\nBackend `/due` considers each listener timezone and a 20-minute preparation window. `/schedule/claim` atomically prevents overlap; failed dispatch and audio production release the matching reservation.\nA crashed n8n execution may leave a reservation requiring operator release. No push notification or alarm playback is included.",
+        "height": 290,
+        "width": 750,
+        "color": 5
+      },
+      "id": "ff843a3a-4607-5c83-87b5-88bd157c3040",
+      "name": "Setup notes",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        -100,
+        -350
+      ]
+    },
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "field": "minutes",
+              "minutesInterval": 1
+            }
+          ]
+        }
+      },
+      "id": "28fc0fc5-4c7a-5e98-9a8e-2a0eae538c50",
+      "name": "Every minute",
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.2,
+      "position": [
+        0,
+        40
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "const api_base_url='https://YOUR-DEPLOYED-LIQUID-API.example';\nconst podcast_webhook_url='https://YOUR-N8N.example/webhook/liquid-podcast';\nif(api_base_url.includes('YOUR-') || podcast_webhook_url.includes('YOUR-')) throw new Error('Set the deployed API and n8n production webhook URLs');\nreturn [{json:{api_base_url,podcast_webhook_url}}];"
+      },
+      "id": "d1844b72-d5a3-5710-babe-a92e3618bfdc",
+      "name": "Schedule configuration",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        240,
+        40
+      ]
+    },
+    {
+      "parameters": {
+        "method": "GET",
+        "url": "={{ $json.api_base_url + \"/api/integrations/due\" }}",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "options": {
+          "timeout": 180000
+        }
+      },
+      "id": "ab925492-ad7e-5d3a-94c3-a49268694174",
+      "name": "Find listeners due soon",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        480,
+        40
+      ],
+      "retryOnFail": true,
+      "maxTries": 3,
+      "waitBetweenTries": 2000
+    },
+    {
+      "parameters": {
+        "jsCode": "const cfg=$('Schedule configuration').first().json;\nreturn $input.all().flatMap(item => (Array.isArray(item.json)?item.json:[item.json])).filter(x=>x.profile_id&&x.day).map(listener=>({json:{...cfg,...listener}}));"
+      },
+      "id": "b8d5b6b2-8a4b-540e-96dc-1fdbec6b79f4",
+      "name": "Each due listener",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        720,
+        40
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "={{ $json.api_base_url + \"/api/integrations/schedule/claim\" }}",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "options": {
+          "timeout": 180000
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ {profile_id:$json.profile_id,day:$json.day} }}"
+      },
+      "id": "ca04ff25-2f1f-5476-ba02-db8764bf9c74",
+      "name": "Claim daily preparation",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        960,
+        40
+      ],
+      "retryOnFail": true,
+      "maxTries": 3,
+      "waitBetweenTries": 2000
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "claim-accepted",
+              "leftValue": "={{ $json.claimed }}",
+              "rightValue": true,
+              "operator": {
+                "type": "boolean",
+                "operation": "true",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "6d2205a1-baa2-5c29-95f4-813e92041c0f",
+      "name": "Claim accepted?",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        1200,
+        40
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "={{ $(\"Schedule configuration\").first().json.podcast_webhook_url }}",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "options": {
+          "timeout": 180000
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ {profile_id:$json.profile_id,day:$json.day,claim_token:$json.claim_token} }}"
+      },
+      "id": "c4440de6-bc48-5538-a95e-c89b922b34d5",
+      "name": "Dispatch podcast production",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1440,
+        0
+      ],
+      "retryOnFail": false,
+      "maxTries": 3,
+      "waitBetweenTries": 2000,
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "jsCode": "const claim=$('Claim daily preparation').item.json;\nreturn {json:{...claim,api_base_url:$('Schedule configuration').first().json.api_base_url}};",
+        "mode": "runOnceForEachItem"
+      },
+      "id": "4b0ff719-e9fc-598c-80ce-19cd831ea5c6",
+      "name": "Dispatch failure context",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1680,
+        180
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "={{ $json.api_base_url + \"/api/integrations/schedule/release\" }}",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "options": {
+          "timeout": 180000
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ {profile_id:$json.profile_id,day:$json.day,claim_token:$json.claim_token} }}"
+      },
+      "id": "99c1d304-f65b-5d2e-9b1c-fe9ee034b2a9",
+      "name": "Release undispatched reservation",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1920,
+        180
+      ],
+      "retryOnFail": true,
+      "maxTries": 3,
+      "waitBetweenTries": 2000,
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "errorMessage": "Unable to dispatch audio workflow. Reservation release attempted; inspect this execution."
+      },
+      "id": "767b85df-bfca-5314-bb8b-cce5620551ec",
+      "name": "Dispatch failed visibly",
+      "type": "n8n-nodes-base.stopAndError",
+      "typeVersion": 1,
+      "position": [
+        2160,
+        180
+      ]
+    }
+  ],
+  "connections": {
+    "Every minute": {
+      "main": [
+        [
+          {
+            "node": "Schedule configuration",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Schedule configuration": {
+      "main": [
+        [
+          {
+            "node": "Find listeners due soon",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Find listeners due soon": {
+      "main": [
+        [
+          {
+            "node": "Each due listener",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Each due listener": {
+      "main": [
+        [
+          {
+            "node": "Claim daily preparation",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Claim daily preparation": {
+      "main": [
+        [
+          {
+            "node": "Claim accepted?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Claim accepted?": {
+      "main": [
+        [
+          {
+            "node": "Dispatch podcast production",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Dispatch podcast production": {
+      "main": [
+        [],
+        [
+          {
+            "node": "Dispatch failure context",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Dispatch failure context": {
+      "main": [
+        [
+          {
+            "node": "Release undispatched reservation",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Release undispatched reservation": {
+      "main": [
+        [
+          {
+            "node": "Dispatch failed visibly",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1",
+    "saveExecutionProgress": true,
+    "saveDataErrorExecution": "all",
+    "saveDataSuccessExecution": "none",
+    "timezone": "Europe/Brussels"
+  },
+  "pinData": {},
+  "meta": {
+    "templateCredsSetupCompleted": false,
+    "description": "Polls profile-local schedules, atomically claims a daily delivery and dispatches the audio workflow. Keep the local script scheduler off when using this cloud scheduler."
+  },
+  "tags": []
+}

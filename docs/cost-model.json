@@ -1,0 +1,83 @@
+{
+  "as_of": "2026-11-21",
+  "currency": "USD",
+  "basis": "Public standard model token rates applied to observed smoke-test usage; not an invoice or total operating cost.",
+  "pricing_sources": {
+    "gpt-6-luna": "https://developers.openai.com/api/docs/models/gpt-6-luna",
+    "gpt-6.1-sol": "https://developers.openai.com/api/docs/models/gpt-6.1-sol"
+  },
+  "rates_per_million_tokens": {
+    "gpt-6-luna": {"input": 0.1, "cached_input": 0.01, "cache_write_input": 0.125, "output": 0.5},
+    "gpt-6.1-sol": {"input": 2.0, "cached_input": 0.1, "cache_write_input": 2.5, "output": 10.0},
+    "cache_write_multiplier": 1.25
+  },
+  "observed_smoke_usage": {
+    "news_desk_one_report": {
+      "result": "passed",
+      "models": {"preparation": "gpt-6-luna", "review": "gpt-6.1-sol"},
+      "output_checks": {"claims": 3, "source_ids": 1, "languages": ["en", "nl", "de"], "tags": 4, "relation": "new"},
+      "tokens": {
+        "preparation": {"input": 4055, "cached": 0, "cache_write": 4052, "ordinary_input": 3, "output": 1099, "estimated_usd": 0.0010563},
+        "review": {"input": 4827, "cached": 0, "cache_write": 4824, "ordinary_input": 3, "output": 895, "estimated_usd": 0.021016}
+      },
+      "estimated_model_cost_usd": 0.0220723
+    },
+    "podcast_studio_one_chapter": {
+      "result": "passed",
+      "models": {"writing": "gpt-6.1-sol", "review": "gpt-6.1-sol"},
+      "turns": 3,
+      "tokens": {
+        "writing": {"input": 466, "cached": 0, "cache_write": 0, "output": 126, "estimated_usd": 0.002192},
+        "review": {"input": 555, "cached": 0, "cache_write": 0, "output": 406, "estimated_usd": 0.00517}
+      },
+      "estimated_model_cost_usd": 0.007362
+    },
+    "natural_narration": {
+      "result": "passed",
+      "provider": "ElevenLabs",
+      "model": "eleven_v3",
+      "provider_reported_character_cost_units": 119,
+      "audio_duration_seconds": 20.64,
+      "estimated_usd": "unknown"
+    }
+  },
+  "projection_assumptions": {
+    "news": "One News Desk run per original input article; each run has exactly the observed one-report token usage. The smoke input may not represent other article lengths, and no cache-hit savings are assumed.",
+    "listeners": "Two paid listener profiles each receive one edition requested at approximately five minutes. The app selects four chapters at that configured duration; each is modeled as one observed three-turn Studio chapter. The completed Medium edition measured 265.04 seconds (4:25). Script-model cost only; no narration included.",
+    "ten_x": "17,400 input articles with the per-article smoke usage multiplied by ten. This was not run against 17,400 unique articles.",
+    "excluded": ["ElevenLabs USD or credits", "n8n execution and hosting", "app hosting and storage", "retries and failed requests", "cache-hit savings", "usage variation by article or edition"]
+  },
+  "projections": [
+    {
+      "scenario": "supplied dataset",
+      "input_articles": 1740,
+      "assumed_news_runs": 1740,
+      "shared_news_model_usd": 38.405802,
+      "paid_profiles": 2,
+      "requested_approx_five_minute_editions": 2,
+      "studio_chapter_units": 8,
+      "personalized_studio_model_usd": 0.058896,
+      "estimated_openai_model_cost_usd": 38.464698,
+      "rounded_estimated_openai_model_cost_usd": 38.46,
+      "elevenlabs_usd": "unknown",
+      "n8n_usd": "unknown",
+      "all_in_operating_cost_usd": "unknown"
+    },
+    {
+      "scenario": "10x dataset",
+      "input_articles": 17400,
+      "assumed_news_runs": 17400,
+      "shared_news_model_usd": 384.05802,
+      "paid_profiles": 2,
+      "requested_approx_five_minute_editions": 2,
+      "studio_chapter_units": 8,
+      "personalized_studio_model_usd": 0.058896,
+      "estimated_openai_model_cost_usd": 384.116916,
+      "rounded_estimated_openai_model_cost_usd": 384.12,
+      "elevenlabs_usd": "unknown",
+      "n8n_usd": "unknown",
+      "all_in_operating_cost_usd": "unknown"
+    }
+  ],
+  "local_performance_reference": "performance-measurements.json"
+}

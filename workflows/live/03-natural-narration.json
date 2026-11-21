@@ -1,0 +1,212 @@
+{
+  "name": "Seranews · Natural narration",
+  "nodes": [
+    {
+      "id": "34464172-d3b2-4547-8256-1c76b9c5cddf",
+      "name": "Seranews audio",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2.2,
+      "position": [
+        0,
+        96
+      ],
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "seranews-audio-v1",
+        "authentication": "none",
+        "responseMode": "responseNode",
+        "options": {}
+      },
+      "webhookId": "e2b058d4-9f6f-44a0-a333-07f1434e5011"
+    },
+    {
+      "id": "7eb284a5-4ec2-4876-914b-10a2bc15028d",
+      "name": "Verify app signature",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        224,
+        96
+      ],
+      "parameters": {
+        "mode": "runOnceForAllItems",
+        "jsCode": "const crypto = require('crypto');\nconst body = $json.body ?? $json;\nif(typeof body.message !== 'string' || body.message.length > 1800000 || typeof body.signature !== 'string') throw new Error('Signed Seranews request required');\nconst valid = crypto.verify(null, Buffer.from(body.message, 'utf8'), \"-----BEGIN PUBLIC KEY-----\\nMCowBQYDK2VwAyEAhcKf2Pd9x9BvOJ3MHTjTE5XuhvfY4ApwqelLnP5lt9A=\\n-----END PUBLIC KEY-----\\n\", Buffer.from(body.signature, 'base64'));\nif(!valid) throw new Error('Invalid Seranews signature');\nconst request = JSON.parse(body.message);\nif(request.kind !== \"audio\" || !Number.isFinite(request.iat) || Math.abs(Date.now()/1000-request.iat)>120 || !request.id) throw new Error('Expired or invalid request');\nif(!request.payload || typeof request.payload !== 'object' || Array.isArray(request.payload)) throw new Error('Invalid payload');\nreturn [{json:{...request.payload, request_id:request.id}}];"
+      }
+    },
+    {
+      "id": "a9c4bc29-be63-4b41-9cef-64137851c844",
+      "name": "Prepare approved dialogue",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        448,
+        96
+      ],
+      "parameters": {
+        "mode": "runOnceForAllItems",
+        "jsCode": "const p=$json;if(!['en','de','nl'].includes(p.language)||!Array.isArray(p.turns)||!p.turns.length||p.turns.length>12||!Array.isArray(p.voice_ids)||p.voice_ids.length!==2||new Set(p.voice_ids).size!==2)throw new Error('Two distinct voices and approved turns are required');\nif(p.turns.some(t=>!['maya','leo'].includes(t.speaker)||typeof t.text!=='string'||!t.text.trim())||p.turns.reduce((n,t)=>n+t.text.length,0)>14000)throw new Error('Invalid chapter dialogue');\nconst inputs=p.turns.map(t=>({text:t.text,voice_id:p.voice_ids[t.speaker==='maya'?0:1]}));\nreturn [{json:{...p,provider_body:{inputs,model_id:'eleven_v3',language_code:p.language}}}];"
+      }
+    },
+    {
+      "id": "63f317c4-7b3f-428b-acce-8d19fce52110",
+      "name": "Record natural voices",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.5,
+      "position": [
+        672,
+        96
+      ],
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.elevenlabs.io/v1/text-to-dialogue/with-timestamps?output_format=mp3_44100_128",
+        "sendBody": true,
+        "contentType": "json",
+        "specifyBody": "json",
+        "jsonBody": "={{ $json.provider_body }}",
+        "options": {
+          "timeout": 85000,
+          "response": {
+            "response": {
+              "fullResponse": true,
+              "neverError": true,
+              "responseFormat": "json"
+            }
+          }
+        },
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth"
+      },
+      "onError": "continueErrorOutput",
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "QaTHlcJNFPQe5zag",
+          "name": "Header Auth account"
+        }
+      }
+    },
+    {
+      "id": "f54da328-6e5b-4902-81b9-5283422e5b1d",
+      "name": "Keep audio and timestamps",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        896,
+        0
+      ],
+      "parameters": {
+        "mode": "runOnceForAllItems",
+        "jsCode": "const r=$json,body=r.body||r,status=r.statusCode||200;\nif(status===429)return [{json:{ok:false,error:'The natural voice queue is full. Basic audio can be prepared first.',error_code:'provider_queue',retry_after:Math.min(180,Number(r.headers?.['retry-after'])||45)}}];\nif(status>=400||!body.audio_base64)return [{json:{ok:false,error:status===401||status===403?'ElevenLabs authorization is incomplete. Reconnect the saved credential.':'The natural voice provider could not finish this chapter.',error_code:'voice_provider',uncertain:status>=500}}];\nreturn [{json:{ok:true,audio_base64:body.audio_base64,alignment:body.alignment||body.normalized_alignment,voice_segments:body.voice_segments||[],request_id:r.headers?.['request-id']||r.headers?.['x-request-id']||null,provider:'elevenlabs',model:'eleven_v3',billed_characters:Number(r.headers?.['character-cost']||0)}}];"
+      }
+    },
+    {
+      "id": "cbefabac-5074-49d1-9c42-d6a94dedeb78",
+      "name": "Return result",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.5,
+      "position": [
+        1120,
+        96
+      ],
+      "parameters": {
+        "respondWith": "firstIncomingItem",
+        "options": {
+          "enableStreaming": false
+        }
+      }
+    },
+    {
+      "id": "74d1f091-956f-412b-834f-d17f1e551c92",
+      "name": "Keep ambiguous result safe",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        896,
+        192
+      ],
+      "parameters": {
+        "mode": "runOnceForAllItems",
+        "jsCode": "return [{json:{ok:false,error:'The voice request did not finish. It will not be repeated automatically because it may have been billed.',error_code:'voice_transport',uncertain:true}}];"
+      }
+    }
+  ],
+  "connections": {
+    "Seranews audio": {
+      "main": [
+        [
+          {
+            "node": "Verify app signature",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Verify app signature": {
+      "main": [
+        [
+          {
+            "node": "Prepare approved dialogue",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Prepare approved dialogue": {
+      "main": [
+        [
+          {
+            "node": "Record natural voices",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Record natural voices": {
+      "main": [
+        [
+          {
+            "node": "Keep audio and timestamps",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Keep ambiguous result safe",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Keep audio and timestamps": {
+      "main": [
+        [
+          {
+            "node": "Return result",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Keep ambiguous result safe": {
+      "main": [
+        [
+          {
+            "node": "Return result",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1",
+    "availableInMCP": true
+  },
+  "active": false
+}

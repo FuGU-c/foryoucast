@@ -1,0 +1,119 @@
+.source-review {
+  margin-top: 14px;
+  padding-top: 10px;
+  border-top: 1px solid var(--theme-border);
+}
+
+.source-review > summary {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--theme-secondary);
+  cursor: pointer;
+  list-style: none;
+}
+
+.source-review > summary::-webkit-details-marker {
+  display: none;
+}
+
+.source-review > summary::after {
+  content: '+';
+  margin-left: auto;
+  color: var(--theme-secondary);
+  font-size: 15px;
+  line-height: 1;
+}
+
+.source-review[open] > summary::after {
+  content: '−';
+}
+
+.source-review > summary span {
+  font-size: 10px;
+  font-weight: 650;
+}
+
+.source-review > summary small {
+  color: var(--theme-text-muted);
+  font-size: 9px;
+}
+
+.source-review > summary:focus-visible {
+  outline: 2px solid var(--theme-focus);
+  outline-offset: 3px;
+  border-radius: 3px;
+}
+
+.source-review-content {
+  margin: 11px 0 0 1px;
+}
+
+.source-review-note {
+  margin-bottom: 9px;
+  color: var(--theme-text-muted);
+  font-size: 10px;
+  line-height: 1.6;
+}
+
+.source-review-content ol {
+  display: grid;
+  gap: 11px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.source-review-content li {
+  min-width: 0;
+  padding: 10px 11px;
+  background: var(--theme-surface);
+  border: 1px solid var(--theme-border);
+  border-radius: 9px;
+}
+
+.source-review-turn {
+  display: block;
+  color: var(--theme-text-muted);
+  font-size: 9px;
+  letter-spacing: .25px;
+}
+
+.source-review-content blockquote {
+  margin: 6px 0 0;
+  padding-left: 9px;
+  color: var(--theme-secondary);
+  border-left: 2px solid var(--theme-border);
+  font-size: 11px;
+  line-height: 1.65;
+  white-space: pre-wrap;
+}
+
+.source-review-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  max-width: 100%;
+  margin-top: 8px;
+  padding: 4px 0;
+  color: var(--theme-secondary);
+  font-size: 9px;
+  text-align: left;
+}
+
+.source-review-link span {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.source-review-link:hover {
+  color: var(--theme-secondary);
+}
+
+.source-review-missing {
+  display: inline-block;
+  margin-top: 8px;
+  color: var(--theme-text-muted);
+  font-size: 9px;
+}

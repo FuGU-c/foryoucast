@@ -1,0 +1,1 @@
+Shared news preparation and reusable audio reduce repeated work. n8n orchestrates, OpenAI writes and reviews, and ElevenLabs powers natural voices.

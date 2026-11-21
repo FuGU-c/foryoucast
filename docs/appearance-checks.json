@@ -1,0 +1,72 @@
+{
+  "checks": [
+    {
+      "theme": "signal",
+      "mode": "light",
+      "fit": true,
+      "instant": true,
+      "persisted": true
+    },
+    {
+      "theme": "signal",
+      "mode": "dark",
+      "fit": true,
+      "instant": true,
+      "persisted": true
+    },
+    {
+      "theme": "cobalt",
+      "mode": "light",
+      "fit": true,
+      "instant": true,
+      "persisted": true
+    },
+    {
+      "theme": "cobalt",
+      "mode": "dark",
+      "fit": true,
+      "instant": true,
+      "persisted": true
+    },
+    {
+      "theme": "edition",
+      "mode": "light",
+      "fit": true,
+      "instant": true,
+      "persisted": true
+    },
+    {
+      "theme": "edition",
+      "mode": "dark",
+      "fit": true,
+      "instant": true,
+      "persisted": true
+    },
+    {
+      "theme": "afterhours",
+      "mode": "light",
+      "fit": true,
+      "instant": true,
+      "persisted": true
+    },
+    {
+      "theme": "afterhours",
+      "mode": "dark",
+      "fit": true,
+      "instant": true,
+      "persisted": true
+    }
+  ],
+  "responsiveHeights": [
+    640,
+    480
+  ],
+  "menuOrder": [
+    "Preferences & schedule",
+    "Subscription Horizon",
+    "Appearance Afterhours"
+  ],
+  "persistedAcrossReload": true,
+  "runtimeErrors": [],
+  "method": "Isolated headless Edge profile; reading-history writes intercepted; no generation or voting requests."
+}

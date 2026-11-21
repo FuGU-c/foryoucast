@@ -1,0 +1,28 @@
+.phone-frame .discover-reels .reel-actions {
+  top: 61%; right: 12px; bottom: auto; transform: translateY(-50%);
+  display: flex; flex-direction: column; align-items: center; gap: 19px;
+}
+.phone-frame .discover-reels .reel-vote-pair {
+  display: flex; flex-direction: column; align-items: center; gap: 19px;
+  padding: 0; border: 0; border-radius: 0; background: transparent;
+  box-shadow: none; backdrop-filter: none;
+}
+/* Generous invisible hit areas keep the photograph free of button tiles. */
+.phone-frame .discover-reels .reel-actions button,
+.phone-frame .discover-reels .reel-actions button:hover,
+.phone-frame .discover-reels .reel-actions button:active,
+.phone-frame .discover-reels .reel-actions button[aria-pressed] {
+  display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 5px;
+  width: 46px; min-width: 46px; height: 46px; min-height: 46px;
+  padding: 0; border: 0; background: transparent; box-shadow: none; color: var(--theme-media-text);
+  filter: drop-shadow(0 1px 3px color-mix(in srgb, var(--theme-shadow) 70.2%, transparent)); -webkit-tap-highlight-color: transparent;
+}
+.phone-frame .discover-reels .reel-actions button[aria-pressed=true] { color: var(--theme-media-text); }
+.phone-frame .discover-reels .reel-actions .vote-down[aria-pressed=true] { color: var(--theme-media-text); }
+.phone-frame .discover-reels .reel-actions button svg { width: 25px; height: 25px; stroke-width: 1.8; }
+.phone-frame .discover-reels .reel-actions small { font-size: 10px; font-weight: 600; line-height: 1; text-shadow: 0 1px 4px color-mix(in srgb, var(--theme-shadow) 65.1%, transparent); }
+.phone-frame .discover-reels .reel-actions button:focus-visible { outline: 2px solid var(--theme-focus); outline-offset: 4px; border-radius: 10px; }
+@media (max-height: 640px) {
+  .phone-frame .discover-reels .reel-actions { top: 59%; gap: 12px; }
+  .phone-frame .discover-reels .reel-vote-pair { gap: 12px; }
+}

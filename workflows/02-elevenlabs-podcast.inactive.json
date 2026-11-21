@@ -1,0 +1,584 @@
+{
+  "name": "Seranews 02 · Podcast chapters with ElevenLabs [INACTIVE]",
+  "nodes": [
+    {
+      "parameters": {
+        "content": "## Configure before use\n1. Set API URL and voice ID in **Audio configuration**. Use the SAME voice/model IDs in the backend environment for correct caching.\n2. Webhook Header Auth: `x-liquid-webhook-key`. Backend HTTP nodes: Header Auth `x-workflow-key`. ElevenLabs node: Header Auth `xi-api-key`.\n3. Public HTTPS backend required; n8n Cloud cannot reach localhost.\n4. Test with one short chapter before enabling paid synthesis. Webhook acknowledges 202; the app reads ready editions from its API.\n5. Timed TTS uses `alignment` or `normalized_alignment` plus `audio_base64`.\nAll exports are inactive and contain no secrets.",
+        "height": 340,
+        "width": 720,
+        "color": 5
+      },
+      "id": "ff843a3a-4607-5c83-87b5-88bd157c3040",
+      "name": "Setup notes",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        -100,
+        -410
+      ]
+    },
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "liquid-podcast",
+        "authentication": "headerAuth",
+        "responseMode": "onReceived",
+        "options": {
+          "responseCode": 202
+        }
+      },
+      "id": "e4a78382-bdd1-582c-8f93-4ca4e79a287b",
+      "name": "Generate personal podcast",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2.1,
+      "position": [
+        0,
+        40
+      ],
+      "webhookId": "1117d8f9-7806-5fb0-8dfd-2658415af529"
+    },
+    {
+      "parameters": {
+        "jsCode": "const body = $json.body ?? $json;\nif (typeof body.profile_id !== 'string' || !/^[a-zA-Z0-9_-]{1,80}$/.test(body.profile_id)) throw new Error('A valid profile_id is required');\nconst api_base_url = 'https://YOUR-DEPLOYED-LIQUID-API.example';\nconst voice_id = 'REPLACE_WITH_ELEVENLABS_VOICE_ID';\nconst model_id = 'eleven_multilingual_v2';\nif (api_base_url.includes('YOUR-') || voice_id.startsWith('REPLACE_')) throw new Error('Configure API URL and voice ID before activating');\nreturn [{json: {profile_id:body.profile_id, day:body.day ?? null, claim_token:body.claim_token ?? null, api_base_url, voice_id, model_id}}];"
+      },
+      "id": "c03f1f77-bd36-5262-9f3b-5a5681dbc63c",
+      "name": "Audio configuration",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        240,
+        40
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "={{ $(\"Audio configuration\").first().json.api_base_url + \"/api/integrations/editions/\" + encodeURIComponent($(\"Audio configuration\").first().json.profile_id) }}",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "options": {
+          "timeout": 180000
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ {} }}"
+      },
+      "id": "73742a30-33c8-5f2a-85ec-1cbe439bb573",
+      "name": "Compose edition",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        480,
+        40
+      ],
+      "retryOnFail": true,
+      "maxTries": 3,
+      "waitBetweenTries": 2000,
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "jsCode": "const edition = $json;\nconst config = $('Audio configuration').first().json;\nif (!edition.id || !Array.isArray(edition.chapters) || !edition.chapters.length) throw new Error('Edition has no chapters');\nif (!['en','de','nl'].includes(edition.language) || edition.chapters.some(chapter => chapter.language !== edition.language)) throw new Error('Every chapter must be composed in the listener’s narration language');\nreturn edition.chapters.map(chapter => ({json:{...config,edition_id:edition.id,narration_language:edition.language,chapter}}));"
+      },
+      "id": "dc79bd1d-d7f0-59ac-bf06-ee5317528bac",
+      "name": "One item per chapter",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        720,
+        40
+      ],
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "batchSize": 1,
+        "options": {}
+      },
+      "id": "4a907641-ce5f-5653-99f2-18c0a4cb98d1",
+      "name": "Chapter loop",
+      "type": "n8n-nodes-base.splitInBatches",
+      "typeVersion": 3,
+      "position": [
+        960,
+        40
+      ]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "has-audio",
+              "leftValue": "={{ Boolean($json.chapter.audio && $json.chapter.audio.url) }}",
+              "rightValue": true,
+              "operator": {
+                "type": "boolean",
+                "operation": "true",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "b760d232-3358-5915-b7a0-4020abcf8e70",
+      "name": "Chapter already cached?",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        1200,
+        160
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "return $input.all();"
+      },
+      "id": "d4853ad3-db42-59cb-acd5-bcec54c55b5b",
+      "name": "Reuse cached chapter",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1450,
+        80
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "={{ \"https://api.elevenlabs.io/v1/text-to-speech/\" + encodeURIComponent($json.voice_id) + \"/with-timestamps?output_format=mp3_44100_128\" }}",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "options": {
+          "timeout": 180000
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ { text: $json.chapter.text, model_id: $json.model_id } }}"
+      },
+      "id": "cf6e245d-f7a7-5601-9d4d-f3cbe2f2237b",
+      "name": "ElevenLabs timed chapter",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1450,
+        260
+      ],
+      "retryOnFail": true,
+      "maxTries": 3,
+      "waitBetweenTries": 2000,
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "jsCode": "const response = $json;\nconst context = $('Chapter loop').item.json;\nconst alignment = response.alignment ?? response.normalized_alignment;\nif (!response.audio_base64 || !alignment || !Array.isArray(alignment.characters)) throw new Error('ElevenLabs did not return audio and timing alignment');\nreturn [{json:{...context,audio_base64:response.audio_base64,alignment}}];"
+      },
+      "id": "f095e773-5c39-5c9f-b6df-2048f59f8ccb",
+      "name": "Validate timed audio",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1680,
+        260
+      ],
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "={{ $json.api_base_url + \"/api/integrations/audio\" }}",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "options": {
+          "timeout": 180000
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ { cache_key: $json.chapter.cache_key, audio_base64: $json.audio_base64, alignment: $json.alignment } }}"
+      },
+      "id": "2c2b7d42-9d2a-513b-bcf3-a32a3b0339c5",
+      "name": "Store timed chapter",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1920,
+        260
+      ],
+      "retryOnFail": true,
+      "maxTries": 3,
+      "waitBetweenTries": 2000,
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "jsCode": "const config = $('Audio configuration').first().json;\nconst edition = $('Compose edition').first().json;\nreturn [{json:{...config,edition_id:edition.id}}];"
+      },
+      "id": "28073e24-357d-59b3-ad86-08bf6d0da7ed",
+      "name": "Finalize once",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1200,
+        -100
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "={{ $json.api_base_url + \"/api/integrations/editions/\" + encodeURIComponent($json.edition_id) + \"/ready\" }}",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "options": {
+          "timeout": 180000
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ {} }}"
+      },
+      "id": "8503182b-5035-5322-9a82-6135c6af3b43",
+      "name": "Publish ready edition",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1450,
+        -100
+      ],
+      "retryOnFail": true,
+      "maxTries": 3,
+      "waitBetweenTries": 2000,
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "jsCode": "const config = $('Audio configuration').first().json;\nreturn [{json:{...config,error_message:$json.error?.message ?? $json.message ?? 'Podcast production failed'}}];"
+      },
+      "id": "c1b66c98-c266-50b4-8df7-eb99b58d5fa0",
+      "name": "Failure context",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1700,
+        520
+      ]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "has-claim",
+              "leftValue": "={{ Boolean($json.claim_token && $json.day) }}",
+              "rightValue": true,
+              "operator": {
+                "type": "boolean",
+                "operation": "true",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "8da12b37-fce8-5b7c-81e0-b689bee0ed36",
+      "name": "Has scheduled reservation?",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        1940,
+        520
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "={{ $json.api_base_url + \"/api/integrations/schedule/release\" }}",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "options": {
+          "timeout": 180000
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ { profile_id: $json.profile_id, day: $json.day, claim_token: $json.claim_token } }}"
+      },
+      "id": "9b50c5bb-23ac-58dc-890e-ced47243a8ad",
+      "name": "Release failed reservation",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        2180,
+        460
+      ],
+      "retryOnFail": true,
+      "maxTries": 3,
+      "waitBetweenTries": 2000,
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "errorMessage": "Podcast production failed. Check this execution; the scheduled reservation was released when possible."
+      },
+      "id": "1cf72536-f304-55b8-bac3-bef8ea77bc33",
+      "name": "Fail visibly",
+      "type": "n8n-nodes-base.stopAndError",
+      "typeVersion": 1,
+      "position": [
+        2420,
+        580
+      ]
+    }
+  ],
+  "connections": {
+    "Generate personal podcast": {
+      "main": [
+        [
+          {
+            "node": "Audio configuration",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Audio configuration": {
+      "main": [
+        [
+          {
+            "node": "Compose edition",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Compose edition": {
+      "main": [
+        [
+          {
+            "node": "One item per chapter",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Failure context",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "One item per chapter": {
+      "main": [
+        [
+          {
+            "node": "Chapter loop",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Failure context",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Chapter loop": {
+      "main": [
+        [
+          {
+            "node": "Finalize once",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Chapter already cached?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Chapter already cached?": {
+      "main": [
+        [
+          {
+            "node": "Reuse cached chapter",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "ElevenLabs timed chapter",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Reuse cached chapter": {
+      "main": [
+        [
+          {
+            "node": "Chapter loop",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "ElevenLabs timed chapter": {
+      "main": [
+        [
+          {
+            "node": "Validate timed audio",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Failure context",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Validate timed audio": {
+      "main": [
+        [
+          {
+            "node": "Store timed chapter",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Failure context",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Store timed chapter": {
+      "main": [
+        [
+          {
+            "node": "Chapter loop",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Failure context",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Finalize once": {
+      "main": [
+        [
+          {
+            "node": "Publish ready edition",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Failure context": {
+      "main": [
+        [
+          {
+            "node": "Has scheduled reservation?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Has scheduled reservation?": {
+      "main": [
+        [
+          {
+            "node": "Release failed reservation",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Fail visibly",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Release failed reservation": {
+      "main": [
+        [
+          {
+            "node": "Fail visibly",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Publish ready edition": {
+      "main": [
+        [],
+        [
+          {
+            "node": "Failure context",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1",
+    "saveExecutionProgress": true,
+    "saveDataErrorExecution": "all",
+    "saveDataSuccessExecution": "none",
+    "timezone": "Europe/Brussels"
+  },
+  "pinData": {},
+  "meta": {
+    "templateCredsSetupCompleted": false,
+    "description": "On-demand authenticated webhook. Composes an edition in the listener’s narration language, reuses cached chapters, generates timed TTS for missing chapters and publishes the ready edition."
+  },
+  "tags": []
+}

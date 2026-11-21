@@ -1,0 +1,20 @@
+{
+  "ready": true,
+  "isolated": true,
+  "paid_calls": 0,
+  "reviewed_response_reused": true,
+  "file_import_idempotent": true,
+  "original_headline_preserved": true,
+  "source_id": "INVZ-10009737-01M7S3P9EJBXM9TT8XTMKWSAPS",
+  "summary_languages": [
+    "de",
+    "en",
+    "nl"
+  ],
+  "spoken_summary_seconds": {
+    "en": 49.73,
+    "nl": 51.76,
+    "de": 48.746
+  },
+  "elapsed_seconds": 5.339
+}

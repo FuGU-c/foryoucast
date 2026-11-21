@@ -1,0 +1,141 @@
+{
+  "name": "Seranews 01 · News preparation [DRAFT — publication pending]",
+  "nodes": [
+    {
+      "parameters": {
+        "content": "## DRAFT — publication pending\nSend one article or a batch. The batch step deduplicates delivery records, groups exact same-language headlines and records with a shared event or translation ID, and preserves every original language edition. Give trusted cross-language matches a shared event_id or a publisher-scoped translation_group_id.\n\nThe backend preparation endpoint currently returns 501. Connect licensed ingestion, persistent matching, evidence review and publication before activation. Use Header Auth credentials for both webhook and backend.",
+        "height": 285,
+        "width": 675,
+        "color": 5
+      },
+      "id": "ff843a3a-4607-5c83-87b5-88bd157c3040",
+      "name": "Setup notes",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        -80,
+        -330
+      ]
+    },
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "liquid-news-arrival",
+        "authentication": "headerAuth",
+        "responseMode": "onReceived",
+        "options": {
+          "responseCode": 202
+        }
+      },
+      "id": "0ec562cb-ac31-5ca5-bd31-c5fc68986918",
+      "name": "Incoming licensed news",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2.1,
+      "position": [
+        0,
+        60
+      ],
+      "webhookId": "c6b2a5d4-98a5-512d-b9a1-cc771a4802ef"
+    },
+    {
+      "parameters": {
+        "jsCode": "return [{json: {...$json, api_base_url: 'https://YOUR-DEPLOYED-LIQUID-API.example'}}];"
+      },
+      "id": "5b6cf246-695f-52f0-b05e-e93518e7a8f8",
+      "name": "News configuration",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        240,
+        60
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "const input = $input.first().json;\nconst submitted = Array.isArray(input.body) ? input.body : input.body?.articles ?? [input.body];\nif (!Array.isArray(submitted) || !submitted.length || submitted.length > 250) {\n  throw new Error('Submit one article or a batch of up to 250 articles');\n}\n\nconst normalize = value => String(value ?? '').normalize('NFKC').trim().toLowerCase();\nconst titleKey = value => normalize(value).replace(/[^\\p{L}\\p{N}]+/gu,' ').trim();\nfunction articleOf(value) {\n  const id = String(value?.article_id ?? value?.$id ?? '').trim();\n  const headline = String(value?.headline ?? '').trim();\n  const language = normalize(value?.language);\n  const date = String(value?.date ?? '');\n  const permalink = new URL(value?.permalink ?? '');\n  if (!id || !headline || !['en','de','nl'].includes(language) ||\n      !Number.isFinite(Date.parse(date)) || permalink.protocol !== 'https:') {\n    throw new Error('Each article needs an ID, headline, supported language, publication date, and HTTPS permalink');\n  }\n  // Keep the original URL for readers. Remove tracking only for deduplication.\n  const canonical = new URL(permalink);\n  for (const key of [...canonical.searchParams.keys()]) {\n    if (/^(utm_|fbclid$|gclid$)/i.test(key)) canonical.searchParams.delete(key);\n  }\n  canonical.hash = '';\n  canonical.searchParams.sort();\n  return {\n    article_id:id, headline, language, date, permalink:permalink.href,\n    canonical_url:canonical.href,\n    publisher:normalize(value.publisher?.name ?? value.publisher_name ?? value.publication?.name),\n    author:normalize(value.author ?? value.source),\n    event_id:String(value.event_id ?? '').trim(),\n    translation_group_id:String(value.translation_group_id ?? '').trim(),\n    provider_categories:Array.isArray(value.provider_categories) ? value.provider_categories : [],\n    excerpt:typeof value.excerpt === 'string' ? value.excerpt : '',\n    text_content:typeof value.text_content === 'string' ? value.text_content : '',\n  };\n}\n\nconst articles = [];\nconst ids = new Set();\nconst urls = new Set();\nfor (const entry of submitted) {\n  const article = articleOf(entry);\n  const articleKey = article.language + '|' + article.article_id;\n  const urlKey = article.language + '|' + article.canonical_url;\n  if (ids.has(articleKey) || urls.has(urlKey)) continue;\n  ids.add(articleKey);\n  urls.add(urlKey);\n  articles.push(article);\n}\n\nconst parents = articles.map((_,i) => i);\nconst find = i => parents[i] === i ? i : (parents[i] = find(parents[i]));\nconst join = (a,b) => { parents[find(b)] = find(a); };\nconst matches = new Map();\nconst maxMatchingAge = 86400000;\narticles.forEach((article, i) => {\n  const keys = [];\n  if (article.event_id) keys.push('event|' + article.event_id);\n  if (article.translation_group_id && article.publisher) {\n    keys.push('translation|' + article.publisher + '|' + article.translation_group_id);\n  }\n  const normalizedTitle = titleKey(article.headline);\n  if (normalizedTitle.length >= 22) keys.push('title|' + article.language + '|' + normalizedTitle);\n  for (const key of keys) {\n    for (const other of matches.get(key) ?? []) {\n      const prior = articles[other];\n      if (key.startsWith('title|') &&\n          (Math.abs(Date.parse(prior.date) - Date.parse(article.date)) > maxMatchingAge ||\n           (prior.event_id && article.event_id && prior.event_id !== article.event_id))) continue;\n      join(i,other);\n    }\n    matches.set(key,[...(matches.get(key) ?? []),i]);\n  }\n});\n\nconst groups = new Map();\narticles.forEach((article,i) => groups.set(find(i),[...(groups.get(find(i)) ?? []),article]));\nconst stories = [...groups.values()].map(sources => {\n  const language_editions = {};\n  for (const source of sources) {\n    const {article_id,headline,permalink,date,publisher} = source;\n    (language_editions[source.language] ??= []).push({article_id,headline,permalink,date,publisher});\n  }\n  return {event_id:sources.find(a=>a.event_id)?.event_id || null, language_editions, sources};\n});\nreturn [{json:{api_base_url:input.api_base_url,batch:{articles_received:submitted.length,stories}}}];\n"
+      },
+      "id": "ce8b6656-1300-54d2-a8b3-5a76d102be29",
+      "name": "Merge stories, retain original editions",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        480,
+        60
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "={{ $json.api_base_url + \"/api/integrations/prepare\" }}",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "options": {
+          "timeout": 180000
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ $json.batch }}"
+      },
+      "id": "79b4232b-0345-5b1b-b7a9-23957899a5bc",
+      "name": "Prepare and publish catalog",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        730,
+        60
+      ],
+      "retryOnFail": true,
+      "maxTries": 3,
+      "waitBetweenTries": 2000
+    }
+  ],
+  "connections": {
+    "Incoming licensed news": {
+      "main": [
+        [
+          {
+            "node": "News configuration",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "News configuration": {
+      "main": [
+        [
+          {
+            "node": "Merge stories, retain original editions",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Merge stories, retain original editions": {
+      "main": [
+        [
+          {
+            "node": "Prepare and publish catalog",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1",
+    "saveExecutionProgress": true,
+    "saveDataErrorExecution": "all",
+    "saveDataSuccessExecution": "none",
+    "timezone": "Europe/Brussels"
+  },
+  "pinData": {},
+  "meta": {
+    "templateCredsSetupCompleted": false,
+    "description": "Deduplicates incoming batches and keeps source editions by language. Persistent cross-batch matching, extraction and publication remain disabled."
+  },
+  "tags": []
+}

@@ -1,0 +1,229 @@
+{
+  "measured_at_utc": "2026-11-20T22:52:21+00:00",
+  "method": {
+    "python": "3.12.14",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "processor": "Intel64 Family 6 Model 170 Stepping 4, GenuineIntel",
+    "logical_cpu_count": 22,
+    "measurement_clock": "time.perf_counter",
+    "memory_measurement": "tracemalloc Python-allocation peak; excludes native allocations and OS RSS",
+    "repeats": 3,
+    "ranking": "backend.server.ranked(profile_id, all_items=True), using a temporary read-only backup of the current profile database",
+    "tagging": "backend.prepare.tags_for on original JSONL records; tag results are held only in memory",
+    "synthetic_10x": "same 1,740 parsed record objects repeated ten times (17,400 tag calls); not 17,400 unique articles",
+    "mutation_safety": "catalog and active SQLite database were not written; import-time database initialization and ranking used a temporary copy"
+  },
+  "inputs": {
+    "catalog_file_bytes": 1985424,
+    "catalog_articles": 1740,
+    "catalog_story_records": 1459,
+    "dataset_jsonl_records": 1740,
+    "dataset_feeds": 6,
+    "profile_ids": [
+      "mila",
+      "jonas",
+      "alex",
+      "sam",
+      "free-demo",
+      "medium-demo",
+      "new"
+    ]
+  },
+  "measurements": {
+    "catalog_json_read_and_parse": {
+      "repeat_count": 3,
+      "wall_seconds": {
+        "min": 0.036965099978260696,
+        "median": 0.03826650005066767,
+        "max": 0.04729319998295978,
+        "runs": [
+          0.036965099978260696,
+          0.04729319998295978,
+          0.03826650005066767
+        ]
+      },
+      "python_traced_peak_bytes": {
+        "max": 8931145,
+        "runs": [
+          8931145,
+          8930638,
+          8930638
+        ]
+      }
+    },
+    "app_runtime_catalog_load_and_normalization": {
+      "repeat_count": 3,
+      "wall_seconds": {
+        "min": 0.060450399992987514,
+        "median": 0.06449820002308115,
+        "max": 0.07098360004602,
+        "runs": [
+          0.06449820002308115,
+          0.060450399992987514,
+          0.07098360004602
+        ]
+      },
+      "python_traced_peak_bytes": {
+        "max": 8930678,
+        "runs": [
+          8930678,
+          8930678,
+          8930678
+        ]
+      }
+    },
+    "zip_read_and_jsonl_parse": {
+      "repeat_count": 3,
+      "wall_seconds": {
+        "min": 0.5475305000436492,
+        "median": 0.5569323999807239,
+        "max": 0.5852686000289395,
+        "runs": [
+          0.5852686000289395,
+          0.5569323999807239,
+          0.5475305000436492
+        ]
+      },
+      "python_traced_peak_bytes": {
+        "max": 140859728,
+        "runs": [
+          140859728,
+          140834163,
+          140834155
+        ]
+      }
+    },
+    "tag_1740_original_records": {
+      "repeat_count": 3,
+      "wall_seconds": {
+        "min": 0.5149924000143073,
+        "median": 0.535047699988354,
+        "max": 0.5550473000039347,
+        "runs": [
+          0.5550473000039347,
+          0.535047699988354,
+          0.5149924000143073
+        ]
+      },
+      "python_traced_peak_bytes": {
+        "max": 198618,
+        "runs": [
+          198618,
+          162298,
+          162298
+        ]
+      },
+      "records_per_run": 1740,
+      "topic_assignments_per_run": 4495
+    },
+    "tag_17400_synthetic_records": {
+      "repeat_count": 3,
+      "wall_seconds": {
+        "min": 5.649564700026531,
+        "median": 5.818044000014197,
+        "max": 7.603030600002967,
+        "runs": [
+          5.649564700026531,
+          5.818044000014197,
+          7.603030600002967
+        ]
+      },
+      "python_traced_peak_bytes": {
+        "max": 1567738,
+        "runs": [
+          1567738,
+          1567738,
+          1567738
+        ]
+      },
+      "records_per_run": 17400,
+      "topic_assignments_per_run": 44950,
+      "unique_source_records": 1740
+    },
+    "rank_7_profiles_over_full_catalog": {
+      "repeat_count": 3,
+      "wall_seconds": {
+        "min": 5.36113390000537,
+        "median": 5.595381100021768,
+        "max": 6.618136400007643,
+        "runs": [
+          5.36113390000537,
+          5.595381100021768,
+          6.618136400007643
+        ]
+      },
+      "python_traced_peak_bytes": {
+        "max": 6156214,
+        "runs": [
+          6156214,
+          5167031,
+          5167031
+        ]
+      },
+      "all_items": true,
+      "per_profile_last_run": {
+        "mila": {
+          "wall_seconds": 0.8913012999692,
+          "ranked_story_count": 1458
+        },
+        "jonas": {
+          "wall_seconds": 0.90256399998907,
+          "ranked_story_count": 1458
+        },
+        "alex": {
+          "wall_seconds": 1.0718916000332683,
+          "ranked_story_count": 1457
+        },
+        "sam": {
+          "wall_seconds": 1.0635105000110343,
+          "ranked_story_count": 1457
+        },
+        "free-demo": {
+          "wall_seconds": 0.9045278999838047,
+          "ranked_story_count": 1457
+        },
+        "medium-demo": {
+          "wall_seconds": 1.085344500024803,
+          "ranked_story_count": 1457
+        },
+        "new": {
+          "wall_seconds": 0.6939150000107475,
+          "ranked_story_count": 1457
+        }
+      },
+      "per_profile_run_total_seconds_last_run": 6.613054800021928
+    }
+  },
+  "not_measured": {
+    "17_400_unique_article_ingest_or_tagging": "No 17,400 unique records were supplied; the 10x test repeats the provided 1,740 records.",
+    "frontier_model_or_embedding_cost": "No model calls were made.",
+    "ElevenLabs_or_other_TTS_cost": "No speech-generation calls were made.",
+    "cloud_latency_or_production_throughput": "Not measured by this local benchmark.",
+    "10x_cost_projection": "Must use explicit model/audio rates and assumptions in the presentation; it is not derived from local timings."
+  },
+  "cloud_cost_projection": {
+    "status": "unpriced; no provider/model rates or production usage counts were supplied",
+    "volume_basis": {
+      "articles_full_dataset": 1740,
+      "articles_10x": 17400,
+      "plain_text_characters_approx_from_dataset_tips": 9000000,
+      "plain_text_characters_approx_10x_arithmetic": 90000000,
+      "html_characters_approx_from_dataset_tips": 12400000,
+      "html_characters_approx_10x_arithmetic": 124000000
+    },
+    "projected_usd": {
+      "shared_preparation_full_dataset": null,
+      "shared_preparation_10x": null,
+      "personalized_audio_edition": null
+    },
+    "projection_formula": "shared model/embedding input-token usage times the selected vendor rates, plus generated script tokens and TTS characters times the selected voice/model rate, plus declared n8n/cloud overhead",
+    "inputs_needed": [
+      "selected provider, model, tokenizer, and dated input/output/embedding rates",
+      "actual request token counts and whether full article bodies or excerpts are sent",
+      "TTS provider/model, billed characters per edition, and dated rate",
+      "number of listeners and editions, separated from article volume",
+      "n8n/cloud execution and storage assumptions"
+    ],
+    "source_for_approximate_character_volume": "liquid-briefing-data.zip / IDEAS_AND_TIPS.txt / TIPS, BY JUDGING CRITERION"
+  }
+}

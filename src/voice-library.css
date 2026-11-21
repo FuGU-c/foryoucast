@@ -1,0 +1,89 @@
+.voice-preferences .voice-search {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  min-height: 40px;
+  padding: 0 12px;
+  margin: 0 2px 10px;
+  color: var(--theme-text-muted);
+  background: var(--theme-surface);
+  border: 1px solid var(--theme-border);
+  border-radius: 11px;
+}
+
+.voice-preferences .voice-search input {
+  width: 100%;
+  min-width: 0;
+  padding: 9px 0;
+  color: var(--theme-secondary);
+  background: transparent;
+  border: 0;
+  outline: 0;
+  font: inherit;
+  font-size: 11px;
+}
+
+.voice-preferences .voice-search:focus-within {
+  border-color: var(--theme-focus);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--theme-shadow) 50.2%, transparent);
+}
+
+.voice-preferences .voice-sample-list {
+  max-height: 340px;
+  padding: 2px 3px 3px;
+}
+
+.voice-preferences .voice-sample {
+  min-width: 0;
+  padding: 9px 10px;
+  border-radius: 12px;
+}
+
+.voice-preferences .voice-play {
+  width: 34px;
+  height: 34px;
+}
+
+.voice-preferences .voice-option-label {
+  align-items: center;
+}
+
+.voice-preferences .voice-option-label > span {
+  display: block;
+  min-width: 0;
+}
+
+.voice-preferences .voice-option-label b {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.voice-preferences .voice-option-label small {
+  display: block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.voice-preferences .voice-accent {
+  display: inline-flex;
+  align-items: center;
+  margin-top: 5px;
+  padding: 2px 6px;
+  color: var(--theme-secondary);
+  background: var(--theme-surface-subtle);
+  border-radius: 5px;
+  font-size: 8px;
+  line-height: 1.4;
+}
+
+@media (max-width: 380px) {
+  .voice-preferences .voice-library-tabs button {
+    font-size: 10px;
+  }
+
+  .voice-preferences .voice-option-label small {
+    max-width: 205px;
+  }
+}

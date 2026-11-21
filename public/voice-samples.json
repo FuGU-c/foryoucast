@@ -1,0 +1,242 @@
+[
+  {
+    "id": "hpp4J3VqNfWAUOO0d1Us",
+    "name": "Bella - Professional, Bright, Warm",
+    "label": "Bella",
+    "language": "en",
+    "accent": "US English",
+    "description": "Warm, polished delivery with crisp diction.",
+    "preview_url": "https://storage.googleapis.com/eleven-public-prod/premade/voices/hpp4J3VqNfWAUOO0d1Us/dab0f5ba-3aa4-48a8-9fad-f138fea1126d.mp3",
+    "provider": "elevenlabs"
+  },
+  {
+    "id": "CwhRBWXzGAHq8TQ4Fs17",
+    "name": "Roger - Laid-Back, Casual, Resonant",
+    "label": "Roger",
+    "language": "en",
+    "accent": "US English",
+    "description": "Relaxed, resonant tone for an easygoing listen.",
+    "preview_url": "https://storage.googleapis.com/eleven-public-prod/premade/voices/CwhRBWXzGAHq8TQ4Fs17/58ee3ff5-f6f2-4628-93b8-e38eb31806b0.mp3",
+    "provider": "elevenlabs"
+  },
+  {
+    "id": "EXAVITQu4vr4xnSDxMaL",
+    "name": "Sarah - Mature, Reassuring, Confident",
+    "label": "Sarah",
+    "language": "en",
+    "accent": "US English",
+    "description": "Warm, confident delivery with a reassuring tone.",
+    "preview_url": "https://storage.googleapis.com/eleven-public-prod/premade/voices/EXAVITQu4vr4xnSDxMaL/01a3e33c-6e99-4ee7-8543-ff2216a32186.mp3",
+    "provider": "elevenlabs"
+  },
+  {
+    "id": "Xb7hH8MSUJpSbSDYk0k2",
+    "name": "Alice - Clear, Engaging Educator",
+    "label": "Alice",
+    "language": "en",
+    "accent": "UK English",
+    "description": "Clear, friendly narration with a British accent.",
+    "preview_url": "https://storage.googleapis.com/eleven-public-prod/premade/voices/Xb7hH8MSUJpSbSDYk0k2/d10f7534-11f6-41fe-a012-2de1e482d336.mp3",
+    "provider": "elevenlabs"
+  },
+  {
+    "id": "XrExE9yKIg1WjnnlVkGX",
+    "name": "Matilda - Knowledgable, Professional",
+    "label": "Matilda",
+    "language": "en",
+    "accent": "US English",
+    "description": "Professional alto with an upbeat, expressive edge.",
+    "preview_url": "https://storage.googleapis.com/eleven-public-prod/premade/voices/XrExE9yKIg1WjnnlVkGX/b930e18d-6b4d-466e-bab2-0ae97c6d8535.mp3",
+    "provider": "elevenlabs"
+  },
+  {
+    "id": "SAz9YHcvj6GT2YYXdXww",
+    "name": "River - Relaxed, Neutral, Informative",
+    "label": "River",
+    "language": "en",
+    "accent": "US English",
+    "description": "Calm, neutral delivery for narration or conversation.",
+    "preview_url": "https://storage.googleapis.com/eleven-public-prod/premade/voices/SAz9YHcvj6GT2YYXdXww/e6c95f0b-2227-491a-b3d7-2249240decb7.mp3",
+    "provider": "elevenlabs"
+  },
+  {
+    "id": "cgSgspJ2msm6clMCkdW9",
+    "name": "Jessica - Playful, Bright, Warm",
+    "label": "Jessica",
+    "language": "en",
+    "accent": "US English",
+    "description": "Bright, playful delivery with a warm tone.",
+    "preview_url": "https://storage.googleapis.com/eleven-public-prod/premade/voices/cgSgspJ2msm6clMCkdW9/56a97bf8-b69b-448f-846c-c3a11683d45a.mp3",
+    "provider": "elevenlabs"
+  },
+  {
+    "id": "iP95p4xoKVk53GoZ742B",
+    "name": "Chris - Charming, Down-to-Earth",
+    "label": "Chris",
+    "language": "en",
+    "accent": "US English",
+    "description": "Natural, down-to-earth conversational style.",
+    "preview_url": "https://storage.googleapis.com/eleven-public-prod/premade/voices/iP95p4xoKVk53GoZ742B/3f4bde72-cc48-40dd-829f-57fbf906f4d7.mp3",
+    "provider": "elevenlabs"
+  },
+  {
+    "id": "X3GmkxFRIWulRy3Eaur7",
+    "name": "Adrian - E-Learning, Voice Over & Narrator",
+    "label": "Adrian",
+    "language": "de",
+    "accent": "Standard German",
+    "description": "Ruhige, klare deutsche Erzählstimme mit natürlicher Betonung.",
+    "preview_url": "https://storage.googleapis.com/eleven-public-prod/database/workspace/fb4a273526394da1b409cb2ecb65e2d6/voices/X3GmkxFRIWulRy3Eaur7/QdYM8XyekXOuRvgbMvb7.mp3",
+    "provider": "elevenlabs"
+  },
+  {
+    "id": "D7Kc8UwHvMOzEuzczitH",
+    "name": "Andreas - E-Learning",
+    "label": "Andreas",
+    "language": "de",
+    "accent": "Standard German",
+    "description": "Deutlich und verständlich gesprochen.",
+    "preview_url": "https://storage.googleapis.com/eleven-public-prod/database/workspace/eae211cd89a7479d856fb6ca74deebae/voices/D7Kc8UwHvMOzEuzczitH/cd90e884-e27d-40a6-9a8a-214c0202a8b5.mp3",
+    "provider": "elevenlabs"
+  },
+  {
+    "id": "5bVYvsqKAWO1hDgOO72l",
+    "name": "Irene velvety and clear",
+    "label": "Irene",
+    "language": "de",
+    "accent": "Standard German",
+    "description": "Warme, reife Stimme mit weichem Klang und ruhigem Vortrag.",
+    "preview_url": "https://storage.googleapis.com/eleven-public-prod/database/workspace/f0190a385dd24a3b92918789f70e3159/voices/5bVYvsqKAWO1hDgOO72l/wQpCKC19i0Yq2QdFgvwZ.mp3",
+    "provider": "elevenlabs"
+  },
+  {
+    "id": "JudZUClAOU1jP3wA2eDG",
+    "name": "Lola - School, but Exciting!",
+    "label": "Lola",
+    "language": "de",
+    "accent": "Standard German",
+    "description": "Frische, freundliche Stimme mit lebendiger Energie.",
+    "preview_url": "https://storage.googleapis.com/eleven-public-prod/database/workspace/0a53258044834171a20d693794566080/voices/JudZUClAOU1jP3wA2eDG/8jqltLfglLAiSsXPlYQB.mp3",
+    "provider": "elevenlabs"
+  },
+  {
+    "id": "tR9bEXIX9ixlxSis0fqv",
+    "name": "Toni - Klar & Engagiert Bildungsstimme",
+    "label": "Toni",
+    "language": "de",
+    "accent": "Standard German",
+    "description": "Klare, warme Stimme mit natürlicher Dynamik.",
+    "preview_url": "https://storage.googleapis.com/eleven-public-prod/database/workspace/668e86a8933b40768f94215718d4c2f5/voices/tR9bEXIX9ixlxSis0fqv/9663c4cb-374f-48cd-a23c-b353820a29d6.mp3",
+    "provider": "elevenlabs"
+  },
+  {
+    "id": "K75lPKuh15SyVhQC1LrE",
+    "name": "Carola Ferstl Nachrichten",
+    "label": "Carola Ferstl",
+    "language": "de",
+    "accent": "Standard German",
+    "description": "Dynamische Nachrichtenstimme mit herzlicher Wirkung.",
+    "preview_url": "https://storage.googleapis.com/eleven-public-prod/5ei0MqicAANlsSFIQjEs6ffqAsA3/voices/K75lPKuh15SyVhQC1LrE/4148b6cd-757d-4551-992d-2b218a520ef5.mp3",
+    "provider": "elevenlabs"
+  },
+  {
+    "id": "3EKymYQPdS1Q9fxZBuq8",
+    "name": "Emma Corporate Professional & Informative",
+    "label": "Emma",
+    "language": "de",
+    "accent": "Standard German",
+    "description": "Professionell artikuliert für sachliche Erklärformate.",
+    "preview_url": "https://storage.googleapis.com/eleven-public-prod/database/workspace/5d3e22ddcd5645b69969709ff0765f9d/voices/3EKymYQPdS1Q9fxZBuq8/HBg8MWTxtxkv50Di4DGW.mp3",
+    "provider": "elevenlabs"
+  },
+  {
+    "id": "kEOZcky6h2yXYqPyImH3",
+    "name": "Achim Hepp - German Business Voice",
+    "label": "Achim Hepp",
+    "language": "de",
+    "accent": "Standard German",
+    "description": "Klare, authentische und gut verständliche deutsche Männerstimme.",
+    "preview_url": "https://storage.googleapis.com/eleven-public-prod/database/workspace/d5c2ce9e43c24980b755e24d2aa94afe/voices/kEOZcky6h2yXYqPyImH3/1342f8b0-54c3-47b7-8264-5e147955fba7.mp3",
+    "provider": "elevenlabs"
+  },
+  {
+    "id": "G53Wkf3yrsXvhoQsmslL",
+    "name": "James - Your Native, Deep Dutch Voice",
+    "label": "James",
+    "language": "nl",
+    "accent": "Netherlands Dutch",
+    "description": "Native Dutch voice with a deep tone for podcasts and narration.",
+    "preview_url": "https://storage.googleapis.com/eleven-public-prod/database/workspace/d58ca2cbef3e4c6f8f88ae2f6de9f103/voices/G53Wkf3yrsXvhoQsmslL/BUO2fmC6KO9mSSumEVS9.mp3",
+    "provider": "elevenlabs"
+  },
+  {
+    "id": "KhYneopLIEaUSIqd0XIG",
+    "name": "Marleen - Warm and Professional",
+    "label": "Marleen",
+    "language": "nl",
+    "accent": "Netherlands Dutch",
+    "description": "Warm, professional female voice with a lower timbre.",
+    "preview_url": "https://storage.googleapis.com/eleven-public-prod/database/workspace/75f04933eca1419ba677e81b4f8213d3/voices/KhYneopLIEaUSIqd0XIG/AQz3idHqbf4NIgvP3RHn.mp3",
+    "provider": "elevenlabs"
+  },
+  {
+    "id": "Kv97WYcYaIv0A06FfXcK",
+    "name": "Peter de Ruiter",
+    "label": "Peter de Ruiter",
+    "language": "nl",
+    "accent": "Netherlands Dutch",
+    "description": "Helder, warm en persoonlijk; bekend van podcastvertellingen.",
+    "preview_url": "https://storage.googleapis.com/eleven-public-prod/database/workspace/0f57d9329b204fd7a274c7daa562004e/voices/Kv97WYcYaIv0A06FfXcK/976b5053-9de0-4b47-bf53-eeb4806bb5d6.mp3",
+    "provider": "elevenlabs"
+  },
+  {
+    "id": "4SZMuFG3NOs5lWy1q5Wf",
+    "name": "Luc – Calm Belgian Authority (EN/NL)",
+    "label": "Luc",
+    "language": "nl",
+    "accent": "Belgian Dutch (Flemish)",
+    "description": "Calm, confident Flemish voice with clear articulation.",
+    "preview_url": "https://storage.googleapis.com/eleven-public-prod/database/user/eu6s20FadMP9AZdu8VgGo8KMCYh2/voices/4SZMuFG3NOs5lWy1q5Wf/0d835546-19ab-4e4e-8dad-f13972554877.mp3",
+    "provider": "elevenlabs"
+  },
+  {
+    "id": "2PMXFe39H0c2xzwtr1Re",
+    "name": "Fabian - Warm and clear narrator",
+    "label": "Fabian",
+    "language": "nl",
+    "accent": "Netherlands Dutch",
+    "description": "Warm, approachable mid-baritone with clear diction.",
+    "preview_url": "https://storage.googleapis.com/eleven-public-prod/database/user/tQGM2y7WAnaJeQNiOF1RUUiKfra2/voices/2PMXFe39H0c2xzwtr1Re/W5DPqe6btIg3iZplfP7r.mp3",
+    "provider": "elevenlabs"
+  },
+  {
+    "id": "Aico6p59z1ke7BHtqmOH",
+    "name": "Michael - Kalm, duidelijk,podcast/nieuws",
+    "label": "Michael",
+    "language": "nl",
+    "accent": "Netherlands Dutch",
+    "description": "Kalme, duidelijke mannenstem voor podcasts en nieuws.",
+    "preview_url": "https://storage.googleapis.com/eleven-public-prod/database/workspace/49c852c03d6b4e25a38734ca28923715/voices/Aico6p59z1ke7BHtqmOH/Z3QQNFmsXVTJxZkK9WPd.mp3",
+    "provider": "elevenlabs"
+  },
+  {
+    "id": "Wv1hZ5Jt6dT5uCu90v9Y",
+    "name": "Emma – Clear Flemish Explainer",
+    "label": "Emma",
+    "language": "nl",
+    "accent": "Belgian Dutch (Flemish)",
+    "description": "Clear, articulate female voice with a friendly teaching style.",
+    "preview_url": "https://storage.googleapis.com/eleven-public-prod/database/workspace/c1aff800265144b58aae607614e670bc/voices/Wv1hZ5Jt6dT5uCu90v9Y/a9a7dde2-5bff-4ed9-bf76-8847cb1535d0.mp3",
+    "provider": "elevenlabs"
+  },
+  {
+    "id": "3fjjbhBA9yI42Aoj0o18",
+    "name": "Ariël - warm, inviting female voice with a subtle husky edge",
+    "label": "Ariël",
+    "language": "nl",
+    "accent": "Netherlands Dutch",
+    "description": "Warm, inviting female voice with a subtle husky edge.",
+    "preview_url": "https://storage.googleapis.com/eleven-public-prod/database/workspace/594ebdbd45ef481082b4902a09e86b6c/voices/3fjjbhBA9yI42Aoj0o18/oRpSHJxNGxl8p7m48bN1.mp3",
+    "provider": "elevenlabs"
+  }
+]

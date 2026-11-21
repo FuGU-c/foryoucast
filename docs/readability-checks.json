@@ -1,0 +1,27 @@
+{
+  "theme_modes": 8,
+  "screen_states": 136,
+  "visible_text_checks": 3128,
+  "contrast_failures": 0,
+  "runtime_exceptions": [],
+  "screens": [
+    "Appearance",
+    "Discover",
+    "Full article",
+    "Listening preferences",
+    "Listening preferences bottom",
+    "Mini player",
+    "Player",
+    "Podcasts",
+    "Preferences",
+    "Preferences bottom",
+    "Profile menu",
+    "Search",
+    "Sleep timer",
+    "Speed",
+    "Story",
+    "Subscription",
+    "Today"
+  ],
+  "method": "Computed text and solid/composited background checks in an isolated headless browser. Photo titles and photo actions use a separate dark scrim; their arbitrary image pixels are not an automated WCAG audit. Reading/listening writes and actual audio playback were intercepted; no generation or preference changes were requested."
+}

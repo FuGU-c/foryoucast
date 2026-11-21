@@ -1,0 +1,1 @@
+Behind the scenes, n8n prepares incoming reports: tidies the text, tags stories, links related editions, and preserves the source evidence.

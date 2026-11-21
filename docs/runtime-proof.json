@@ -1,0 +1,101 @@
+{
+  "checked_at": "2026-11-20T23:13:49.043631+00:00",
+  "live_job": {
+    "job_id": "cloud-2ac92ab03b214408",
+    "profile_id": "medium-demo",
+    "state": "ready",
+    "stage": "Your briefing is ready",
+    "progress": 100,
+    "edition_id": "edition-aedb1b5222fe48c8",
+    "error": null,
+    "can_retry": false,
+    "natural_pending": false,
+    "uncertain": false,
+    "created_at": "2026-11-20T23:00:05.019279+00:00",
+    "updated_at": "2026-11-20T23:04:24.432041+00:00",
+    "next_run": null
+  },
+  "episode": {
+    "id": "edition-aedb1b5222fe48c8",
+    "requested_minutes": 5,
+    "measured_seconds": 265.04,
+    "audio_mode": "elevenlabs",
+    "single_file": true,
+    "range_playback": true,
+    "content_type": "audio/mpeg",
+    "chapters": [
+      {
+        "story_id": "story-1",
+        "start_seconds": 0.0,
+        "end_seconds": 71.76,
+        "source_ids": [
+          "INVZ-10009737-01M7QHXBPJNSJF5KFSMRGG1XRT"
+        ],
+        "source_review_passed": true
+      },
+      {
+        "story_id": "story-11",
+        "start_seconds": 71.76,
+        "end_seconds": 133.52,
+        "source_ids": [
+          "INVZ-10009737-01M7NDTCVA90PN4CY9NW7NH11K"
+        ],
+        "source_review_passed": true
+      },
+      {
+        "story_id": "story-10",
+        "start_seconds": 133.52,
+        "end_seconds": 199.76,
+        "source_ids": [
+          "INVZ-10009737-01M7N0N67J80W3E4CXG7AK97F2"
+        ],
+        "source_review_passed": true
+      },
+      {
+        "story_id": "story-19",
+        "start_seconds": 199.76,
+        "end_seconds": 265.04,
+        "source_ids": [
+          "ZACK-105463-01M7Q9KRTRFTQVTDP9RFEMR14X"
+        ],
+        "source_review_passed": true
+      }
+    ]
+  },
+  "profiles": 7,
+  "new_listener_blank": true,
+  "voices": {
+    "en": 8,
+    "nl": 8,
+    "de": 8
+  },
+  "news": {
+    "source_checked": true,
+    "languages": [
+      "en",
+      "nl",
+      "de"
+    ],
+    "tags": [
+      "chips",
+      "earnings",
+      "markets",
+      "technology"
+    ],
+    "claims": 3,
+    "execution_seconds": 19.731
+  },
+  "integrations": {
+    "generation": true,
+    "n8n": true,
+    "elevenlabs": true,
+    "ai": true,
+    "mode": "n8n-connected",
+    "workflows": {
+      "radar": "https://<your-n8n-host>.app.n8n.cloud/workflow/3ayexitw5VgzfSOc",
+      "script": "https://<your-n8n-host>.app.n8n.cloud/workflow/alCqbDEhLlWczybC",
+      "audio": "https://<your-n8n-host>.app.n8n.cloud/workflow/ALBVDM55ue2ErBm9",
+      "news": "https://<your-n8n-host>.app.n8n.cloud/workflow/qdVgSd8RoLPWMhps"
+    }
+  }
+}

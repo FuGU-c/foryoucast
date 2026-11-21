@@ -1,0 +1,8 @@
+.vote-button{position:relative;overflow:visible;isolation:isolate}
+.vote-button>svg{transform-origin:50% 65%}
+.vote-burst{position:absolute;left:50%;top:50%;width:0;height:0;pointer-events:none;color:inherit}
+.vote-spark{position:absolute;left:-2px;top:-2px;width:4px;height:4px;border-radius:1px;background:currentColor;opacity:0;animation:vote-spark-out .55s cubic-bezier(.15,.6,.25,1) both;animation-delay:var(--spark-delay)}
+.vote-spark:nth-child(3n){width:3px;height:7px;left:-1.5px;top:-3.5px;border-radius:2px}
+.vote-spark:nth-child(2n){clip-path:polygon(50% 0,62% 36%,100% 50%,62% 64%,50% 100%,38% 64%,0 50%,38% 36%);width:7px;height:7px;left:-3.5px;top:-3.5px}
+@keyframes vote-spark-out{0%{opacity:0;transform:translate(0,0) scale(.2) rotate(0deg)}20%{opacity:.95}70%{opacity:.65}100%{opacity:0;transform:translate(var(--spark-x),var(--spark-y)) scale(.5) rotate(65deg)}}
+@media(prefers-reduced-motion:reduce){.vote-burst{display:none}.vote-spark{animation:none}}
