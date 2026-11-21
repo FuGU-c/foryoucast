@@ -276,8 +276,13 @@ def ensure_demo_samples(db_path: Path = DEFAULT_DB) -> int:
             untouched = untouched and not any(db.execute(f'SELECT 1 FROM {table} WHERE profile_id=? LIMIT 1', (pid,)).fetchone() for table in ('feedback', 'listens', 'story_views'))
             untouched = untouched and not any(key in existing for key in ('interest_resets', 'updated_at', 'preference_revision'))
             untouched = untouched and all(existing.get(key, preset.get(key)) == preset.get(key) for key in ('name', 'language', 'depth', 'interests', 'goal', 'duration', 'wake_time', 'scheduled', 'custom_interests', 'symbols'))
+            untouched = untouched and existing.get('plan', 'free') == 'free' and existing.get('tts_provider', 'device') == 'device'
+            untouched = untouched and not any(existing.get(key) for key in ('device_voices', 'elevenlabs_voices', 'translate_news'))
             if not raw or untouched:
-                db.execute('INSERT INTO profiles VALUES (?,?) ON CONFLICT(id) DO UPDATE SET data=excluded.data', (pid, json.dumps(preset, ensure_ascii=False)))
+                # Upgrade only the bootstrap plan defaults on an existing row;
+                # retain every other field, including newly introduced settings.
+                seeded = {**existing, 'plan': preset['plan'], 'tts_provider': preset['tts_provider'], 'translate_news': preset['translate_news']} if raw else preset
+                db.execute('INSERT INTO profiles VALUES (?,?) ON CONFLICT(id) DO UPDATE SET data=excluded.data', (pid, json.dumps(seeded, ensure_ascii=False)))
             edition = _edition(pid, scripts[pid], audio[pid])
             edition['profile_snapshot'] = preset
             db.execute('INSERT INTO editions VALUES (?,?,?,?)', (eid, pid, json.dumps(edition, ensure_ascii=False), edition['created_at']))
