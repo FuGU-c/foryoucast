@@ -1,0 +1,130 @@
+{
+  "voice": "Marty \u2014 Warm, Confident Narrator",
+  "duration_seconds": 150,
+  "silent_window": [
+    87,
+    94
+  ],
+  "files": [
+    {
+      "path": "README.md",
+      "bytes": 1132,
+      "sha256": "7be0927898c2e163eeb3afdec9ca62366cdaa5a46931cf36fd0325d50b3124a5",
+      "git_blob_sha": "c7dad374c4bdc56368c21b4b9d4fbe23deabe1ef"
+    },
+    {
+      "path": "scene_clips/scene-01-000s.mp3",
+      "bytes": 179756,
+      "sha256": "2fdeb6efd0ceeeeb81df4df056ae089d78b2f72c37acfc94da8073715a8c1ddc",
+      "git_blob_sha": "09baa21f6a9d4d8e3a8fb3643ba5bd7a5f8a1936"
+    },
+    {
+      "path": "scene_clips/scene-02-008s.mp3",
+      "bytes": 196460,
+      "sha256": "ac25f0ec0791dd2ada2cc42d7a969d1a055d3a80390ef1236b6ec394e66da1d3",
+      "git_blob_sha": "3f1512940488f9eb7c0c2eac293d776da777a4a3"
+    },
+    {
+      "path": "scene_clips/scene-03-018s.mp3",
+      "bytes": 224108,
+      "sha256": "59be583a02072cf6f24227ffc49ea187acf2419f4e88464d1c6c5e4779802e8c",
+      "git_blob_sha": "88a6a5877c2d3dbdd5620a9b356d45fa540dd040"
+    },
+    {
+      "path": "scene_clips/scene-04-029s.mp3",
+      "bytes": 220076,
+      "sha256": "8ec86d2aecdf87ad082a54deb3a97ab7fa22a0dbcdd537ea96a59a35812218fd",
+      "git_blob_sha": "c5cae13ba15caac77ab093b194c22dc57ada1527"
+    },
+    {
+      "path": "scene_clips/scene-05-039s.mp3",
+      "bytes": 176300,
+      "sha256": "d592671a87371bc911f2eff364067a2a362b830b3773f15481db63ab9f66ed07",
+      "git_blob_sha": "feb84fbc048020ec21b4b0095373374c0e49d59d"
+    },
+    {
+      "path": "scene_clips/scene-06-049s.mp3",
+      "bytes": 233900,
+      "sha256": "ab7d1feeb494caa35217207f56370ccf2c856548b27c17ad687116277d027956",
+      "git_blob_sha": "d240dc523865c760c19feec1efeaf6178543740d"
+    },
+    {
+      "path": "scene_clips/scene-07-059s.mp3",
+      "bytes": 195308,
+      "sha256": "44eb62f7f6fe2636244dc7195b4fb7e4866973a8ef266c2b7ea4de8eb1f5dbdf",
+      "git_blob_sha": "b954efd72e0909fffeedf835350fe3852ef1ce3d"
+    },
+    {
+      "path": "scene_clips/scene-08-068s.mp3",
+      "bytes": 210284,
+      "sha256": "18961e90ba9d298fe59ff87952ef781cf4f5413202a406bbddd0ed667bdf517d",
+      "git_blob_sha": "5431f4c7c5550c27ab3cab79d870c5476e4ac25e"
+    },
+    {
+      "path": "scene_clips/scene-09-077s.mp3",
+      "bytes": 218348,
+      "sha256": "9ed4dcd501bbd5d40980fa9b11ec5434addaa85f1399e8c55bc0efb990ca01b4",
+      "git_blob_sha": "c71499929f617c0afbd62231e8b90fb5f37b6671"
+    },
+    {
+      "path": "scene_clips/scene-11-094s.mp3",
+      "bytes": 240236,
+      "sha256": "a157eb5d2d835cc8edf2188e5e31e051872ad1449b0ff9b6d1d98e338a9104f1",
+      "git_blob_sha": "6036ad7bf1c3bdabd789a722eb7e12940eaadc5c"
+    },
+    {
+      "path": "scene_clips/scene-12-105s.mp3",
+      "bytes": 192428,
+      "sha256": "ba132244f571b9c63130cb93b0eff290236fdd491939836b1b7d3353fd5e34c7",
+      "git_blob_sha": "23de7700892de2c2a1fc86f8854963335d58c5c8"
+    },
+    {
+      "path": "scene_clips/scene-13-114s.mp3",
+      "bytes": 173996,
+      "sha256": "e62bad7c2c4c4ecfb5badf66be662ab4b4cc277f556aab45e941032938a486b9",
+      "git_blob_sha": "7f29281349701a06576b0a13186a65852b03fe2d"
+    },
+    {
+      "path": "scene_clips/scene-14-123s.mp3",
+      "bytes": 233900,
+      "sha256": "1e7cc1bb4b84d29f09b068c5779dc441f52208da15e637072f992134ddc1a258",
+      "git_blob_sha": "65d00b4b5093df9edb2e08f795a9e75096933241"
+    },
+    {
+      "path": "scene_clips/scene-15-133s.mp3",
+      "bytes": 234476,
+      "sha256": "dda5e6f202f1a359f7cde4e044c39b1b8e226a5296b1b4e0503cfefb8938e23b",
+      "git_blob_sha": "87d358f79a32fc3a6bbf13dc82c6453a06967030"
+    },
+    {
+      "path": "scene_clips/scene-16-143s.mp3",
+      "bytes": 160748,
+      "sha256": "7f6f5f77434dd3835a97f37faf6a801bbe49684db984f4d3905c8b377bad327d",
+      "git_blob_sha": "1c6bd7156f701ed552c278826e3860dca3906326"
+    },
+    {
+      "path": "seranews-presentation-voice-150s.mp3",
+      "bytes": 3601196,
+      "sha256": "0751ab3547451b1ac9ccf96d192852b2515f5867ea045094e136ee517f4851c7",
+      "git_blob_sha": "b09cb875acbcab1e358ffefed5adaee7d010b9f8"
+    },
+    {
+      "path": "seranews-presentation-voice-150s.wav",
+      "bytes": 14400044,
+      "sha256": "e8e08f6ffdfc93062672207bcf246123d0bc3a5ca74049c1d0da448aef3d9272",
+      "git_blob_sha": "63a7008afa319b2e3ff841c7e881240f81a17f3b"
+    },
+    {
+      "path": "seranews-presentation-voice-pack.zip",
+      "bytes": 6122883,
+      "sha256": "9dcd8a8207e4395d177f79867aadcd51037f2b6caa64a23304ec8cbd54935c73",
+      "git_blob_sha": "127deb3ebfa75886327354f31ea0b0e4b65a953f"
+    },
+    {
+      "path": "timing.json",
+      "bytes": 8010,
+      "sha256": "5cba122009eab64dedfd6af503770328448ad84ea15363a5643f1ace31fabd0f",
+      "git_blob_sha": "8e11417f713deab1e6c1e3b27ed781d9439259c1"
+    }
+  ]
+}
