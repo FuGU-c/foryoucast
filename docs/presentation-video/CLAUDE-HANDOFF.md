@@ -54,6 +54,8 @@ Resolve current accessible names from the actual DOM before acting. Use the live
 
 ## Voice and audio assembly
 
+**Update: the narration is already generated. Read GENERATED-AUDIO.md first and use the existing 150-second master or scene pack from the repository’s presentation-audio/ folder (also available in the creator’s local export folder). Do not spend credits generating the following scripts again. The original generation instructions below are a reference only.**
+
 1. Generate the 15 narrator segments from voiceover/*.txt using one ElevenLabs voice. Do not synthesize timestamps or production notes. Scene 10 has no narrator file by design.
 2. Fit each segment inside its assigned interval. Preserve pronunciation and natural pacing. If a clip exceeds its slot, regenerate or shorten the line without changing its factual meaning; record any wording revision in the delivery notes rather than cutting the last word. Avoid a hard word boundary exactly at a scene cut.
 3. At 01:27, silence the presenter and background music. Insert the actual seven-second app podcast excerpt, with a small “Actual demo audio · AI voices” label. Product playback time and displayed chapter should match the excerpt.

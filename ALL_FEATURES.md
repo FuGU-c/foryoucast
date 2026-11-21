@@ -316,7 +316,7 @@ Updated 21 November 2026. This describes the implemented local demonstration and
 - Machine-readable scene timing, actions, narration and captions are in docs/presentation-video/timeline.json.
 - Browser-capture and editing directions for Claude are in docs/presentation-video/CLAUDE-HANDOFF.md, including continuity, real/demo-state handling and short-screen readability.
 - Target output: 1920×1080 at 30 fps, exactly 4,500 frames; transitions and end card are inside the 150-second runtime.
-- These are production instructions and script materials. The final video and new presenter voiceover have not been generated.
+- The presenter voiceover is now generated with Marty — Warm, Confident Narrator on ElevenLabs v4, in a warm, gently encouraging business style. Fifteen selected scene clips and an exact 150-second master are saved locally in ../presentation-audio/, alongside original alternate takes and an editing ZIP. The 01:27–01:34 product-audio window is intentionally silent. This original marketing narration is now uploaded in the private repository’s presentation-audio/ folder at the user’s request; licensed news-derived podcasts remain excluded. The final edited video has not been created.
 
 ## Account/key changes and continuation
 

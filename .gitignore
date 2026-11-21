@@ -38,3 +38,5 @@ public/theme-previews/signal.webp
 # User-approved original narration pack; news ZIP archives remain excluded.
 !presentation-audio/seranews-presentation-voice-pack.zip
 
+# Temporary signed media-download manifests must remain local.
+**/generation-manifest.private.json
