@@ -12,6 +12,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+      - name: Recover the verified transfer if needed
+        run: |
+          if [ ! -f .audio-transfer/manifest.json ]; then
+            git fetch --depth=1 origin 965ea221430e34f78e6eb038c259ce770bf4b2be
+            git restore --source=965ea221430e34f78e6eb038c259ce770bf4b2be --worktree -- .audio-transfer
+          fi
       - name: Restore verified narration files
         run: python3 scripts/restore-presentation-audio.py
       - name: Commit the audio files
@@ -19,6 +25,7 @@ jobs:
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
           git add presentation-audio
+          git add -f presentation-audio/seranews-presentation-voice-pack.zip
           git rm -r .audio-transfer
           git commit -m 'Publish presentation audio assets'
           git push

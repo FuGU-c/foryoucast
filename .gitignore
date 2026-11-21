@@ -34,3 +34,7 @@ public/theme-previews/afterhours.webp
 public/theme-previews/cobalt.webp
 public/theme-previews/edition.webp
 public/theme-previews/signal.webp
+
+# User-approved original narration pack; news ZIP archives remain excluded.
+!presentation-audio/seranews-presentation-voice-pack.zip
+
