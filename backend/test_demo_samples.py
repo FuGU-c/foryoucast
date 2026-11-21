@@ -170,7 +170,8 @@ class DemoSampleInstallTests(unittest.TestCase):
             db.execute('INSERT INTO editions VALUES (?,?,?,?)', ('my-edition', 'mila', json.dumps({'id':'my-edition','profile_id':'mila','chapters':[]}), server.now()))
         with patch.multiple(demo_samples, ROOT=self.root, DEFAULT_SCRIPTS=self.scripts_path, DEFAULT_MANIFEST=self.manifest_path):
             self.assertEqual(demo_samples.ensure_demo_samples(self.db), 6)
-        self.assertEqual({e['id'] for e in server.editions('mila')}, {'my-edition','sample-mila-v1'})
+        with server.conn() as db:
+            self.assertEqual({row[0] for row in db.execute('SELECT id FROM editions WHERE profile_id=?', ('mila',))}, {'my-edition','sample-mila-v1'})
 
 
 if __name__ == '__main__':
