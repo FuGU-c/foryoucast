@@ -16,8 +16,8 @@ The repo includes **6 ready-made ~5-minute sample podcasts, 57 spoken news summa
 
 ## 🧩 Three distinctive features
 
-### 1. 🫂 A social-style "For you" page — for news
-A feed that behaves like the social apps you know, but for journalism. You arrange the stats behind the scenes — they control **how much news you get from each category**. Thumbs-up/down feeds the algorithm, so a **feedback loop keeps re-personalising** your briefing, constantly.
+### 1. 🫂 A social-style "For you" page — for news *and* podcasts
+A feed that behaves like the social apps you know, but for journalism. You arrange the stats behind the scenes — they control **how much news you get from each category**. Thumbs-up/down feeds the algorithm, so a feedback loop keeps re-personalising everything — your feed **and your podcast episodes themselves**: length, depth, topics, voices — constantly.
 
 ### 2. ⚙️ An n8n workflow that runs the whole backend
 Everything happens behind the curtain: news is **continuously processed, tagged, translated**, summaries are written, and **podcasts are pre-prepared for the exact time each listener requested**. The workflow runs in the cloud, but it's **swappable — point it at your own server** and keep the app.
