@@ -48,4 +48,4 @@ News desk · Podcast studio · Natural narration · Personal radar. News is **co
 
 ## 📄 License — AGPL-3.0
 
-Fork it, build your own version, self-host it — **free for everyone**, forever 🍴 Under **AGPL-3.0**, anyone serving this app to users must keep their version open-source too. Want to run it **closed-source in a commercial product** instead? Then reach out for a **commercial license** 📬 — happy to make a reasonable deal. Full terms in [LICENSE](LICENSE).
+🍴 Fork it, build your own version, self-host it! Under **AGPL-3.0**, anyone serving this app to users must keep their version open-source too ✨ Want to run it **closed-source in a commercial product** instead? Then reach out to me 📬 Full terms in [LICENSE](LICENSE).
