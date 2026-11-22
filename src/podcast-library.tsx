@@ -6,6 +6,7 @@ import {EditionCalendar} from './edition-calendar';
 import {editionDay,localToday,matchesEditionPeriod,periodLabels,type EditionPeriod} from './edition-dates';
 import {latestPlayableBriefing} from './briefing-selection';
 import './library-history.css';
+import {redact} from './censor';
 
 const labelDate=(day:string)=>new Date(day+'T12:00:00Z').toLocaleDateString('en-GB',{day:'numeric',month:'long',timeZone:'Europe/Brussels'});
 type Props={usage?:DailyUsage;playbackControls:ReactNode;profile:Profile;editions:Edition[];dates:string[];busy:boolean;createBusy?:boolean;onCreate:(day?:string)=>void;onPlay:(edition:Edition)=>void;onSummary:(edition:Edition)=>void;onScript:(edition:Edition)=>void;onRemoveAudio:(edition:Edition)=>Promise<void>};
@@ -56,6 +57,6 @@ export function BriefSummary({edition,onClose,onSource}:{edition:Edition;onClose
   <div className="brief-summary-intro"><span><FileText size={15}/>{edition.chapters.length} stories · {languages[edition.language]}</span><a href={'/api/editions/'+edition.id+'/export?kind=report'}><ArrowDownToLine size={14}/>Download summary</a></div>
   {edition.news_date&&<p className="brief-summary-coverage">News coverage through {labelDate(edition.news_date)} · Created {labelDate(editionDay(edition))}</p>}
   {edition.audio_mode==='summary-only'&&<p className="summary-kept-note"><Check size={14}/>Audio removed. Your summary and sources are here to stay.</p>}
-  <div className="brief-summary-chapters">{edition.chapters.map((chapter,index)=><section key={chapter.story_id}><span>{String(index+1).padStart(2,'0')}</span><div><h3>{chapter.title}</h3>{chapter.translated_by_ai&&<span className="ai-translation-label">Translated by AI</span>}<p>{chapter.summary||chapter.text}</p><div className="summary-source-links">{chapter.sources.filter(source=>chapter.claim_source_ids.includes(source.article_id)).map(source=><button key={source.article_id} onClick={()=>onSource(source,chapter.sources)}><BookOpen size={12}/>{source.outlet}<ArrowRight size={12}/></button>)}</div></div></section>)}</div>
+  <div className="brief-summary-chapters">{edition.chapters.map((chapter,index)=><section key={chapter.story_id}><span>{String(index+1).padStart(2,'0')}</span><div><h3>{chapter.title}</h3>{chapter.translated_by_ai&&<span className="ai-translation-label">Translated by AI</span>}<p>{redact(chapter.summary||chapter.text)}</p><div className="summary-source-links">{chapter.sources.filter(source=>chapter.claim_source_ids.includes(source.article_id)).map(source=><span className="text-button" style={{pointerEvents:'none'}}>Source ████████</span>)}</div></div></section>)}</div>
  </section></div>;
 }

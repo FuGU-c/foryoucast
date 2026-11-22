@@ -187,7 +187,7 @@ export function Discover(props:DiscoverProps){
     <div className="reel-count" aria-live="polite">{index+1} / {stories.length}</div>
     <button className="reel-hit" aria-label={'Read '+item.title} onClick={()=>{if(performance.now()>blockClick.current)onOpen(item);}}/>
     <div className="reel-copy">
-     <div className="reel-labels"><span>{item.sources[0]?.outlet}</span>{item.title_language&&<span>{languages[item.title_language]}</span>}</div>
+     <div className="reel-labels"><span>Publisher ████████</span>{item.title_language&&<span>{languages[item.title_language]}</span>}</div>
      {item.ai_translated&&<span className="ai-translation-label">AI-translated summary</span>}<h2 lang={item.title_language}>{item.title}</h2>
      <div className="reel-labels reel-story-tags">{tagsFor(item).filter(Boolean).map(id=><span key={id}>{label(id)}</span>)}</div>
     </div>

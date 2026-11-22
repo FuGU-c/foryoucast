@@ -3,6 +3,7 @@ import {ArrowLeft,ArrowUp,ArrowDown,ChevronRight,History,LoaderCircle,Search,X} 
 import type {ReadingHistory,Story} from './types';
 import {filterSavedRecords,readSavedStoryCache,savedRecordsFromStories,writeSavedStoryCache} from './saved-stories';
 import './library-history.css';
+import {redact} from './censor';
 
 type HistoryTab='recent'|'saved';
 type DisplayItem={story:Story;timestamp:string;meta:string;kind:'recent'|'saved';articleId?:string|null};
@@ -54,8 +55,8 @@ export function ReadingHistoryPage({profileId,revision,onOpen,onBack}:{profileId
  const day=(timestamp:string)=>new Date(timestamp).toLocaleDateString('en-CA',{timeZone:'Europe/Brussels'});
  const today=day(new Date().toISOString());
  const items:DisplayItem[]=tab==='recent'
-  ?result.entries.map(entry=>({story:entry.story,timestamp:entry.last_viewed_at,meta:entry.story.sources[0]?.outlet||'Source',kind:'recent',articleId:entry.article_id}))
-  :savedStories.stories.map(story=>({story,timestamp:story.saved_at||new Date().toISOString(),meta:story.sources[0]?.outlet||'Saved story',kind:'saved'}));
+  ?result.entries.map(entry=>({story:entry.story,timestamp:entry.last_viewed_at,meta:'Publisher ████████',kind:'recent',articleId:entry.article_id}))
+  :savedStories.stories.map(story=>({story,timestamp:story.saved_at||new Date().toISOString(),meta:'Publisher ████████',kind:'saved'}));
  const count=tab==='recent'?result.matches:savedStories.total;
  const clearFilters=()=>{setQuery('');setPeriod('all');setFeedback('all');};
  return <section className="reading-history-page">
@@ -81,7 +82,7 @@ export function ReadingHistoryPage({profileId,revision,onOpen,onBack}:{profileId
     <button type="button" className={'history-story '+(item.kind==='saved'?'history-story-saved':'')} onClick={()=>onOpen(item.story)}>
      <div className={'history-story-art '+item.story.art}>{image&&<img src={image} alt="" referrerPolicy="no-referrer" onError={event=>{event.currentTarget.style.display='none';}}/>}<span>{item.story.entities[0]?.slice(0,2)||'S'}</span></div>
      <div className="history-story-copy"><small>{item.meta} · {item.kind==='saved'?'Saved':'Viewed'} {new Date(item.timestamp).toLocaleTimeString('en-GB',{hour:'2-digit',minute:'2-digit',timeZone:'Europe/Brussels'})}</small><h3 lang={item.story.title_language}>{item.story.title}</h3>
-      {item.kind==='saved'?<><span className="history-story-summary">{item.story.summary}</span><span className="history-story-tags">{item.story.tags.slice(0,3).map(tag=><i key={tag}>{tag.replaceAll('-',' ')}</i>)}</span></>:<span className="history-story-kind">{detail}</span>}
+      {item.kind==='saved'?<><span className="history-story-summary">{redact(item.story.summary)}</span><span className="history-story-tags">{item.story.tags.slice(0,3).map(tag=><i key={tag}>{tag.replaceAll('-',' ')}</i>)}</span></>:<span className="history-story-kind">{detail}</span>}
      </div><ChevronRight size={16}/>
     </button></div>;
   })}</div>}

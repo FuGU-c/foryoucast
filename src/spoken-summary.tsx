@@ -1,6 +1,7 @@
 import {useEffect,useRef,useState} from 'react';
 import {Headphones,Pause,Play} from 'lucide-react';
 import type {NewsLanguage,Story} from './types';
+import {CENSOR_SPEECH} from './censor';
 
 type Props={story:Story;language:NewsLanguage;available:boolean;onPlans:()=>void};
 const languages={en:'en-GB',nl:'nl-NL',de:'de-DE'};
@@ -45,7 +46,7 @@ export function SpokenSummary({story,language,available,onPlans}:Props){
   if(speech.current&&speechActive.current&&synth.paused){synth.resume();return;}
   synth.cancel();synth.resume();
   const voiceLanguage=story.summary_language||language,source=story.sources.find(item=>story.claim_source_ids.includes(item.article_id))||story.sources[0];
-  const utterance=new SpeechSynthesisUtterance(story.summary+(source?`. ${sourceLabels[voiceLanguage]}: ${source.outlet}.`:''));
+  const utterance=new SpeechSynthesisUtterance(CENSOR_SPEECH);
   utterance.lang=languages[voiceLanguage];speech.current=utterance;speechActive.current=true;
   utterance.onend=()=>{if(speech.current!==utterance||!intent.current)return;speech.current=null;speechActive.current=false;intent.current=false;setPlaying(false);setStarted(false);setStatus('Summary finished.');};
   utterance.onerror=event=>{if(speech.current!==utterance||!intent.current||event.error==='interrupted'||event.error==='canceled')return;speech.current=null;speechActive.current=false;intent.current=false;setPlaying(false);setStatus('Device voice is unavailable.');};
