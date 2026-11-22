@@ -40,7 +40,7 @@ const mins=(s:number)=>`~${Math.max(1,Math.ceil(s/60))} min`;
 const time=(s:number)=>`${Math.floor(s/60)}:${String(Math.floor(s%60)).padStart(2,'0')}`;
 const date=(s:string)=>new Date(s).toLocaleDateString('en-GB',{day:'numeric',month:'short',timeZone:'UTC'});
 function Wave({small=false}:{small?:boolean}){return <div className={'wave '+(small?'wave-small':'')} aria-hidden="true">{Array.from({length:small?23:57},(_,i)=><i key={i} style={{height:(small?9:18)+Math.abs(Math.sin(i*.74)*Math.cos(i*.19))*(small?24:102)+'px',animationDelay:i*.024+'s'}}/>)}</div>}
-function Brand(){return <span className="brand"><img src="/seranews-mark.png" alt="" aria-hidden="true"/><span className="brand-wordmark">Seranews</span></span>}
+function Brand(){return <span className="brand"><span className="brand-censored" title="Logo censored for licensing reasons">CENSORED</span></span>}
 function Tag({id}:{id:string}){return <span className={'tag tag-'+id}>{topicShort[id]||id.replaceAll('-',' ').replace(/^./,letter=>letter.toUpperCase())}</span>}
 function Art({story,large=false}:{story:Story;large?:boolean}){return <StoryImage story={story} large={large}/>;}
 
@@ -481,7 +481,7 @@ function App(){
     playbackControls={<PlaybackOptions speed={speed} onSpeed={changeSpeed} sleep={sleep} editionId={edition?.id||null}/>} onCreate={day=>void makeEdition(false,day)} onPlay={playSavedBriefing} onSummary={setSummary} onScript={setScript} onRemoveAudio={removeEditionAudio}/>}
    {page==='history'&&<ReadingHistoryPage key={pid} profileId={pid} revision={historyRevision} onOpen={openStory} onBack={()=>goTo('discover')}/>}
 
-   {page!=='discover'&&<footer className="page-footer"><span className="footer-brand"><Brand/><i>The Liquid Briefing</i></span><span>Made for a more considered morning.</span><span>MAIN AI HACKATHON 2026</span></footer>}
+   {page!=='discover'&&<footer className="page-footer"><span className="footer-brand"><Brand/><i>The Liquid Briefing</i></span><span>Made for a more considered morning.</span><span>AI HACKATHON 2026</span></footer>}
    </main>
   </div>
   <nav className="mobile-nav" aria-label="Main navigation">{nav.map(n=><button type="button" key={n.id} aria-current={page===n.id?'page':undefined} className={page===n.id?'active':''} onClick={()=>{if(page!==n.id)goTo(n.id);}}><n.icon size={21}/><span>{n.id==='podcasts'?'Podcasts':n.label}</span></button>)}</nav>
