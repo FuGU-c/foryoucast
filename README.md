@@ -44,6 +44,7 @@ News desk · Podcast studio · Natural narration · Personal radar. News is **co
 ## 🔮 Where it could go
 
 - 🏡 **A self-hosted news app** — good UI, sensible logic, high potential to be polished, add more news sources, and run on your own box.
+- 🤖 **Make it *yours* with AI** — the codebase is compact and readable: point an AI assistant at it and reshape the feed, sources, voices and pipeline into your own homelab news-to-podcast service.
 - 💼 **A sellable platform** — possible, but that route needs a *lot* more polish.
 
 ## 📄 License — AGPL-3.0
