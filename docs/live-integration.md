@@ -6,10 +6,10 @@
 
 | Workflow | Role | Published workflow |
 |---|---|---|
-| Radar | Advisory discovery/candidate selection | [Open Radar](https://<your-n8n-host>.app.n8n.cloud/workflow/3ayexitw5VgzfSOc) |
-| Podcast Studio | Write and review a personalized, source-linked chapter | [Open Podcast Studio](https://<your-n8n-host>.app.n8n.cloud/workflow/alCqbDEhLlWczybC) |
-| Natural Narration | Generate natural speech with ElevenLabs v3 | [Open Natural Narration](https://<your-n8n-host>.app.n8n.cloud/workflow/ALBVDM55ue2ErBm9) |
-| News Desk | Prepare and review one imported report | [Open News Desk](https://<your-n8n-host>.app.n8n.cloud/workflow/qdVgSd8RoLPWMhps) |
+| Radar | Advisory discovery/candidate selection | [Open Radar](https://<your-n8n-host>/workflow/3ayexitw5VgzfSOc) |
+| Podcast Studio | Write and review a personalized, source-linked chapter | [Open Podcast Studio](https://<your-n8n-host>/workflow/alCqbDEhLlWczybC) |
+| Natural Narration | Generate natural speech with ElevenLabs v3 | [Open Natural Narration](https://<your-n8n-host>/workflow/ALBVDM55ue2ErBm9) |
+| News Desk | Prepare and review one imported report | [Open News Desk](https://<your-n8n-host>/workflow/qdVgSd8RoLPWMhps) |
 
 ## Request and data boundary
 

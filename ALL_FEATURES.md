@@ -218,10 +218,10 @@ Updated 21 November 2026. This describes the implemented local demonstration and
 
 ## Connected cloud workflows
 
-- News desk: https://<your-n8n-host>.app.n8n.cloud/workflow/qdVgSd8RoLPWMhps
-- Podcast studio: https://<your-n8n-host>.app.n8n.cloud/workflow/alCqbDEhLlWczybC
-- Natural narration: https://<your-n8n-host>.app.n8n.cloud/workflow/ALBVDM55ue2ErBm9
-- Personal radar: https://<your-n8n-host>.app.n8n.cloud/workflow/3ayexitw5VgzfSOc
+- News desk: https://<your-n8n-host>/workflow/qdVgSd8RoLPWMhps
+- Podcast studio: https://<your-n8n-host>/workflow/alCqbDEhLlWczybC
+- Natural narration: https://<your-n8n-host>/workflow/ALBVDM55ue2ErBm9
+- Personal radar: https://<your-n8n-host>/workflow/3ayexitw5VgzfSOc
 - All four cloud workflows are published.
 - Actual graph snapshots are under workflows/live/ as inactive importable JSON copies.
 - The app initiates signed HTTPS requests outward; no public tunnel exposes its private database.

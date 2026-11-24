@@ -92,10 +92,10 @@
     "ai": true,
     "mode": "n8n-connected",
     "workflows": {
-      "radar": "https://<your-n8n-host>.app.n8n.cloud/workflow/3ayexitw5VgzfSOc",
-      "script": "https://<your-n8n-host>.app.n8n.cloud/workflow/alCqbDEhLlWczybC",
-      "audio": "https://<your-n8n-host>.app.n8n.cloud/workflow/ALBVDM55ue2ErBm9",
-      "news": "https://<your-n8n-host>.app.n8n.cloud/workflow/qdVgSd8RoLPWMhps"
+      "radar": "https://<your-n8n-host>/workflow/3ayexitw5VgzfSOc",
+      "script": "https://<your-n8n-host>/workflow/alCqbDEhLlWczybC",
+      "audio": "https://<your-n8n-host>/workflow/ALBVDM55ue2ErBm9",
+      "news": "https://<your-n8n-host>/workflow/qdVgSd8RoLPWMhps"
     }
   }
 }
