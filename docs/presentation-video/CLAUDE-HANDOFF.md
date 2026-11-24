@@ -1,6 +1,6 @@
-# Claude handoff: capture and assemble the Seranews demo
+# Claude handoff: capture and assemble the ForYouCast demo
 
-Create a polished **exactly 2:30** product video using actual Seranews browser footage. Use STORYBOARD.md as the creative plan and timeline.json as the timing source. The voiceover folder contains the exact presenter text per scene. This is a capture/editing task; do not redesign the application or change its feature behavior.
+Create a polished **exactly 2:30** product video using actual ForYouCast browser footage. Use STORYBOARD.md as the creative plan and timeline.json as the timing source. The voiceover folder contains the exact presenter text per scene. This is a capture/editing task; do not redesign the application or change its feature behavior.
 
 ## Files and app
 

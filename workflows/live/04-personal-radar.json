@@ -1,9 +1,9 @@
 {
-  "name": "Seranews · Personal radar",
+  "name": "ForYouCast · Personal radar",
   "nodes": [
     {
       "id": "026209ec-7b95-485b-97f2-906fa04228ff",
-      "name": "Seranews radar",
+      "name": "ForYouCast radar",
       "type": "n8n-nodes-base.webhook",
       "typeVersion": 2.2,
       "position": [
@@ -12,7 +12,7 @@
       ],
       "parameters": {
         "httpMethod": "POST",
-        "path": "seranews-radar-v1",
+        "path": "foryoucast-radar-v1",
         "authentication": "none",
         "responseMode": "responseNode",
         "options": {}
@@ -30,7 +30,7 @@
       ],
       "parameters": {
         "mode": "runOnceForAllItems",
-        "jsCode": "const crypto = require('crypto');\nconst body = $json.body ?? $json;\nif(typeof body.message !== 'string' || body.message.length > 1800000 || typeof body.signature !== 'string') throw new Error('Signed Seranews request required');\nconst valid = crypto.verify(null, Buffer.from(body.message, 'utf8'), \"-----BEGIN PUBLIC KEY-----\\nMCowBQYDK2VwAyEAhcKf2Pd9x9BvOJ3MHTjTE5XuhvfY4ApwqelLnP5lt9A=\\n-----END PUBLIC KEY-----\\n\", Buffer.from(body.signature, 'base64'));\nif(!valid) throw new Error('Invalid Seranews signature');\nconst request = JSON.parse(body.message);\nif(request.kind !== \"radar\" || !Number.isFinite(request.iat) || Math.abs(Date.now()/1000-request.iat)>120 || !request.id) throw new Error('Expired or invalid request');\nif(!request.payload || typeof request.payload !== 'object' || Array.isArray(request.payload)) throw new Error('Invalid payload');\nreturn [{json:{...request.payload, request_id:request.id}}];"
+        "jsCode": "const crypto = require('crypto');\nconst body = $json.body ?? $json;\nif(typeof body.message !== 'string' || body.message.length > 1800000 || typeof body.signature !== 'string') throw new Error('Signed ForYouCast request required');\nconst valid = crypto.verify(null, Buffer.from(body.message, 'utf8'), \"-----BEGIN PUBLIC KEY-----\\nMCowBQYDK2VwAyEAhcKf2Pd9x9BvOJ3MHTjTE5XuhvfY4ApwqelLnP5lt9A=\\n-----END PUBLIC KEY-----\\n\", Buffer.from(body.signature, 'base64'));\nif(!valid) throw new Error('Invalid ForYouCast signature');\nconst request = JSON.parse(body.message);\nif(request.kind !== \"radar\" || !Number.isFinite(request.iat) || Math.abs(Date.now()/1000-request.iat)>120 || !request.id) throw new Error('Expired or invalid request');\nif(!request.payload || typeof request.payload !== 'object' || Array.isArray(request.payload)) throw new Error('Invalid payload');\nreturn [{json:{...request.payload, request_id:request.id}}];"
       }
     },
     {
@@ -44,7 +44,7 @@
       ],
       "parameters": {
         "mode": "runOnceForAllItems",
-        "jsCode": "const p=$json;\nif(p.operation==='health') return [{json:{ok:true,service:'Seranews',version:1,request_id:p.request_id}}];\nconst profile=p.profile||{}, stories=p.stories||[], index=new Map(stories.map(s=>[s.id,s])), learned={};\nfor(const row of p.feedback||[]){\n const story=index.get(row.story_id);\n if(!story||!row.value||row.reason!=='interest')continue;\n const tags=[...new Set(story.tags||[])]; if(!tags.length)continue;\n const primary=tags.includes(story.primary_topic)?story.primary_topic:tags[0];\n for(const tag of tags){if(row.created_at<=(profile.interest_resets?.[tag]||''))continue;const weight=tags.length===1?1:tag===primary?.6:.4/(tags.length-1);learned[tag]=(learned[tag]||0)+row.value*weight;}\n}\nfor(const tag in learned)learned[tag]=Math.round(learned[tag]*10000)/10000;\nconst effective={};for(const tag of new Set([...Object.keys(profile.interests||{}),...Object.keys(learned)]))effective[tag]=Math.round(Math.max(0,Math.min(5,(profile.interests?.[tag]||0)+Math.max(-2,Math.min(2,learned[tag]||0))))*10000)/10000;\nconst ranked=stories.map(s=>({id:s.id,score:(s.freshness_score||0)+4*(s.tags||[]).reduce((sum,tag)=>sum+(effective[tag]||0),0)/Math.max(1,s.tags?.length||0)+(s.watchlist_match?4:0)+(s.direct_vote||0)*2})).sort((a,b)=>b.score-a.score||a.id.localeCompare(b.id));\nreturn [{json:{ok:true,request_id:p.request_id,revision:p.revision,learned_interests:learned,effective_interests:effective,story_ids:ranked.map(s=>s.id),ranked,computed_at:new Date().toISOString()}}];"
+        "jsCode": "const p=$json;\nif(p.operation==='health') return [{json:{ok:true,service:'ForYouCast',version:1,request_id:p.request_id}}];\nconst profile=p.profile||{}, stories=p.stories||[], index=new Map(stories.map(s=>[s.id,s])), learned={};\nfor(const row of p.feedback||[]){\n const story=index.get(row.story_id);\n if(!story||!row.value||row.reason!=='interest')continue;\n const tags=[...new Set(story.tags||[])]; if(!tags.length)continue;\n const primary=tags.includes(story.primary_topic)?story.primary_topic:tags[0];\n for(const tag of tags){if(row.created_at<=(profile.interest_resets?.[tag]||''))continue;const weight=tags.length===1?1:tag===primary?.6:.4/(tags.length-1);learned[tag]=(learned[tag]||0)+row.value*weight;}\n}\nfor(const tag in learned)learned[tag]=Math.round(learned[tag]*10000)/10000;\nconst effective={};for(const tag of new Set([...Object.keys(profile.interests||{}),...Object.keys(learned)]))effective[tag]=Math.round(Math.max(0,Math.min(5,(profile.interests?.[tag]||0)+Math.max(-2,Math.min(2,learned[tag]||0))))*10000)/10000;\nconst ranked=stories.map(s=>({id:s.id,score:(s.freshness_score||0)+4*(s.tags||[]).reduce((sum,tag)=>sum+(effective[tag]||0),0)/Math.max(1,s.tags?.length||0)+(s.watchlist_match?4:0)+(s.direct_vote||0)*2})).sort((a,b)=>b.score-a.score||a.id.localeCompare(b.id));\nreturn [{json:{ok:true,request_id:p.request_id,revision:p.revision,learned_interests:learned,effective_interests:effective,story_ids:ranked.map(s=>s.id),ranked,computed_at:new Date().toISOString()}}];"
       }
     },
     {
@@ -65,7 +65,7 @@
     }
   ],
   "connections": {
-    "Seranews radar": {
+    "ForYouCast radar": {
       "main": [
         [
           {

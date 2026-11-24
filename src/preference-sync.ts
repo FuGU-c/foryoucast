@@ -3,7 +3,7 @@ import type {Profile} from './types';
 import type {ProfileChange} from './live-preferences';
 import {effectiveWeights} from './feedback-learning';
 
-const key='seranews-pending-preferences-v1';
+const key='foryoucast-pending-preferences-v1';
 type Pending = Record<string,Profile|undefined>;
 function restore():Pending {
  try{

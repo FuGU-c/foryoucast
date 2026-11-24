@@ -161,7 +161,7 @@ if (ROOT/'assets'/'demo'/'demo-scripts.json').is_file():
   ensure_demo_samples(DB)
  except (OSError,ValueError,sqlite3.Error) as error:
   print(f'Demo audio not installed: {error}',file=sys.stderr)
-app=FastAPI(title='Seranews',version='0.1.0')
+app=FastAPI(title='ForYouCast',version='0.1.0')
 
 @app.exception_handler(RequestValidationError)
 async def safe_validation_error(request,error):
@@ -608,7 +608,7 @@ def provider_key_status(pid:str):
 @app.put('/api/profiles/{pid}/provider-keys/{provider}')
 def save_provider_key(pid:str,provider:str,body:ProviderKey):
  profile(pid);key_provider(provider)
- raise HTTPException(410,'Personal model connections have been retired. Seranews manages AI processing for every plan.')
+ raise HTTPException(410,'Personal model connections have been retired. ForYouCast manages AI processing for every plan.')
 
 @app.delete('/api/profiles/{pid}/provider-keys/{provider}')
 def delete_provider_key(pid:str,provider:str):

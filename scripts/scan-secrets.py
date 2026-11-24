@@ -14,7 +14,7 @@ VERSION='8.30.1'
 ROOT=Path(__file__).resolve().parents[1]
 
 def download(url):
-    request=urllib.request.Request(url,headers={'User-Agent':'Seranews-Secret-Audit'})
+    request=urllib.request.Request(url,headers={'User-Agent':'ForYouCast-Secret-Audit'})
     with urllib.request.urlopen(request,timeout=90) as response:return response.read()
 
 def main():
@@ -32,7 +32,7 @@ def main():
     expected=next(line.split()[0] for line in checks.splitlines() if line.split()[-1]==name)
     archive=download(base+name)
     if hashlib.sha256(archive).hexdigest()!=expected:raise RuntimeError('Scanner checksum verification failed')
-    with tempfile.TemporaryDirectory(prefix='seranews-secret-scan-') as temp:
+    with tempfile.TemporaryDirectory(prefix='foryoucast-secret-scan-') as temp:
         executable=Path(temp)/('gitleaks.exe' if system=='windows' else 'gitleaks')
         if extension=='zip':
             with zipfile.ZipFile(io.BytesIO(archive)) as package:data=package.read('gitleaks.exe')

@@ -33,18 +33,18 @@ media/*
 docs/color-proposals-v2/new-theme-directions.png
 docs/color-proposals/four-palettes.png
 public/favicon.ico
-public/seranews-favicon.png
-public/seranews-icon-192.png
-public/seranews-icon-512.png
-public/seranews-logo.png
-public/seranews-mark.png
+public/foryoucast-favicon.png
+public/foryoucast-icon-192.png
+public/foryoucast-icon-512.png
+public/foryoucast-logo.png
+public/foryoucast-mark.png
 public/theme-previews/afterhours.webp
 public/theme-previews/cobalt.webp
 public/theme-previews/edition.webp
 public/theme-previews/signal.webp
 
 # User-approved original narration pack; news ZIP archives remain excluded.
-!presentation-audio/seranews-presentation-voice-pack.zip
+!presentation-audio/foryoucast-presentation-voice-pack.zip
 
 # Temporary signed media-download manifests must remain local.
 **/generation-manifest.private.json

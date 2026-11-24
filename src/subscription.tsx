@@ -4,7 +4,7 @@ import type {Profile} from './types';
 import type {ProfileChange} from './live-preferences';
 import {normalizePlan,planFor,plans,type PlanId} from './plans';
 export function SubscriptionCard({profile,onOpen}:{profile:Profile;onOpen:()=>void}){
- return <button className="subscription-shortcut" aria-label="Subscription and plans" onClick={onOpen}><span className="subscription-symbol"><Sparkles size={21}/></span><span><b>Your subscription</b><small>Seranews {planFor(profile).name} · Find your rhythm</small></span><ChevronRight size={18}/></button>;
+ return <button className="subscription-shortcut" aria-label="Subscription and plans" onClick={onOpen}><span className="subscription-symbol"><Sparkles size={21}/></span><span><b>Your subscription</b><small>ForYouCast {planFor(profile).name} · Find your rhythm</small></span><ChevronRight size={18}/></button>;
 }
 const rows=[
  ['Podcast length','~7 min','~15 min','~40 min'],

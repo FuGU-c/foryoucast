@@ -87,7 +87,7 @@ function App(){
  const [reading,setReading]=useState<Reading|null>(null);
  const [toast,setToast]=useState(''),[busy,setBusy]=useState(false),[error,setError]=useState(''),[edition,setEdition]=useState<Edition|null>(null),[playerOpen,setPlayerOpen]=useState(false);
  const [generationTasks,setGenerationTasks]=useState<GenerationTask[]>([]);
- const [playing,setPlaying]=useState(false),[chapterIndex,setChapterIndex]=useState(0),[elapsed,setElapsed]=useState(0),[speed,setSpeed]=useState(()=>{const saved=Number(localStorage.getItem('seranews-playback-speed'));return playbackSpeeds.includes(saved)?saved:1;}),[audioError,setAudioError]=useState('');
+ const [playing,setPlaying]=useState(false),[chapterIndex,setChapterIndex]=useState(0),[elapsed,setElapsed]=useState(0),[speed,setSpeed]=useState(()=>{const saved=Number(localStorage.getItem('foryoucast-playback-speed'));return playbackSpeeds.includes(saved)?saved:1;}),[audioError,setAudioError]=useState('');
  const [topicFilters,setTopicFilters]=useState<string[]>([]),[languageFilters,setLanguageFilters]=useState<NewsLanguage[]>([]),[sourceFilter,setSourceFilter]=useState<NewsLanguage|'all'>('all'),[catalogMode,setCatalogMode]=useState(false),[catalogStories,setCatalogStories]=useState<Story[]|null>(null),[catalogLimit,setCatalogLimit]=useState(25),[query,setQuery]=useState('');
  const speedRef=useRef(speed);
  const seeking=useRef(false);
@@ -233,7 +233,7 @@ function App(){
  useEffect(()=>{currentRef.current={edition,index:chapterIndex,pid};},[edition,chapterIndex,pid]);
  useEffect(()=>{if(!playing)return;const handle=setInterval(()=>{if(!audio.current&&!seeking.current){const s=offset.current+(performance.now()-playStart.current)/1000*speed;elapsedRef.current=Math.min(s,current?.estimated_seconds||s);setElapsed(elapsedRef.current);}},250);return()=>clearInterval(handle);},[playing,speed,current]);
  useEffect(()=>{if(!playing)return;const handle=setInterval(()=>record(false),8000);return()=>clearInterval(handle);},[playing,chapterIndex,pid,edition]);
- useEffect(()=>{const onSummary=(event:Event)=>{const detail=(event as CustomEvent<{source:string;usesDevice?:boolean}>).detail;if(detail?.source!=='summary')return;if(playingRef.current)pausePlayback();if(detail.usesDevice&&!audio.current){generation.current++;utterance.current=null;}};window.addEventListener('seranews:audio-start',onSummary);return()=>window.removeEventListener('seranews:audio-start',onSummary);},[]);
+ useEffect(()=>{const onSummary=(event:Event)=>{const detail=(event as CustomEvent<{source:string;usesDevice?:boolean}>).detail;if(detail?.source!=='summary')return;if(playingRef.current)pausePlayback();if(detail.usesDevice&&!audio.current){generation.current++;utterance.current=null;}};window.addEventListener('foryoucast:audio-start',onSummary);return()=>window.removeEventListener('foryoucast:audio-start',onSummary);},[]);
  useEffect(()=>()=>{generation.current++;window.speechSynthesis?.cancel();audio.current?.pause();},[]);
  useEffect(()=>{const fn=(e:KeyboardEvent)=>{if(e.key==='Escape'){if(appearanceOpen){setAppearanceOpen(false);return;}if(plansOpen){setPlansOpen(false);return;}if(reading){setReading(null);return;}setStory(null);setSettings(false);setProfileMenu(false);setPlayerOpen(false);setScript(null);setSummary(null);setReading(null);setOnboarding(false);}};window.addEventListener('keydown',fn);return()=>window.removeEventListener('keydown',fn);},[reading,plansOpen,appearanceOpen]);
 
@@ -243,7 +243,7 @@ function App(){
  function stop(){pausePlayback();generation.current++;window.speechSynthesis?.cancel();utterance.current=null;audio.current=null;audioEdition.current=null;seeking.current=false;}
  function requestAudioPlay(element:HTMLAudioElement){
   const request=++playRequest.current,token=generation.current;
-  window.dispatchEvent(new CustomEvent('seranews:audio-start',{detail:{source:'podcast'}}));
+  window.dispatchEvent(new CustomEvent('foryoucast:audio-start',{detail:{source:'podcast'}}));
   setAudioError('');setPlayingIntent(true);
   try{void element.play().then(()=>{
    if(audio.current!==element||token!==generation.current||!playingRef.current)element.pause();
@@ -325,7 +325,7 @@ function App(){
   editionProfileKey.current=e.profile_snapshot?preferenceKey(e.profile_snapshot):'';
   sleep.bindEdition(e.id);
   if(index>=e.chapters.length){sleep.finishEdition(e.id);pausePlayback();if(audio.current&&audioEdition.current===e.id)audio.current.currentTime=0;else{generation.current++;window.speechSynthesis?.cancel();utterance.current=null;audio.current=null;audioEdition.current=null;}currentRef.current={edition:e,index:0,pid};elapsedRef.current=0;setChapterIndex(0);setElapsed(0);notify('You’re all caught up. See you tomorrow.');load().catch(()=>{});return;}
-  window.dispatchEvent(new CustomEvent('seranews:audio-start',{detail:{source:'podcast'}}));
+  window.dispatchEvent(new CustomEvent('foryoucast:audio-start',{detail:{source:'podcast'}}));
   if(e.episode_audio){
    const target=chapterStart(e,index)+seek;
    if(audio.current&&audioEdition.current===e.id){seekEpisode(e,target,true);return;}
@@ -393,11 +393,11 @@ function App(){
   if(!edition){void makeEdition(true);return;}
   if(playingRef.current){pausePlayback();return;}
   if(audio.current){requestAudioPlay(audio.current);return;}
-  if(window.speechSynthesis?.paused&&utterance.current){window.dispatchEvent(new CustomEvent('seranews:audio-start',{detail:{source:'podcast'}}));playStart.current=performance.now();setPlayingIntent(true);window.speechSynthesis.resume();return;}
+  if(window.speechSynthesis?.paused&&utterance.current){window.dispatchEvent(new CustomEvent('foryoucast:audio-start',{detail:{source:'podcast'}}));playStart.current=performance.now();setPlayingIntent(true);window.speechSynthesis.resume();return;}
   playChapter(edition,chapterIndex,edition.episode_audio?Math.max(0,elapsed-chapterStart(edition,chapterIndex)):elapsed);
  }
  function changeSpeed(rate:number){
-  speedRef.current=rate;setSpeed(rate);localStorage.setItem('seranews-playback-speed',String(rate));
+  speedRef.current=rate;setSpeed(rate);localStorage.setItem('foryoucast-playback-speed',String(rate));
   if(audio.current){audio.current.playbackRate=rate;return;}
   const active=currentRef.current;
   if(playingRef.current&&active.edition)playChapter(active.edition,active.index,elapsedRef.current,rate);

@@ -92,7 +92,7 @@ def main():
             if listener['onboarded']:cloud_jobs.enqueue_radar(service,listener['id'])
     INCOMING.mkdir(exist_ok=True)
     seen={}
-    print('Seranews worker: recorded audio, signed n8n jobs and 30-minute scheduling.', flush=True)
+    print('ForYouCast worker: recorded audio, signed n8n jobs and 30-minute scheduling.', flush=True)
     while not stopping:
         for file in sorted(INCOMING.glob('*.jsonl')):
             try:

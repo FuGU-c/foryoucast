@@ -31,7 +31,7 @@ def main() -> int:
         print("The frontend build or catalog is missing. Run the setup in README.md.")
         return 1
     if ready(url):
-        print(f"Seranews is already running at {url}")
+        print(f"ForYouCast is already running at {url}")
         if not args.no_browser:
             webbrowser.open(url)
         return 0
@@ -50,17 +50,17 @@ def main() -> int:
                     break
                 time.sleep(0.25)
             else:
-                print("Seranews did not start. See data/launcher-api.log.")
+                print("ForYouCast did not start. See data/launcher-api.log.")
                 return 1
             if api.poll() is not None:
-                print("Seranews could not bind its port or start. See data/launcher-api.log.")
+                print("ForYouCast could not bind its port or start. See data/launcher-api.log.")
                 return 1
             with (ROOT / "data" / "launcher-worker.log").open("a", encoding="utf-8") as worker_log:
                 worker = subprocess.Popen(
                     [sys.executable, "-m", "backend.worker"], cwd=ROOT,
                     stdout=worker_log, stderr=subprocess.STDOUT,
                 )
-                print(f"Seranews is ready at {url}. Keep this window open while using the demo.", flush=True)
+                print(f"ForYouCast is ready at {url}. Keep this window open while using the demo.", flush=True)
                 if not args.no_browser:
                     webbrowser.open(url)
                 return api.wait()

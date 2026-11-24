@@ -8,9 +8,9 @@ GitHub copy: [presentation-audio](../../presentation-audio/), including the MP3,
 
 Local export folder: `<local-outputs-folder>/presentation-audio/`.
 
-- `seranews-presentation-voice-150s.wav`: exact 150-second, 48 kHz mono editing master.
-- `seranews-presentation-voice-150s.mp3`: convenient preview/import copy.
-- `seranews-presentation-voice-pack.zip`: the MP3 master, 15 chosen scene clips, timing JSON and README.
+- `foryoucast-presentation-voice-150s.wav`: exact 150-second, 48 kHz mono editing master.
+- `foryoucast-presentation-voice-150s.mp3`: convenient preview/import copy.
+- `foryoucast-presentation-voice-pack.zip`: the MP3 master, 15 chosen scene clips, timing JSON and README.
 - `timing.json`: scene placement, chosen take IDs and the small tempo adjustments used to fit the approved timeline.
 - `original_takes/`: both original generated takes for each scene, retained locally.
 - `validation.json`: exact WAV length, silent-window, clipping and archive checks.

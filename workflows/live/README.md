@@ -1,4 +1,4 @@
-# Connected Seranews workflows
+# Connected ForYouCast workflows
 
 These JSON files snapshot the four tested workflows on the connected n8n instance. Imports are deliberately inactive. The existing cloud copies are already published; importing again is unnecessary for this installation.
 

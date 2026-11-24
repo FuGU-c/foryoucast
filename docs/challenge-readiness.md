@@ -1,7 +1,7 @@
-# Seranews judging readiness
+# ForYouCast judging readiness
 
 **Audit date:** 21 November 2026  
-**Scope:** Seranews track brief, supplied dataset guidance and licence, current app, local measurements, and available cloud smoke artifacts.
+**Scope:** ForYouCast track brief, supplied dataset guidance and licence, current app, local measurements, and available cloud smoke artifacts.
 
 ## Read this first
 
@@ -13,9 +13,9 @@ The most important remaining judging gaps are evidence quality and scope. Three 
 
 | Evidence | What it says | Status in this demo |
 |---|---|---|
-| `Seranews-Track-Description.pdf`, p. 1, “What teams build” | Group articles into stories, merge duplicate coverage, extract key facts and figures, personalize briefings, source-link spoken claims, and scale with cheaper steps where they work. | These are product requirements. The current prototype has deterministic catalog preparation, language links, profile ranking, source-linked chapters, a one-report reviewed News Desk path, and local performance measurements. Full-corpus semantic grouping and fact accuracy are not yet proved. |
+| `ForYouCast-Track-Description.pdf`, p. 1, “What teams build” | Group articles into stories, merge duplicate coverage, extract key facts and figures, personalize briefings, source-link spoken claims, and scale with cheaper steps where they work. | These are product requirements. The current prototype has deterministic catalog preparation, language links, profile ranking, source-linked chapters, a one-report reviewed News Desk path, and local performance measurements. Full-corpus semantic grouping and fact accuracy are not yet proved. |
 | Same PDF, p. 1, “What we provide” | Dataset, public official releases, four listener profiles plus a wildcard handed out during the pitch, and an answer key. | The PDF does not print detailed persona cards. The supplied `IDEAS_AND_TIPS.txt` suggests a Dutch investor, German investor, FX trader, and general-news listener. The app maps Mila, Jonas, Alex, and Sam to those roles; names and detailed preferences are demo choices. The wildcard still needs the live profile supplied at judging. |
-| `Seranews-Data-Link.pdf`, p. 1 | Points to the event site at `https://hackathon.seranews.news/`. | The one-page PDF contains a link only. The public fetch did not retrieve the site, and the local ZIP contains no official releases or answer-key file. Confirm access with the organizers rather than assuming the evaluation references are unavailable to participants. |
+| `ForYouCast-Data-Link.pdf`, p. 1 | Points to the event site at `https://hackathon.foryoucast.news/`. | The one-page PDF contains a link only. The public fetch did not retrieve the site, and the local ZIP contains no official releases or answer-key file. Confirm access with the organizers rather than assuming the evaluation references are unavailable to participants. |
 | Same PDF, p. 1, “Judging” and “Deliverables” | Rubric: trust 25, fit 20, news sense 20, scale/cost 15, listening 10, product path 10. Deliverables: a working audio prototype for at least two profiles with every claim linked to its article, plus a presentation on the problem, payer, and costs at full and 10x volume. | These are the judging criteria and required outputs. A Medium natural-audio request configured for approximately five minutes completed at 265.04 seconds (4:25), with byte-range playback verified. The cost slide should use the scenario and limits in `cost-model.md`. |
 | `liquid-briefing-data.zip` → `README.txt`, “LICENCE TERMS” and “WHAT IS IN HERE” | Event-only use; do not republish article text or share files outside the team; delete all dataset copies after the event. Six feeds contain 1,740 articles as of 19 November 2026. | These terms constrain demos and later GitHub publication. The dataset ZIP, extracted article text, local reader database, and event-derived media stay out of a public repository. |
 | Same ZIP → `IDEAS_AND_TIPS.txt`, “DIRECTIONS TO EXPLORE,” “TIPS, BY JUDGING CRITERION,” and “GOOD TO KNOW” | Suggested problem directions, examples, counts, and data traps. The file labels these directions as starting points, not solutions. | These are optional guidance, not extra requirements. They are useful for choosing examples and declaring cost assumptions. The cited 9.0M plain-text and 12.4M HTML character counts are data-size context, not model tokens or a vendor quote. |
@@ -51,12 +51,12 @@ The most important remaining judging gaps are evidence quality and scope. Three 
 
 ## GitHub and dataset rights
 
-The supplied ZIP's `README.txt` prohibits republishing article text, sharing the files beyond the team, and retaining dataset copies after the event. The current `.gitignore` excludes `data/`, `.secrets/`, `*.zip`, and generated media. Still inspect the staged file list before a later upload: ignored files can be force-added, and generated scripts/audio may be event-derived. Ask Seranews whether those derivatives and the reproduced mark may be reused publicly; remove them unless permission is explicit. No upload is part of this audit.
+The supplied ZIP's `README.txt` prohibits republishing article text, sharing the files beyond the team, and retaining dataset copies after the event. The current `.gitignore` excludes `data/`, `.secrets/`, `*.zip`, and generated media. Still inspect the staged file list before a later upload: ignored files can be force-added, and generated scripts/audio may be event-derived. Ask ForYouCast whether those derivatives and the reproduced mark may be reused publicly; remove them unless permission is explicit. No upload is part of this audit.
 
 ## Evidence references
 
-- `Seranews-Track-Description.pdf`, p. 1: “What teams build,” “What we provide,” “Judging,” and “Deliverables.”
-- `Seranews-Data-Link.pdf`, p. 1: event site link; it contains no answer key or ground-truth instructions itself.
+- `ForYouCast-Track-Description.pdf`, p. 1: “What teams build,” “What we provide,” “Judging,” and “Deliverables.”
+- `ForYouCast-Data-Link.pdf`, p. 1: event site link; it contains no answer key or ground-truth instructions itself.
 - `liquid-briefing-data.zip` → `README.txt`: licence terms and 1,740-article scope.
 - `liquid-briefing-data.zip` → `IDEAS_AND_TIPS.txt`: optional directions, rubric tips, and dataset facts.
 - [`README.md`](../README.md): current app capabilities and live integration limitations.

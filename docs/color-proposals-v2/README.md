@@ -1,4 +1,4 @@
-# Seranews: theme proposals, round two
+# ForYouCast: theme proposals, round two
 
 Supersedes the previous four proposals. Product styles are untouched pending user selection.
 

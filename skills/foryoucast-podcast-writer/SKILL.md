@@ -1,9 +1,9 @@
 ---
-name: seranews-podcast-writer
-description: Write or revise personalized two-host Seranews news scripts with spoken attribution, claim-level evidence, natural transitions, and approximate duration. Use for podcast writing and editorial review from a prepared catalog and listener preferences.
+name: foryoucast-podcast-writer
+description: Write or revise personalized two-host ForYouCast news scripts with spoken attribution, claim-level evidence, natural transitions, and approximate duration. Use for podcast writing and editorial review from a prepared catalog and listener preferences.
 ---
 
-# Seranews podcast writer
+# ForYouCast podcast writer
 
 Create useful reporting that sounds like two prepared radio hosts, with a traceable source for every checkable claim. A writing request authorizes writing and local validation; it does not itself authorize paid audio generation, uploads, scheduling or publishing.
 

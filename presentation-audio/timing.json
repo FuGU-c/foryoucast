@@ -21,7 +21,7 @@
       "original_trimmed_seconds": 7.44,
       "tempo_factor": 1,
       "clip": "scene_clips/scene-01-000s.mp3",
-      "narration": "The news keeps moving. Your time doesn’t. Seranews brings your world into focus, in a personal briefing."
+      "narration": "The news keeps moving. Your time doesn’t. ForYouCast brings your world into focus, in a personal briefing."
     },
     {
       "scene": 2,
@@ -203,7 +203,7 @@
       "original_trimmed_seconds": 6.64,
       "tempo_factor": 1,
       "clip": "scene_clips/scene-16-143s.mp3",
-      "narration": "Seranews. Less scrolling. More perspective. Your world, your language, your time."
+      "narration": "ForYouCast. Less scrolling. More perspective. Your world, your language, your time."
     }
   ],
   "selection": "Timing-based selection; original alternate takes retained. No words were intentionally cut."

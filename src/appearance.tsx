@@ -4,7 +4,7 @@ import palettes from './theme-palettes.json';
 
 export type ThemeId='signal'|'cobalt'|'edition'|'afterhours';
 export type Appearance={theme:ThemeId;mode:'light'|'dark'};
-const STORAGE_KEY='seranews-appearance';
+const STORAGE_KEY='foryoucast-appearance';
 export const themes=palettes;
 
 export function readAppearance():Appearance{
@@ -66,7 +66,7 @@ export function AppearanceModal({value,onChange,onClose}:{value:Appearance;onCha
     }
    }}>
     {themes.map((theme,index)=><button key={theme.id} type="button" role="radio" aria-checked={value.theme===theme.id} aria-label={theme.name+' theme'} tabIndex={value.theme===theme.id?0:-1} className="appearance-card" onClick={()=>choose(index)}>
-     <span className="appearance-preview"><img src={'/theme-previews/'+theme.id+'.webp'} alt={'Seranews screen in '+theme.name+' colors'} width="425" height="279" draggable={false}/><span className="appearance-check" aria-hidden="true">{value.theme===theme.id&&<Check size={13}/>}</span></span>
+     <span className="appearance-preview"><img src={'/theme-previews/'+theme.id+'.webp'} alt={'ForYouCast screen in '+theme.name+' colors'} width="425" height="279" draggable={false}/><span className="appearance-check" aria-hidden="true">{value.theme===theme.id&&<Check size={13}/>}</span></span>
      <span className="appearance-card-info"><b>{theme.name}</b><small>{['Charcoal & electric lime','Cobalt & clean white','Paper & vermilion','Deep ink & orchid'][index]}</small></span>
     </button>)}
    </div>

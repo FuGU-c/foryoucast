@@ -1,9 +1,9 @@
 {
-  "name": "Seranews · Natural narration",
+  "name": "ForYouCast · Natural narration",
   "nodes": [
     {
       "id": "34464172-d3b2-4547-8256-1c76b9c5cddf",
-      "name": "Seranews audio",
+      "name": "ForYouCast audio",
       "type": "n8n-nodes-base.webhook",
       "typeVersion": 2.2,
       "position": [
@@ -12,7 +12,7 @@
       ],
       "parameters": {
         "httpMethod": "POST",
-        "path": "seranews-audio-v1",
+        "path": "foryoucast-audio-v1",
         "authentication": "none",
         "responseMode": "responseNode",
         "options": {}
@@ -30,7 +30,7 @@
       ],
       "parameters": {
         "mode": "runOnceForAllItems",
-        "jsCode": "const crypto = require('crypto');\nconst body = $json.body ?? $json;\nif(typeof body.message !== 'string' || body.message.length > 1800000 || typeof body.signature !== 'string') throw new Error('Signed Seranews request required');\nconst valid = crypto.verify(null, Buffer.from(body.message, 'utf8'), \"-----BEGIN PUBLIC KEY-----\\nMCowBQYDK2VwAyEAhcKf2Pd9x9BvOJ3MHTjTE5XuhvfY4ApwqelLnP5lt9A=\\n-----END PUBLIC KEY-----\\n\", Buffer.from(body.signature, 'base64'));\nif(!valid) throw new Error('Invalid Seranews signature');\nconst request = JSON.parse(body.message);\nif(request.kind !== \"audio\" || !Number.isFinite(request.iat) || Math.abs(Date.now()/1000-request.iat)>120 || !request.id) throw new Error('Expired or invalid request');\nif(!request.payload || typeof request.payload !== 'object' || Array.isArray(request.payload)) throw new Error('Invalid payload');\nreturn [{json:{...request.payload, request_id:request.id}}];"
+        "jsCode": "const crypto = require('crypto');\nconst body = $json.body ?? $json;\nif(typeof body.message !== 'string' || body.message.length > 1800000 || typeof body.signature !== 'string') throw new Error('Signed ForYouCast request required');\nconst valid = crypto.verify(null, Buffer.from(body.message, 'utf8'), \"-----BEGIN PUBLIC KEY-----\\nMCowBQYDK2VwAyEAhcKf2Pd9x9BvOJ3MHTjTE5XuhvfY4ApwqelLnP5lt9A=\\n-----END PUBLIC KEY-----\\n\", Buffer.from(body.signature, 'base64'));\nif(!valid) throw new Error('Invalid ForYouCast signature');\nconst request = JSON.parse(body.message);\nif(request.kind !== \"audio\" || !Number.isFinite(request.iat) || Math.abs(Date.now()/1000-request.iat)>120 || !request.id) throw new Error('Expired or invalid request');\nif(!request.payload || typeof request.payload !== 'object' || Array.isArray(request.payload)) throw new Error('Invalid payload');\nreturn [{json:{...request.payload, request_id:request.id}}];"
       }
     },
     {
@@ -130,7 +130,7 @@
     }
   ],
   "connections": {
-    "Seranews audio": {
+    "ForYouCast audio": {
       "main": [
         [
           {

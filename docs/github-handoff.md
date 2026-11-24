@@ -1,6 +1,6 @@
 # GitHub handoff
 
-Repository: https://github.com/FuGU-c/seranews-project-news, branch `main`. The owner made it public on 21 November 2026. The source was uploaded through the GitHub plugin; local command-line authentication is separate. Provider credentials, original licensed reporting and personal state remain local. The approved fixed demo media and presentation narration are versioned. See [the security audit](../SECURITY.md).
+Repository: https://github.com/FuGU-c/foryoucast-project-news, branch `main`. The owner made it public on 21 November 2026. The source was uploaded through the GitHub plugin; local command-line authentication is separate. Provider credentials, original licensed reporting and personal state remain local. The approved fixed demo media and presentation narration are versioned. See [the security audit](../SECURITY.md).
 
 Binary image assets are stored losslessly in `assets/embedded-images.json`; `npm run build`, `npm run dev` and `npm run preview` restore the exact image bytes with SHA-256 validation. The materialized files are ignored. The included source can be built normally; article data and podcast recordings still require the authorized local dataset/media setup.
 

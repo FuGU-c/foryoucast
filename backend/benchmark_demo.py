@@ -1,4 +1,4 @@
-"""Read-only local performance measurements for the Seranews demo.
+"""Read-only local performance measurements for the ForYouCast demo.
 
 This script reads the supplied ZIP and the prepared catalog. It does not call
 paid services or write to the catalog, original article database, or active

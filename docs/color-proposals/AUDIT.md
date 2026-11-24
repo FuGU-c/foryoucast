@@ -1,4 +1,4 @@
-# Seranews color audit and proposals
+# ForYouCast color audit and proposals
 
 Scope: existing frontend styles, including Today, Discover, player, Preferences, voice selection, History, saved news, reading/transcript sheets, subscription comparison and generation states. **Proposal only; no application styles changed.**
 
@@ -16,7 +16,7 @@ Scope: existing frontend styles, including Today, Discover, player, Preferences,
 
 ## Four directions
 
-1. **Atlantic — recommended:** trustworthy blue, deep teal secondary and restrained terracotta accent. Strong fit with sourced news and Seranews's existing blue mark. Calm surfaces, clear primary actions.
+1. **Atlantic — recommended:** trustworthy blue, deep teal secondary and restrained terracotta accent. Strong fit with sourced news and ForYouCast's existing blue mark. Calm surfaces, clear primary actions.
 2. **Evergreen:** editorial forest green, warm brown secondary and ochre accent on paper. A quieter, reading-oriented experience with a warmer character.
 3. **Aubergine:** plum, slate-blue secondary and copper accent. More distinctive and premium; works well for an audio product without making every component colorful.
 4. **Midnight Studio:** deep teal, violet secondary/accent and cool slate. A modern listening-first direction, especially effective in dark mode.

@@ -96,7 +96,7 @@ export function PreferencesModal({profile:draft,topics,goals,onboarding,memory,s
  return <div className="overlay preferences-overlay" onClick={onClose}>
   <section className={'preferences-modal '+(onboarding?'onboarding-modal':'')} role="dialog" aria-modal="true" aria-label={onboarding?'Personalize your briefing':'Preferences'} onClick={event=>event.stopPropagation()}>
    <header className="modal-heading">
-    <div><div className="eyebrow">{onboarding?`STEP ${step+1} OF 2`:'SERANEWS'}</div><h2>{onboarding?['Make it yours','Listen your way'][step]:'Settings'}</h2></div>
+    <div><div className="eyebrow">{onboarding?`STEP ${step+1} OF 2`:'FORYOUCAST'}</div><h2>{onboarding?['Make it yours','Listen your way'][step]:'Settings'}</h2></div>
     <button className="icon-button" aria-label="Close preferences" onClick={onClose}><X/></button>
    </header>
    <nav className="settings-tabs" aria-label="Settings sections">{sections.map(({label,icon:Icon},i)=><button key={label} aria-pressed={step===i} onClick={()=>setStep(i)}><Icon size={17}/>{label}</button>)}</nav>
@@ -131,7 +131,7 @@ export function PreferencesModal({profile:draft,topics,goals,onboarding,memory,s
       <div className="interest-options">{draft.symbols.map(symbol=><button key={symbol} aria-label={`Remove ${symbol}`} className="chosen" onClick={()=>onEdit(previous=>({...previous,symbols:previous.symbols.filter(item=>item!==symbol)}))}>{symbol}<X size={13}/></button>)}</div>
       <input ref={fileInput} type="file" accept=".csv,.tsv,.txt" hidden onChange={event=>void importFile(event.target.files?.[0])}/>
       <button className="import-action" onClick={()=>fileInput.current?.click()}><Upload size={15}/>Import a list instead</button>
-      <p className="field-help">Choose a CSV with a “Symbol” column or a text list. Seranews keeps only the stock symbols.</p>
+      <p className="field-help">Choose a CSV with a “Symbol” column or a text list. ForYouCast keeps only the stock symbols.</p>
       {fileNote&&<p className="field-help" role="status">{fileNote}</p>}
      </div>}
      </section>
@@ -159,7 +159,7 @@ export function PreferencesModal({profile:draft,topics,goals,onboarding,memory,s
      <details className="settings-details"><summary>Display name<ChevronRight size={15}/></summary><label className="field-label">Your name<input maxLength={40} value={nameInput} onChange={event=>{const value=event.target.value;setNameInput(value);if(value.trim())update('name',value.trim());}} onBlur={()=>setNameInput(nameInput.trim()||draft.name)}/></label></details>
     </>}
     <details className="preference-memory settings-details">
-     <summary>What Seranews has learned<ChevronRight size={15}/></summary>
+     <summary>What ForYouCast has learned<ChevronRight size={15}/></summary>
      <p><b>{languages[draft.language]}</b> · {depthLabels[draft.depth]} · {durationValid?`~${draft.duration} min`:'choose a duration'}</p>
      <p><b>On your radar:</b> {selectedTopics.map(topic=>topic.label).join(', ')||'No tags selected yet.'}</p>
      {!!draft.symbols.length&&<p><b>Watchlist:</b> {draft.symbols.join(', ')}</p>}

@@ -1,5 +1,5 @@
 {
-  "title": "Seranews — Less scrolling. More perspective.",
+  "title": "ForYouCast — Less scrolling. More perspective.",
   "duration_seconds": 150,
   "frame_rate": 30,
   "total_frames": 4500,
@@ -22,10 +22,10 @@
       "title": "The promise",
       "screen": "Today",
       "actions": [
-        "00:00–00:02: Show the Seranews mark and name inside the actual app header.",
+        "00:00–00:02: Show the ForYouCast mark and name inside the actual app header.",
         "00:02–00:08: Reveal Today and its personalized briefing card; hold a clean, steady phone crop."
       ],
-      "narration": "The news keeps moving. Your time doesn’t. Seranews brings your world into focus, in a personal briefing.",
+      "narration": "The news keeps moving. Your time doesn’t. ForYouCast brings your world into focus, in a personal briefing.",
       "caption": "Your news. Your perspective.",
       "notes": "",
       "start_timecode": "00:00",
@@ -333,12 +333,12 @@
       "end_seconds": 150,
       "duration_seconds": 7,
       "title": "Close on the promise",
-      "screen": "Today + Seranews end card",
+      "screen": "Today + ForYouCast end card",
       "actions": [
         "02:23–02:28: Return to a clean Today/player shot as the final line lands.",
-        "02:28–02:30: Hold the Seranews name and closing line. No extra outro after 02:30."
+        "02:28–02:30: Hold the ForYouCast name and closing line. No extra outro after 02:30."
       ],
-      "narration": "Seranews. Less scrolling. More perspective. Your world, your language, your time.",
+      "narration": "ForYouCast. Less scrolling. More perspective. Your world, your language, your time.",
       "caption": "Less scrolling. More perspective.",
       "notes": "",
       "start_timecode": "02:23",

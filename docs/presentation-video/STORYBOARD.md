@@ -1,4 +1,4 @@
-# Seranews presentation video — 2 minutes 30 seconds
+# ForYouCast presentation video — 2 minutes 30 seconds
 
 The story is one journey: **why it matters → who it serves → personalization → discovery → trust → memory → preparation → listening → ownership → customization → product path → close.** Related controls are grouped so the video feels like a product story rather than a list of menus.
 
@@ -10,7 +10,7 @@ The transcript is provided per scene so ElevenLabs timing can be fitted without 
 
 | Scene | Time | Purpose | App footage | Spoken words |
 |---|---|---|---|---|
-| 01 | 00:00–00:08 | The promise | Today | The news keeps moving. Your time doesn’t. Seranews brings your world into focus, in a personal briefing. |
+| 01 | 00:00–00:08 | The promise | Today | The news keeps moving. Your time doesn’t. ForYouCast brings your world into focus, in a personal briefing. |
 | 02 | 00:08–00:18 | Different listeners, different needs | Profile selector + prepared account comparisons | Because no two listeners need the same news: a Dutch investor, a German investor, a currency trader, or a general-news listener. |
 | 03 | 00:18–00:29 | Make it personal | New listener onboarding / Interests | Start with what matters to you. Combine interests, fine-tune your topics, and add a watchlist. Your feed and preference memory update automatically. |
 | 04 | 00:29–00:39 | Choose how it sounds | Preferences → Listening and voice library | Then choose your article languages and podcast language, explanation depth, approximate length, and two voices. Preview the voices before choosing. |
@@ -25,18 +25,18 @@ The transcript is provided per scene so ElevenLabs timing can be fitted without 
 | 13 | 01:54–02:03 | Make it feel like yours | Profile menu → Appearance | Four coordinated themes, each with light and dark modes. Switch instantly, and your choice stays with your device. |
 | 14 | 02:03–02:13 | A clear product path | Subscription comparison | Start free with Basic voice. Flow adds a daily natural-voice briefing and translations. Horizon adds longer, unlimited briefings without ads. |
 | 15 | 02:13–02:23 | Explain the efficient architecture | Brief app/workflow montage + a simple three-step overlay | Shared news preparation and reusable audio reduce repeated work. n8n orchestrates, OpenAI writes and reviews, and ElevenLabs powers natural voices. |
-| 16 | 02:23–02:30 | Close on the promise | Today + Seranews end card | Seranews. Less scrolling. More perspective. Your world, your language, your time. |
+| 16 | 02:23–02:30 | Close on the promise | Today + ForYouCast end card | ForYouCast. Less scrolling. More perspective. Your world, your language, your time. |
 
 ## Capture and editing notes by scene
 
 ### 01 · 00:00–00:08 · The promise
 
-- 00:00–00:02: Show the Seranews mark and name inside the actual app header.
+- 00:00–00:02: Show the ForYouCast mark and name inside the actual app header.
 - 00:02–00:08: Reveal Today and its personalized briefing card; hold a clean, steady phone crop.
 
 **Caption:** Your news. Your perspective.
 
-**Voice:** The news keeps moving. Your time doesn’t. Seranews brings your world into focus, in a personal briefing.
+**Voice:** The news keeps moving. Your time doesn’t. ForYouCast brings your world into focus, in a personal briefing.
 
 ### 02 · 00:08–00:18 · Different listeners, different needs
 
@@ -208,8 +208,8 @@ The transcript is provided per scene so ElevenLabs timing can be fitted without 
 ### 16 · 02:23–02:30 · Close on the promise
 
 - 02:23–02:28: Return to a clean Today/player shot as the final line lands.
-- 02:28–02:30: Hold the Seranews name and closing line. No extra outro after 02:30.
+- 02:28–02:30: Hold the ForYouCast name and closing line. No extra outro after 02:30.
 
 **Caption:** Less scrolling. More perspective.
 
-**Voice:** Seranews. Less scrolling. More perspective. Your world, your language, your time.
+**Voice:** ForYouCast. Less scrolling. More perspective. Your world, your language, your time.

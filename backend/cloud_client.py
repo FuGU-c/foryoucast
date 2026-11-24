@@ -66,7 +66,7 @@ def invoke(kind, payload, *, root=ROOT, request_id=None, timeout=90):
     data = json.dumps(signed_body(kind, payload, root, request_id)).encode()
     if len(data) > 2_000_000:
         raise CloudError('This preparation batch is too large; split it into smaller batches.')
-    request = Request(url, data=data, headers={'Content-Type': 'application/json', 'User-Agent': 'Seranews-Demo/1.0'}, method='POST')
+    request = Request(url, data=data, headers={'Content-Type': 'application/json', 'User-Agent': 'ForYouCast-Demo/1.0'}, method='POST')
     try:
         with urlopen(request, timeout=timeout) as response:
             raw = response.read(22_000_001)

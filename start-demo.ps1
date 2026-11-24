@@ -53,7 +53,7 @@ try {
         } catch { Start-Sleep -Milliseconds 500 }
     }
     if (-not $ready) { throw 'API did not become ready. See data\api-error.log.' }
-    Write-Host "Seranews demo: $url"
+    Write-Host "ForYouCast demo: $url"
     Write-Host 'Local demo accounts have no passwords. API keys are not needed.'
     Write-Host 'The worker prepares recorded podcasts. Cloud generation uses the saved n8n connection.'
     Write-Host 'Press Ctrl+C to stop both local processes.'

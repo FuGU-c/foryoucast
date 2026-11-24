@@ -1,8 +1,8 @@
 # Submission description
 
-**Seranews — The Liquid Briefing**
+**ForYouCast — The Liquid Briefing**
 
-Seranews turns a busy news feed into a personal audio briefing. Listeners choose their interests, article languages, narration language, explanation depth and listening time. They can then explore a swipeable news feed, give thumbs-up/down feedback, and listen to a continuous, source-linked podcast tailored to their preferences.
+ForYouCast turns a busy news feed into a personal audio briefing. Listeners choose their interests, article languages, narration language, explanation depth and listening time. They can then explore a swipeable news feed, give thumbs-up/down feedback, and listen to a continuous, source-linked podcast tailored to their preferences.
 
 The prototype serves four contrasting listener types: a Dutch investor, a German investor, an FX trader and a general-news listener. A blank New listener account demonstrates onboarding. Separate Free and Medium accounts show the proposed product tiers.
 

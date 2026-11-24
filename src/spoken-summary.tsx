@@ -6,7 +6,7 @@ import {CENSOR_SPEECH} from './censor';
 type Props={story:Story;language:NewsLanguage;available:boolean;onPlans:()=>void};
 const languages={en:'en-GB',nl:'nl-NL',de:'de-DE'};
 const sourceLabels={en:'Source',nl:'Bron',de:'Quelle'};
-const announceStart=(usesDevice:boolean)=>window.dispatchEvent(new CustomEvent('seranews:audio-start',{detail:{source:'summary',usesDevice}}));
+const announceStart=(usesDevice:boolean)=>window.dispatchEvent(new CustomEvent('foryoucast:audio-start',{detail:{source:'summary',usesDevice}}));
 
 export function SpokenSummary({story,language,available,onPlans}:Props){
  const [playing,setPlaying]=useState(false),[started,setStarted]=useState(false),[status,setStatus]=useState('');
@@ -24,8 +24,8 @@ export function SpokenSummary({story,language,available,onPlans}:Props){
  }
  useEffect(()=>{
   const onOther=(event:Event)=>{if((event as CustomEvent<{source:string}>).detail?.source==='podcast'&&(intent.current||speechActive.current))pause(true);};
-  window.addEventListener('seranews:audio-start',onOther);
-  return ()=>{request.current++;intent.current=false;audio.current?.pause();audio.current=null;if(speechActive.current)window.speechSynthesis?.cancel();speechActive.current=false;window.removeEventListener('seranews:audio-start',onOther);};
+  window.addEventListener('foryoucast:audio-start',onOther);
+  return ()=>{request.current++;intent.current=false;audio.current?.pause();audio.current=null;if(speechActive.current)window.speechSynthesis?.cancel();speechActive.current=false;window.removeEventListener('foryoucast:audio-start',onOther);};
  },[]);
  useEffect(()=>{if(!available&&(intent.current||speechActive.current))pause(true);},[available]);
  function play(){

@@ -6,7 +6,7 @@ Generate each segment separately from the supplied voiceover/*.txt files. This m
 
 ## 01 · 00:00–00:08 · 8 seconds
 
-The news keeps moving. Your time doesn’t. Seranews brings your world into focus, in a personal briefing.
+The news keeps moving. Your time doesn’t. ForYouCast brings your world into focus, in a personal briefing.
 
 ## 02 · 00:08–00:18 · 10 seconds
 
@@ -66,4 +66,4 @@ Shared news preparation and reusable audio reduce repeated work. n8n orchestrate
 
 ## 16 · 02:23–02:30 · 7 seconds
 
-Seranews. Less scrolling. More perspective. Your world, your language, your time.
+ForYouCast. Less scrolling. More perspective. Your world, your language, your time.

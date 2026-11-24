@@ -1,10 +1,10 @@
-# Seranews — complete feature inventory
+# ForYouCast — complete feature inventory
 
 Updated 21 November 2026. This describes the implemented local demonstration and distinguishes it from proposed production features. See README.md, docs/live-integration.md, docs/challenge-readiness.md and docs/runtime-proof.json for operational details and evidence.
 
 ## Product and presentation
 
-- Personalized written and spoken news briefings branded Seranews / The Liquid Briefing.
+- Personalized written and spoken news briefings branded ForYouCast / The Liquid Briefing.
 - Mobile-shaped browser application with a phone frame, responsive content and persistent navigation.
 - Four coordinated themes: Signal, Cobalt, Edition and Afterhours, each with Light and Dark modes. Appearance opens below Subscription in the profile menu; four illustrated choices fit on one sheet. Selection applies immediately and saves on this device across reloads and profile switches.
 - Pricing uses a neutral comparison table with a soft Flow highlight and restrained button shadows. Display prices are $0, $ A BIT and $ A LOT; paid values remain demonstration placeholders.
@@ -149,7 +149,7 @@ Updated 21 November 2026. This describes the implemented local demonstration and
 - Completed unchanged story versions are excluded from new podcast selection.
 - Partially heard stories remain eligible; an updated story version becomes eligible again.
 - Existing episodes can be replayed without consuming another generation allowance.
-- Dedicated reusable writing guidance is in skills/seranews-podcast-writer/SKILL.md.
+- Dedicated reusable writing guidance is in skills/foryoucast-podcast-writer/SKILL.md.
 
 ## Audio and player
 
@@ -334,7 +334,7 @@ Updated 21 November 2026. This describes the implemented local demonstration and
 - New generation requires valid provider credentials and available allowance/billing access.
 - A different ChatGPT/Codex account may show different conversation history; do not rely on cross-account chat visibility.
 - CONTINUE_HERE.md records paths and continuation state without storing secret values.
-- Code, workflow exports, writing guidance and video planning files have been uploaded to the private FuGU-c/seranews-project-news repository. Licensed reporting, databases, credentials and generated audio remain local. Image assets are losslessly bundled and materialized automatically by npm build/dev with integrity checks.
+- Code, workflow exports, writing guidance and video planning files have been uploaded to the private FuGU-c/foryoucast-project-news repository. Licensed reporting, databases, credentials and generated audio remain local. Image assets are losslessly bundled and materialized automatically by npm build/dev with integrity checks.
 - A ready-to-copy JSONL example and article-field guide are in docs/news-intake.example.jsonl and docs/news-intake.md.
 - The file-import/publication/three-language recording path has also passed an isolated check using a previously completed cloud review; docs/intake-publication-proof.json records the result without source text or audio bytes.
 - Nested model token accounting is retained without saving arbitrary credentials or prompt fields.

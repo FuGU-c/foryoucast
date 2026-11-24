@@ -103,19 +103,19 @@
       "git_blob_sha": "1c6bd7156f701ed552c278826e3860dca3906326"
     },
     {
-      "path": "seranews-presentation-voice-150s.mp3",
+      "path": "foryoucast-presentation-voice-150s.mp3",
       "bytes": 3601196,
       "sha256": "0751ab3547451b1ac9ccf96d192852b2515f5867ea045094e136ee517f4851c7",
       "git_blob_sha": "b09cb875acbcab1e358ffefed5adaee7d010b9f8"
     },
     {
-      "path": "seranews-presentation-voice-150s.wav",
+      "path": "foryoucast-presentation-voice-150s.wav",
       "bytes": 14400044,
       "sha256": "e8e08f6ffdfc93062672207bcf246123d0bc3a5ca74049c1d0da448aef3d9272",
       "git_blob_sha": "63a7008afa319b2e3ff841c7e881240f81a17f3b"
     },
     {
-      "path": "seranews-presentation-voice-pack.zip",
+      "path": "foryoucast-presentation-voice-pack.zip",
       "bytes": 6122883,
       "sha256": "9dcd8a8207e4395d177f79867aadcd51037f2b6caa64a23304ec8cbd54935c73",
       "git_blob_sha": "127deb3ebfa75886327354f31ea0b0e4b65a953f"
