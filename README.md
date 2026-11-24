@@ -1,7 +1,7 @@
 # 📰→🎙️ ForYouCast — news in, podcast out
 
 > A personal, **source-linked** news briefing, delivered as a podcast.
-> Built in **2 days** for **an AI hackathon** 🏁 — it didn't make the finals, but the logic is solid and the bones are good. This is the version *after* the hackathon dust settled.
+> Built in **a day** for **an AI hackathon** 🏁 — it didn't make the finals, but the logic is solid and the bones are good. This is the version *after* the hackathon dust settled.
 
 https://github.com/user-attachments/assets/f6e76536-7cc4-4b8e-88c9-544758387995
 
