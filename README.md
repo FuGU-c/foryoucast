@@ -37,6 +37,36 @@ News desk · Podcast studio · Natural narration · Personal radar. News is **co
 - 🛡️ **Security:** Ed25519-signed webhook intake with expiry checks; no API keys anywhere in the public code; your private database never gets a public tunnel
 - 🧠 **Every model is swappable** — cloud, cheaper, or fully **local**: because the hackathon sponsors gave free credits, the stack leans on ElevenLabs + GPT-6 models, but the orchestration doesn't care what it talks to. Ask your AI assistant which models fit your device and budget — it'll pick the right ones (e.g. **GLM 5.3** with a well-written skill + Microsoft TTS, or local models on your own box) in minutes.
 
+## ⬇️ Download & run it yourself
+
+```bash
+# 1. Get the code
+git clone https://github.com/FuGU-c/foryoucast.git
+cd foryoucast
+
+# 2. Build the frontend (Node 18+)
+npm install
+npm run build
+
+# 3. Backend (Python 3.11+)
+python -m venv .venv
+.venv/bin/python -m pip install -r requirements.txt
+#    Windows: .venv\Scripts\python -m pip install -r requirements.txt
+
+# 4. Create the starter catalog and load news data
+python scripts/init-catalog.py
+python -m backend.import_news docs/news-intake.example.jsonl
+#    ↑ fictional demo articles — swap in your own JSONL (same format, see docs/news-intake.md)
+
+# 5. Launch
+.venv/bin/python -m backend.launch
+#    Windows: .venv\Scripts\python -m backend.launch
+# → http://127.0.0.1:8000
+```
+
+- 🚫 **No news data ships with the repo** (licensing) — the fictional example gets you a working UI, your own JSONL gets you the real thing
+- 🔑 **No API keys needed** to replay; the optional n8n cloud pipeline (`workflows/live/`) is what produces live editions and real TTS podcasts
+
 ## 🧱 The stack
 
 **React + TypeScript + Vite** frontend · **FastAPI + SQLite** backend · **Python worker + ffmpeg** for audio assembly · **n8n** orchestration · **OpenAI** writing & review · **ElevenLabs** narration.
