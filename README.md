@@ -65,7 +65,7 @@ python -m backend.import_news docs/news-intake.example.jsonl
 ```
 
 - 🚫 **No news data ships with the repo** (licensing) — the fictional example gets you a working UI, your own JSONL gets you the real thing
-- 🔑 **No API keys needed** to replay; the optional n8n cloud pipeline (`workflows/live/`) is what produces live editions and real TTS podcasts
+- 🔑 **No API keys needed to *replay*** what's already in the catalog. To **generate new** editions and TTS podcasts you bring your own: news data (your own JSONL), model API keys for voice + AI (any provider — see the swappable line above), and your own n8n instance or equivalent automation (`workflows/live/` shows exactly what it does, so you can rebuild it however you like)
 
 ## 🧱 The stack
 
