@@ -13,7 +13,7 @@ https://github.com/user-attachments/assets/f6e76536-7cc4-4b8e-88c9-544758387995
 
 Pick what matters to you — interests, languages, voices, wake-up time — and a **daily podcast briefing** is prepared before you open your eyes. Every story stays **source-linked** 🔗: the summary is never more than one tap away from the original reporting.
 
-The demo replays a **1,740-article corpus in three languages** (English, Dutch, German) and includes **6 ready-made ~5-minute sample podcasts, 57 spoken summaries and 24 voice previews** — replayable with **no API key** 🎧.
+🎧 **Demo audio is censored on purpose.** The original sample podcasts, spoken summaries and voice previews were generated from hackathon-licensed news, so every audio file now plays a short privacy clip instead — *"Censored. Because of data privacy, we censored the voice examples."* The pipeline itself is fully functional: point it at your own prepared news dataset (or the fictional example in `docs/`) and it produces the real thing — no API key needed for replay.
 
 ## 🧩 Three distinctive features
 
