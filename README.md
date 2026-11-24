@@ -35,7 +35,7 @@ News desk · Podcast studio · Natural narration · Personal radar. News is **co
 - ⏰ **Scheduler:** timezone-aware, starts preparation ≤30 min before your listening time — durable SQLite jobs, retries and generation allowances survive restarts
 - 🕰️ **Catch-up without AI:** "Since your last visit" detects follow-ups on stories you already read/heard — purely local, zero tokens
 - 🛡️ **Security:** Ed25519-signed webhook intake with expiry checks; no API keys anywhere in the public code; your private database never gets a public tunnel
-- 🧠 **Easy to re-price:** because the hackathon sponsors gave free credits, the stack leans on ElevenLabs + GPT-6 models — swap in cheaper models (e.g. **GLM 5.3** with a well-written skill + Microsoft TTS) or your **own models**; the orchestration doesn't care
+- 🧠 **Every model is swappable** — cloud, cheaper, or fully **local**: because the hackathon sponsors gave free credits, the stack leans on ElevenLabs + GPT-6 models, but the orchestration doesn't care what it talks to. Ask your AI assistant which models fit your device and budget — it'll pick the right ones (e.g. **GLM 5.3** with a well-written skill + Microsoft TTS, or local models on your own box) in minutes.
 
 ## 🧱 The stack
 
